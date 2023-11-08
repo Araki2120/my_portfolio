@@ -2,7 +2,8 @@
 
 @use "../setting" as *;
 
-@mixin font-din($size: 2.5rem) { //40px
+@mixin font-din($size: 2.5rem) {
+    //40px
     font-size: $size;
     font-family: $din;
     font-weight: $regular;

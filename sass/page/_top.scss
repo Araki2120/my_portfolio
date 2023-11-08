@@ -51,7 +51,8 @@
             background: $wh;
         }
 
-        &__circle3 { //2と同時に動かすために、少し大きく設定
+        &__circle3 {
+            //2と同時に動かすために、少し大きく設定
             width: 55vw;
             height: 55vw;
         }
@@ -91,7 +92,7 @@
         &__container--01 {
             position: absolute;
         }
-        
+
         &__catch {
             color: $bk;
             @include font-din;
@@ -217,7 +218,7 @@
             font-family: $din;
             text-align: center;
         }
-        
+
         &__span {
             padding-top: 10px;
             font-size: 1rem;
@@ -230,27 +231,46 @@
         width: 100%;
         height: 100vh;
         background: $bk;
-        
+        opacity: 0;
+        visibility: hidden;
+
+
         &__circle {
+            position: relative;
             width: 38.5vw;
             height: 38.5vw;
             background: $wh;
             border-radius: 50%;
+            overflow: hidden;
+
+            &::before {
+                content: '';
+                position: absolute;
+                display: block;
+                width: 40vw;
+                height: 40vw;
+                background: url(../images/thanks_sircle.png) center center / cover;
+            }
         }
 
         &__container--01 {
-            @include flexCenter;
-            flex-direction: column;
             width: 100%;
             height: 100%;
+
+        }
+
+        &__link {
+            @include flexCenter;
+            flex-direction: column;
+            // transform: translateY(-1%);
         }
 
         &__ttl {
+            margin-bottom: 40px;
             color: $bk;
             @include font-din(6.25rem); //100
-            margin-bottom: 40px;
         }
-        
+
         &__thanks {
             color: $bk;
             @include font-din;

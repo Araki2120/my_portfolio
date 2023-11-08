@@ -3,6 +3,7 @@
 @use "../global" as *;
 
 .wrapper {
+    background: $bk;
     color: $wh;
     font-family: $noto;
     font-weight: $light;
@@ -14,6 +15,7 @@ h2 {
     color: #fff;
     font-family: $din;
     font-weight: $regular;
+    letter-spacing: 0.9;
 }
 
 img {
@@ -21,4 +23,11 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
 }

@@ -6,5 +6,6 @@
     .isActive {
         opacity: 1;
         visibility: visible;
+        transition: .1s; //切り替え時のチラつきを無くす 無くてもいいかも
     }
 }
