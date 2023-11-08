@@ -1,0 +1,227 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+#top {
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    //mvセクション
+    .mv {
+        // position: fixed;
+        // top: 0;
+        @include flexCenter;
+        width: 100%;
+        height: 100vh;
+        background: #fff;
+
+        &__logoCircle {
+            width: 38.5vw;
+            height: 38.5vw;
+            border: 2px solid #000;
+            border-radius: 50%;
+        }
+
+        &__logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 311px;
+            height: 198px;
+            transform: translate(-50%, -50%);
+        }
+
+        &__animation {
+            position: absolute;
+            @include flexCenter;
+        }
+
+        &__circle-container {
+            position: absolute;
+        }
+
+        &__circle1,
+        &__circle2,
+        &__circle3,
+        &__circle4 {
+            width: 50vw;
+            height: 50vw;
+            border: 2px solid #000;
+            border-radius: 50%;
+        }
+
+        &__circle1 {
+            background: #fff;
+        }
+
+        &__circle3 {
+            width: 55vw;
+            height: 55vw;
+        }
+
+        &__circle4 {
+            background: #000;
+        }
+    }
+
+    .box {
+        width: 100%;
+        height: 100vh;
+        @include flexCenter;
+        flex-direction: column;
+        background: #000;
+        overflow: hidden;
+    }
+
+
+    //conceptセクション
+    .box1 {
+        width: 100%;
+        opacity: 0;
+        visibility: hidden;
+
+        &__circle-container {
+            position: absolute;
+            z-index: -1;
+        }
+
+        &__circle1 {
+            width: 38.5vw;
+            height: 38.5vw;
+            background: #fff;
+            border-radius: 50%;
+        }
+
+        &__container--01 {
+            position: absolute;
+            color: #000;
+            font-size: 2.5rem; //40
+        }
+
+        &__container--02 {
+            position: absolute;
+        }
+
+        &__sub {
+            position: relative;
+            left: -20%;
+            padding-bottom: 40px;
+            font-size: 6.25rem; //100
+        }
+
+        span {
+            padding-left: 30px;
+            font-size: 1.25rem; //20
+            font-weight: bold;
+        }
+
+        &__box--02 {
+            position: relative;
+            left: calc(-20% + 220px);
+            font-size: 1rem; //16
+        }
+
+        &__txt:nth-child(1),
+        &__txt:nth-child(2) {
+            margin-bottom: 20px;
+        }
+
+        &__circle2 {
+            //でっかい丸
+            width: 200vw;
+            height: 200vw;
+            background: #000;
+            border-radius: 50%;
+        }
+    }
+
+    //workセクション
+    .box2 {
+        width: 100%;
+        opacity: 0;
+        visibility: hidden;
+
+        &__circle-container {
+            position: absolute;
+            z-index: -1;
+        }
+
+        &__circle1 {
+            width: 65vw;
+            height: 65vw;
+            border: 2px solid #fff;
+            border-radius: 50%;
+        }
+
+        &__circle2 {
+            width: 50vw;
+            height: 50vw;
+            background: #97C9ED;
+            border-radius: 50%;
+        }
+
+        &__container--01 {
+            position: absolute;
+        }
+
+        &__ttl {
+            font-size: 6.25rem; //100
+        }
+
+        &__circle3 {
+            width: 38.5vw;
+            height: 38.5vw;
+            background: #000;
+            border-radius: 50%;
+        }
+    }
+
+    .box3 {
+        width: 100%;
+        background: #000;
+        opacity: 0;
+        visibility: hidden;
+
+        &__circle-container {
+            position: absolute;
+            z-index: -1;
+        }
+
+        &__circle1 {
+            width: 65vw;
+            height: 65vw;
+            background: orange;
+            border-radius: 50%;
+        }
+
+        &__circle2 {
+            width: 65vw;
+            height: 65vw;
+            border: 2px solid #fff;
+            border-radius: 50%;
+        }
+
+        &__circle3 {
+            width: 65vw;
+            height: 65vw;
+            border: 2px solid #fff;
+            border-radius: 50%;
+        }
+
+        &__ttl {
+            font-size: 6.25rem; //100
+            margin-bottom: 20px;
+        }
+
+        &__catch {
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+    }
+}
