@@ -137,6 +137,7 @@
 
     //workセクション
     .box2 {
+        position: relative;
         width: 100%;
         opacity: 0;
         visibility: hidden;
@@ -173,6 +174,98 @@
             height: 38.5vw;
             background: $bk;
             border-radius: 50%;
+        }
+
+        //works紹介部分
+        &__works-container {
+            position: absolute;
+            @include flexCenter;
+            width: 38.5vw;
+            height: 38.5vw;
+        }
+
+        &__works-pic {
+            @include sircle;
+            overflow: hidden;
+        }
+
+        &__works-box {
+            position: absolute;
+            top: 50%;
+            left: calc(38.5vw + 80px); //標準sircle-sizeから計算
+            width: 100%;
+            transform: translateY(-49%); //中心に見えるように少し下に
+        }
+
+        &__works-name {
+            margin-bottom: 5px;
+            color: $bk;
+            @include font-din;
+        }
+
+        &__works-type {
+            margin-left: 10px;
+        }
+
+        &__works-type,
+        &__works-txt {
+            color: $bk;
+            @include font-din(1rem);
+        }
+
+        &__works-more {
+            position: absolute;
+            bottom: calc(100% - 38.5vw);
+            left: 30px;
+            width: 11rem;
+            height: 11rem;
+            border: 1px solid $bk;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        &__works-link {
+            position: relative;
+            @include flexCenter;
+            color: $bk;
+            font-size: 1.25rem;
+            font-family: $din;
+            letter-spacing: .02em;
+        }
+
+        &__works-moreSpan {
+            position: absolute;
+            bottom: 20%;
+
+            @include flexCenter;
+            width: 8%;
+            height: 8%;
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                display: block;
+                width: 8px;
+                height: 1px;
+                background: $bk;
+            }
+
+            &::before {
+                transform: rotate(90deg);
+            }
+        }
+
+
+        &__works-slider {
+            &::after {
+                content: 'WORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKS';
+                display: block;
+                color: $lightBlue;
+                @include font-din(40rem);
+                opacity: 0.2;
+                z-index: -1;
+            }
         }
     }
 
@@ -234,29 +327,30 @@
         opacity: 0;
         visibility: hidden;
 
-
-        &__circle {
+        &__container--01 {
             position: relative;
-            width: 38.5vw;
-            height: 38.5vw;
-            background: $wh;
-            border-radius: 50%;
-            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
 
             &::before {
                 content: '';
                 position: absolute;
                 display: block;
-                width: 40vw;
-                height: 40vw;
-                background: url(../images/thanks_sircle.png) center center / cover;
+                width: 64vw;
+                height: 64vw;
+                background: url(../images/thanks_sircle.svg) center center / cover;
             }
         }
 
-        &__container--01 {
-            width: 100%;
-            height: 100%;
-
+        &__circle {
+            width: 38.5vw;
+            height: 38.5vw;
+            background: $wh;
+            border-radius: 50%;
+            overflow: hidden;
         }
 
         &__link {

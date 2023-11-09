@@ -2,16 +2,22 @@
 
 @use "../setting" as *;
 
-@mixin font-din($size: 2.5rem) {
-    //40px
-    font-size: $size;
-    font-family: $din;
-    font-weight: $regular;
-    letter-spacing: 0.9;
+@mixin sircle($width: 38vw, $height: 38vw) {
+    width: $width;
+    height: $height;
+    border-radius: 50%;
 }
 
 @mixin flexCenter {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@mixin font-din($size: 2.5rem) {
+    //40px
+    font-size: $size;
+    font-family: $din;
+    font-weight: $regular;
+    letter-spacing: 0.9;
 }

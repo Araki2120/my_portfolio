@@ -131,6 +131,8 @@ tl
 
 
 //works用 timelime
+const slider = document.querySelector('.box2__works-slider::after');
+
 const tl2 = gsap.timeline({
     scrollTrigger: {
         trigger: box2,
@@ -177,7 +179,12 @@ tl2
 
     .to('.box2__circle2', {
         backgroundColor: wh,
-    });
+    })
+
+// .form('.box2__works-slider::after', {
+//     X: -300,
+//     autoAlpha: 0,
+// });
 
 
 //about用 timelime
@@ -236,7 +243,6 @@ tl5
 
     .to('.contact__container--01', {
         keyframes: {
-            autoAlpha: [0, 0.3, 1, 1]
+            autoAlpha: [0, 0.3, 1, 1],
         }
     }, '<');
-
