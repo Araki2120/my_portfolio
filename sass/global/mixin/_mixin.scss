@@ -2,6 +2,12 @@
 
 @use "../setting" as *;
 
+@mixin hideElement {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
 @mixin sircle($width: 38vw, $height: 38vw) {
     width: $width;
     height: $height;

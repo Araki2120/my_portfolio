@@ -2,6 +2,7 @@ const windowHeight = window.innerHeight;
 const mv = document.querySelector('#mv');
 const box1 = document.querySelector('#box1');
 const box2 = document.querySelector('#box2');
+const skill = document.querySelector('#skill');
 const box3 = document.querySelector('#box3');
 const contact = document.querySelector('#contact');
 
@@ -171,33 +172,81 @@ tl2
     })
 
     .to('.box2__circle3', {
-        keyframes: {
-            scale: [1, 1, 0.8],
-            opacity: [1, 1, 0.4]
-        }
+        scale: 1,
+        opacity: 1,
     }, '<')
 
-    .to('.box2__circle2', {
+    .to('.box2__circle2', { //背景が白くなってから
         backgroundColor: wh,
     })
 
-// .form('.box2__works-slider::after', {
-//     X: -300,
-//     autoAlpha: 0,
-// });
+    .to('.box2__circle3', { //works丸が小さくなり薄くなる
+        scale: 0.8,
+        autoAlpha: 0,
+    })
+
+    .to('.box2__works-pic', { //works丸の大きさより少し小さいサイズから始まり、スムーズに見えるように調整
+        keyframes: {
+            scale: [0.6, 1],
+            autoAlpha: [0.4, 1],
+        }
+    })
+
+    .from('.box2__works-more', { //picに遅れて拡大
+        keyframes: {
+            scale: [0, 0, 1],
+        }
+    }, '<')
+
+    .to('.box2__works-box', {
+        keyframes: {
+            x: ['-100%', '-100%', 0],
+        }
+    }, '<')
+
+    .to('.box2__works-mask', {
+        keyframes: {
+            x: ['100%', '100%', 0],
+        }
+    }, '<')
+
+    .from('.box2__works-slider', {
+        scale: 0.9,
+        autoAlpha: 0,
+    }, '<')
+
+    .to('.box2__works-slider', { //拡大してから移動開始
+        left: '-100%',
+    }, '>')
+
+    .to('.box2__works-pic', { //work消える時
+        scale: 0.8,
+    })
+
+    .to('.box2__works-container', {
+        autoAlpha: 0
+    }, '<');
+
+//skill用　timeline
+const tl3 = gsap.timeline({
+    scrollTrigger: {
+        trigger: skill,
+        toggleClass: { targets: skill, className: "isActive" },
+        ...scrollSet,
+    }
+});
 
 
 //about用 timelime
-const tl3 = gsap.timeline({
+const tl4 = gsap.timeline({
     scrollTrigger: {
         trigger: box3,
         toggleClass: { targets: box3, className: "isActive" },
         ...scrollSet,
-        // pinSpacing: true,//次の要素が無ければいれる
     }
 });
 
-tl3
+tl4
     .to('.box3__circle1', {
         keyframes: {
             scale: [0, 1, 1, 0],//停止を少し多めに
@@ -223,6 +272,7 @@ tl3
             autoAlpha: [0, 0, 1, 1, 0, 0], //丸が少し広がってから出現するよう調整
         },
     }, '0');
+
 
 ////contact用 timelime
 const tl5 = gsap.timeline({

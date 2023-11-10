@@ -2,6 +2,7 @@
 //as *で読み込みファイル名を省略することができます
 @use "../global" as *;
 
+
 #top {
 
     //mvセクション
@@ -74,8 +75,7 @@
     //conceptセクション
     .box1 {
         width: 100%;
-        opacity: 0;
-        visibility: hidden;
+        @include hideElement;
 
         &__circle-container {
             position: absolute;
@@ -139,8 +139,7 @@
     .box2 {
         position: relative;
         width: 100%;
-        opacity: 0;
-        visibility: hidden;
+        @include hideElement;
 
         &__circle-container {
             position: absolute;
@@ -194,7 +193,14 @@
             top: 50%;
             left: calc(38.5vw + 80px); //標準sircle-sizeから計算
             width: 100%;
-            transform: translateY(-49%); //中心に見えるように少し下に
+            overflow: hidden;
+            transform: translate(-100%, 49%); //中心に見えるように少し下に
+            z-index: 1;
+        }
+
+        &__works-mask {
+            width: 100%;
+            transform: translateX(100%);
         }
 
         &__works-name {
@@ -219,8 +225,9 @@
             left: 30px;
             width: 11rem;
             height: 11rem;
-            border: 1px solid $bk;
+            border: 2px solid $bk;
             border-radius: 50%;
+            transform: scale(0);
             overflow: hidden;
         }
 
@@ -228,9 +235,8 @@
             position: relative;
             @include flexCenter;
             color: $bk;
-            font-size: 1.25rem;
-            font-family: $din;
-            letter-spacing: .02em;
+            @include font-din(1.125rem); //18
+            letter-spacing: .1em;
         }
 
         &__works-moreSpan {
@@ -256,24 +262,33 @@
             }
         }
 
-
         &__works-slider {
-            &::after {
-                content: 'WORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKS';
+            position: relative;
+            left: 0;
+            width: 100%;
+            z-index: -1; //picの下を通る
+
+            &::before {
+                content: 'WORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKS';
                 display: block;
                 color: $lightBlue;
                 @include font-din(40rem);
                 opacity: 0.2;
-                z-index: -1;
             }
         }
+    }
+
+    //skillセクション
+    .skill {
+        width: 100%;
+        background: $bk;
+        @include hideElement;
     }
 
     .box3 {
         width: 100%;
         background: $bk;
-        opacity: 0;
-        visibility: hidden;
+        @include hideElement;
 
         &__circle-container {
             position: absolute;
