@@ -30,7 +30,7 @@ const scrollSet = {
 
 
 //mv用 timelime
-const mvtl = gsap.timeline({
+const mvTl = gsap.timeline({
     scrollTrigger: {
         trigger: mv,
         toggleClass: { targets: mv, className: "isActive" },
@@ -40,10 +40,10 @@ const mvtl = gsap.timeline({
 
 const mvCircles = mv.querySelectorAll('.circle');
 mvCircles.forEach((mc) => {
-    mvtl.set(mc, { scale: 0 });
+    mvTl.set(mc, { scale: 0 });
 });
 
-mvtl
+mvTl
     .from('.mv__circle1', {
         keyframes: {
             scale: [0, 0.6, 3],
@@ -70,7 +70,7 @@ mvtl
 
 
 //concept用 timelime
-const tl = gsap.timeline({
+const conceptTl = gsap.timeline({
     scrollTrigger: {
         trigger: box1,
         toggleClass: { targets: box1, className: "isActive" },
@@ -79,7 +79,7 @@ const tl = gsap.timeline({
 });
 
 //色が変化する丸 catch出たところで一旦止まる
-tl
+conceptTl
     .from('.box1__circle1', {
         keyframes: {
             scale: [0, 1, 1.5],
@@ -132,17 +132,16 @@ tl
 
 
 //works用 timelime
-const slider = document.querySelector('.box2__works-slider::after');
-
-const tl2 = gsap.timeline({
+const worksTl = gsap.timeline({
     scrollTrigger: {
         trigger: box2,
         toggleClass: { targets: box2, className: "isActive" },
         ...scrollSet,
+        // pinSpacing: true,//次の要素が無ければいれる
     }
 });
 
-tl2
+worksTl
     .to('.box2__circle1', {
         keyframes: {
             scale: [0, 0.7, 1, 3],
@@ -227,18 +226,33 @@ tl2
         autoAlpha: 0
     }, '<');
 
-//skill用　timeline
-const tl3 = gsap.timeline({
+//skill用 timeline
+const skillTl = gsap.timeline({ //動き変えるため個別登録
     scrollTrigger: {
         trigger: skill,
-        toggleClass: { targets: skill, className: "isActive" },
-        ...scrollSet,
+        start: 'top bottom',
+        end: '200px top',
+        markers: true,//目印
+        scrub: 1.6,
+        ease: "power4.in",
     }
-});
+})
+skillTl
+    .to('.skill__bg', {
+        keyframes: {
+            top: ['20%', '15%', '0%'],
+        },
+    })
+
+    .from('.skill__container', {
+        keyframes: {
+            autoAlpha: [0, 0.3, 1],
+        },
+    }, '0');
 
 
 //about用 timelime
-const tl4 = gsap.timeline({
+const aboutTl = gsap.timeline({
     scrollTrigger: {
         trigger: box3,
         toggleClass: { targets: box3, className: "isActive" },
@@ -246,7 +260,7 @@ const tl4 = gsap.timeline({
     }
 });
 
-tl4
+aboutTl
     .to('.box3__circle1', {
         keyframes: {
             scale: [0, 1, 1, 0],//停止を少し多めに
@@ -275,7 +289,7 @@ tl4
 
 
 ////contact用 timelime
-const tl5 = gsap.timeline({
+const contactTl = gsap.timeline({
     scrollTrigger: {
         trigger: contact,
         toggleClass: { targets: contact, className: "isActive" },
@@ -284,15 +298,15 @@ const tl5 = gsap.timeline({
     }
 });
 
-tl5
+contactTl
     .from('.contact__circle', {
         keyframes: {
-            scale: [0, 0.5, 1, 1]
+            scale: [0.2, 0.6, 1]
         }
     })
 
     .to('.contact__container--01', {
         keyframes: {
-            autoAlpha: [0, 0.3, 1, 1],
+            autoAlpha: [0, 0.3, 1],
         }
     }, '<');
