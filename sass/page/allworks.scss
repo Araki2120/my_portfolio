@@ -1,0 +1,81 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+
+#allWorks-page {
+
+    .wrapper {
+        color: $bk;
+        background: $wh;
+    }
+
+    .allWorks {
+        width: 90%;
+        margin: 0 auto;
+        padding-top: 86px;
+
+        &__ttl {
+            margin-bottom: 60px;
+            @include font-din(3.25rem); //52px
+        }
+
+        &__container {
+            margin-bottom: 60px;
+        }
+
+        &__box {
+            width: 100%;
+            margin-bottom: 60px;
+        }
+
+        &__link {
+            width: 100%;
+            height: 100%;
+            transition: .4s;
+
+            &:hover,
+            &:active {
+                .allWorks__pic {
+                    opacity: .6;
+                }
+            }
+        }
+
+        &__pic {
+            width: 100%;
+            aspect-ratio: 2 / 1;
+            margin-bottom: 10px;
+        }
+
+        &__name {
+            margin-bottom: 5px;
+            color: $bk;
+            @include font-din(1.5rem); //24px
+        }
+
+        &__type {
+            margin-left: 10px;
+            @include font-din(1rem);
+        }
+
+        &__txt {
+            color: $bk;
+            @include font-din(1rem);
+        }
+
+        &__btnLink {
+            @include flexCenter;
+            width: 120px;
+            height: 120px;
+            color: $bk;
+            font-size: 1.125rem; //18px
+            font-family: $din;
+            font-weight: $regular;
+            letter-spacing: 0.02em;
+            border: 1px solid $bk;
+            border-radius: 50%;
+        }
+    }
+
+}
