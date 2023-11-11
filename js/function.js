@@ -1,7 +1,7 @@
 const windowHeight = window.innerHeight;
 const mv = document.querySelector('#mv');
-const box1 = document.querySelector('#box1');
-const box2 = document.querySelector('#box2');
+const concept = document.querySelector('#concept');
+const works = document.querySelector('#works');
 const skill = document.querySelector('#skill');
 const box3 = document.querySelector('#box3');
 const contact = document.querySelector('#contact');
@@ -72,7 +72,7 @@ mvTl
 //concept用 timelime
 const conceptTl = gsap.timeline({
     scrollTrigger: {
-        trigger: box1,
+        trigger: concept,
         toggleClass: { targets: box1, className: "isActive" },
         ...scrollSet,
     }
@@ -80,50 +80,50 @@ const conceptTl = gsap.timeline({
 
 //色が変化する丸 catch出たところで一旦止まる
 conceptTl
-    .from('.box1__circle1', {
+    .from('.concept__circle1', {
         keyframes: {
             scale: [0, 1, 1.5],
             backgroundColor: [wh, wh, blue],
         },
     })
 
-    .from('.box1__catch', {
+    .from('.concept__catch', {
         keyframes: {
             autoAlpha: [0, 1, 0],
         },
     }, '0')
 
     //concept説明
-    .from('.box1__box--01', {
+    .from('.concept__box--01', {
         x: -100,
         autoAlpha: 0,
     }, '>') //「>」前が終わったら発火
 
-    .from('.box1__box--02', {
+    .from('.concept__box--02', {
         x: 100,
         autoAlpha: 0,
     }, '<')
 
     //concept説明が出ても丸は動き続ける
-    .to('.box1__circle1', {
+    .to('.concept__circle1', {
         keyframes: {
             scale: [1.5, 2, 4],
         }
     }, '<')
 
-    .from('.box1__circle2', {
+    .from('.concept__circle2', {
         scale: 0,
     }, '>')
 
     //concept説明 また動き出す
-    .from('.box1__box--01', {
+    .from('.concept__box--01', {
         keyframes: {
             x: [0, 200],
             autoAlpha: [1, 0],
         }
     }, '>')
 
-    .from('.box1__box--02', {
+    .from('.concept__box--02', {
         keyframes: {
             x: [0, -200],
             autoAlpha: [1, 0],
@@ -134,119 +134,138 @@ conceptTl
 //works用 timelime
 const worksTl = gsap.timeline({
     scrollTrigger: {
-        trigger: box2,
-        toggleClass: { targets: box2, className: "isActive" },
+        trigger: works,
         ...scrollSet,
-        // pinSpacing: true,//次の要素が無ければいれる
+        // toggleClass: { targets: box2, className: "isActive" },
+        onEnter: () => {
+            works.classList.add("isActive"); // アニメーション開始時にクラスを追加
+        },
+        onLeaveBack: () => {
+            works.classList.remove("isActive"); // スクロールして戻った時にクラスを削除
+        }
     }
 });
 
 worksTl
-    .to('.box2__circle1', {
+    .to('.works__circle1', {
         keyframes: {
             scale: [0, 0.7, 1, 3],
         },
-    })
+    }, '>')
 
-    .to('.box2__circle2', {
+    .to('.works__circle2', {
         keyframes: {
             scale: [0, 0.5, 1, 3],
         },
-    }, '0')
+    }, '<')
 
-    .to('.box2__ttl', {
+    .to('.works__ttl', {
         keyframes: {
             autoAlpha: [0, 0, 1, 1],
         },
-    }, '0')
+    }, '<')
 
-    .from('.box2__circle3', { //ここは単純に縮めたいためfrom
+    .from('.works__circle3', { //ここは単純に縮めたいためfrom
         scale: 0
     })
 
-    .to('.box2__ttl', {
+    .to('.works__ttl', {
         keyframes: {
             autoAlpha: [1, 1, 0.4]
         }
     })
 
-    .to('.box2__circle3', {
+    .to('.works__circle3', {
         scale: 1,
         opacity: 1,
     }, '<')
 
-    .to('.box2__circle2', { //背景が白くなってから
+    .to('.works__circle2', { //背景が白くなってから
         backgroundColor: wh,
     })
 
-    .to('.box2__circle3', { //works丸が小さくなり薄くなる
+    .to('.works__circle3', { //works丸が小さくなり薄くなる
         scale: 0.8,
         autoAlpha: 0,
     })
 
-    .to('.box2__works-pic', { //works丸の大きさより少し小さいサイズから始まり、スムーズに見えるように調整
-        keyframes: {
-            scale: [0.6, 1],
-            autoAlpha: [0.4, 1],
-        }
-    })
-
-    .from('.box2__works-more', { //picに遅れて拡大
-        keyframes: {
-            scale: [0, 0, 1],
-        }
+    .to('.works__ttl', {
+        autoAlpha: 0,
     }, '<')
 
-    .to('.box2__works-box', {
-        keyframes: {
-            x: ['-100%', '-100%', 0],
-        }
-    }, '<')
-
-    .to('.box2__works-mask', {
-        keyframes: {
-            x: ['100%', '100%', 0],
-        }
-    }, '<')
-
-    .from('.box2__works-slider', {
+    .from('.works__works-slider', {
         scale: 0.9,
         autoAlpha: 0,
-    }, '<')
-
-    .to('.box2__works-slider', { //拡大してから移動開始
-        left: '-100%',
-    }, '>')
-
-    .to('.box2__works-pic', { //work消える時
-        scale: 0.8,
-    })
-
-    .to('.box2__works-container', {
-        autoAlpha: 0
     }, '<');
 
-//skill用 timeline
+
+////works 個別slide用 timelime
+const slideWorks = document.querySelectorAll('.box2__works-container');
+const worksNum = works.length;
+const slideRatio = (-100 / worksNum);
+
+// gsap.utils.toArray()
+slideWorks.forEach((work, i) => { //同じ動きを配列で処理
+    const pic = work.querySelector('.works__works-pic');
+    const more = work.querySelector('.works__works-more');
+    const box = work.querySelector('.works__works-box');
+    const mask = work.querySelector('.works__works-mask');
+    const curretNum = i += 1;
+
+    worksTl
+        .to('.works__works-slider', { //全体で動き続ける
+            left: (curretNum * slideRatio) + '%',
+        }, '>')
+
+        .to(pic, { //works丸の大きさより少し小さいサイズから始まり、スムーズに見えるように調整
+            keyframes: {
+                scale: [0.6, 1, 1, 0.6],
+                autoAlpha: [0.4, 1, 1, 0],
+            }
+        }, '<')
+
+        .to(more, { //picに遅れて拡大
+            keyframes: {
+                scale: [0, 0, 1, 1, 0],
+            }
+        }, '<')
+
+        .to(box, {
+            keyframes: {
+                x: ['-100%', '-100%', 0, 0, '-100%'],
+            }
+        }, '<')
+
+        .to(mask, {
+            keyframes: {
+                x: ['100%', '100%', 0, 0, '100%'],
+            }
+        }, '<');
+});
+
+// skill用 timeline
 const skillTl = gsap.timeline({ //動き変えるため個別登録
     scrollTrigger: {
         trigger: skill,
         start: 'top bottom',
-        end: '200px top',
+        end: 'bottom top',
         markers: true,//目印
-        scrub: 1.6,
+        scrub: 2,
         ease: "power4.in",
     }
-})
+});
+
 skillTl
     .to('.skill__bg', {
         keyframes: {
-            top: ['20%', '15%', '0%'],
+            top: ['80%', '40%', '0%'],
         },
     })
 
-    .from('.skill__container', {
+    .to('.skill__container', {
         keyframes: {
-            autoAlpha: [0, 0.3, 1],
+            paddingTop: ['100%', '75%', '50%'],
+            autoAlpha: [0, 0.6, 1, 1],
         },
     }, '0');
 
@@ -289,12 +308,15 @@ aboutTl
 
 
 ////contact用 timelime
+const circleTxt = document.querySelector('.contact__circleTxt');
+
 const contactTl = gsap.timeline({
     scrollTrigger: {
         trigger: contact,
         toggleClass: { targets: contact, className: "isActive" },
         ...scrollSet,
-        pinSpacing: true,//次の要素が無ければいれる
+        pinSpacing: true, // 次の要素が無ければいれる
+        end: 'bottom top', // スクロールがトリガーの上部に到達したらトリガーを解除
     }
 });
 
@@ -309,4 +331,27 @@ contactTl
         keyframes: {
             autoAlpha: [0, 0.3, 1],
         }
-    }, '<');
+    }, '0')
+
+    .to('.contact__container--02', {
+        keyframes: {
+            scale: [0.2, 0.6, 1],
+            autoAlpha: [0, 0.3, 1],
+        }
+
+    }, '0')
+
+    .add(() => { //最後に文字が回るように
+        circleTxt.classList.toggle('rotateTxt');//toggleで戻ると止まる
+    }, '>')
+
+    //調整用 止まるように
+    .fromTo('.contact__circle, .contact__container--01, .contact__container--01',
+        {
+            scale: 1,
+            autoAlpha: 1,
+        },
+        {
+            scale: 1,
+            autoAlpha: 1,
+        });

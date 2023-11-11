@@ -9,4 +9,9 @@
         pointer-events: auto;
         transition: .1s; //切り替え時のチラつきを無くす 無くてもいいかも
     }
+
+    .rotateTxt {
+        transform-origin: center center;
+        animation: rotateTxt 60s linear infinite;
+    }
 }

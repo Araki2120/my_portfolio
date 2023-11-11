@@ -98,8 +98,8 @@
             @include font-din;
         }
 
-        &__container--02 {
-            position: absolute;
+        &__box--01 {
+            // mix-blend-mode: difference;
         }
 
         &__ttl {
@@ -119,6 +119,7 @@
             position: relative;
             left: calc(-20% + 220px);
             font-size: 1rem; //16
+            // mix-blend-mode: difference;
         }
 
         &__txt:nth-child(1),
@@ -174,6 +175,7 @@
             height: 38.5vw;
             background: $bk;
             border-radius: 50%;
+            mix-blend-mode: difference;
         }
 
         //works紹介部分
@@ -307,8 +309,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 120px;
             max-width: 1425px;
-            padding-top: 20%;
-            margin-bottom: 160px;
+            padding-top: 100vh; //余白で開始位置を調整
             transform: translateX(-50%);
             z-index: 10;
         }
@@ -412,6 +413,7 @@
     }
 
     .contact {
+        position: relative;
         @include flexCenter;
         width: 100%;
         height: 100vh;
@@ -420,21 +422,11 @@
         visibility: hidden;
 
         &__container--01 {
-            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
             width: 100%;
             height: 100%;
-
-            &::before {
-                content: '';
-                position: absolute;
-                display: block;
-                width: 64vw;
-                height: 64vw;
-                background: url(../images/thanks_sircle.svg) center center / cover;
-            }
         }
 
         &__circle {
@@ -461,5 +453,27 @@
             color: $bk;
             @include font-din;
         }
+
+        &__container--02 {
+            position: absolute;
+            width: 42vw;
+            height: 42vw;
+        }
+
+        &__svg {
+            overflow: visible; //これがないと切れる
+        }
+
+        &__path {
+            fill: none;
+        }
+
+        &__circleTxt {
+            fill: $wh;
+            @include font-din(0.375rem); //6
+            // transform-origin: center center;
+            // animation: rotateTxt 60s linear infinite;
+        }
     }
+
 }
