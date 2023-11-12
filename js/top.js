@@ -1,3 +1,5 @@
+//TOPページ用JS
+
 const windowHeight = window.innerHeight;
 const mv = document.querySelector('#mv');
 const concept = document.querySelector('#concept');
@@ -73,7 +75,7 @@ mvTl
 const conceptTl = gsap.timeline({
     scrollTrigger: {
         trigger: concept,
-        toggleClass: { targets: box1, className: "isActive" },
+        toggleClass: { targets: concept, className: "isActive" },
         ...scrollSet,
     }
 });
@@ -200,7 +202,7 @@ worksTl
 
 
 ////works 個別slide用 timelime
-const slideWorks = document.querySelectorAll('.box2__works-container');
+const slideWorks = document.querySelectorAll('.works__works-container');
 const worksNum = works.length;
 const slideRatio = (-100 / worksNum);
 

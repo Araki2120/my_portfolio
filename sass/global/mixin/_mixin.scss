@@ -2,6 +2,7 @@
 
 @use "../setting" as *;
 
+//style用
 @mixin hideElement {
     opacity: 0;
     visibility: hidden;
@@ -20,10 +21,31 @@
     align-items: center;
 }
 
+@mixin headerBtn($transrate: 0) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: $bk;
+    transform: translateY($transrate);
+    transition: .4s;
+}
+
+//font用
 @mixin font-din($size: 2.5rem) {
     //40px
     font-size: $size;
     font-family: $din;
     font-weight: $regular;
     letter-spacing: -0.01em;
+}
+
+@mixin font-btn($size: 1.125rem) {
+    //18px
+    font-size: $size;
+    font-family: $din;
+    font-weight: $regular;
+    letter-spacing: 0.02em;
 }

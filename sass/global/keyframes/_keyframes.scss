@@ -2,6 +2,24 @@
 
 @use "../setting" as *;
 
+@keyframes slideBtn {
+    0% {
+        left: 0;
+        opacity: 1;
+    }
+
+    50% {
+        left: 50%;
+        opacity: 0.8;
+    }
+
+    100% {
+        left: 100%;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
 @keyframes rotateTxt {
     0% {
         transform: rotate(0deg);

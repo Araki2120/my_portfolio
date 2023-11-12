@@ -1,0 +1,191 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+
+#allWorks-page {
+
+    .wrapper {
+        color: $bk;
+        background: transparent;
+    }
+
+    .allWorks {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 60px;
+        padding-top: 86px;
+
+        @media screen and (min-width: 768px) {
+            padding-top: 118px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: 100%;
+            margin-bottom: 120px;
+            padding: 185px 166px 0;
+        }
+
+        &__ttl {
+            margin-bottom: 60px;
+            @include font-din($spTtl); //52
+
+            @media screen and (min-width: 768px) {
+                font-size: $tabTtl; //78
+            }
+
+            @media screen and (min-width: 1024px) {
+                margin-bottom: 80px;
+                font-size: $pcTtl; //100
+            }
+        }
+
+        &__container {
+            margin-bottom: 60px;
+
+            @media screen and (min-width: 768px) {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                column-gap: 20px;
+                margin-bottom: 20px;
+            }
+
+            @media screen and (min-width: 1024px) {
+                column-gap: 40px;
+                margin-bottom: 80px;
+            }
+        }
+
+        &__box {
+            width: 100%;
+            margin-bottom: 60px;
+
+            @media screen and (min-width: 1024px) {
+                margin-bottom: 40px;
+            }
+        }
+
+        &__link {
+            width: 100%;
+            height: 100%;
+            transition: .4s;
+
+            &:hover,
+            &:active {
+                .allWorks__img {
+                    filter: brightness(0.6);
+                }
+
+                .allWorks__pic::before {
+                    @media screen and (min-width: 1024px) {
+                        content: 'VIEW MORE';
+                        display: block;
+                        position: absolute;
+                        width: 30%;
+                        padding: 10px 0;
+                        color: $wh;
+                        @include font-btn;
+                        border: 2px solid $wh;
+                        border-radius: 5px;
+                        text-align: center;
+                        z-index: 10; //imgの上に
+                    }
+                }
+            }
+        }
+
+        &__pic {
+            position: relative;
+            @include flexCenter;
+            width: 100%;
+            aspect-ratio: 2 / 1;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            transition: .6s;
+            overflow: hidden;
+
+            @media screen and (min-width: 1024px) {
+                margin-bottom: 20px;
+            }
+        }
+
+        &__img {
+            transition: .6s;
+        }
+
+        &__name {
+            margin-bottom: 5px;
+            color: $bk;
+            @include font-din($spSub); //24px
+            line-height: 1;
+
+            @media screen and (min-width: 768px) {
+                font-size: $tabSub;
+            }
+
+            @media screen and (min-width: 1024px) {
+                font-size: $pcSub;
+            }
+        }
+
+        &__type {
+            margin-left: 10px;
+            @include font-din(1rem);
+        }
+
+        &__txt {
+            color: $bk;
+            @include font-din(1rem);
+        }
+
+        &__btn {
+            position: relative;
+            @include flexCenter;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            border-radius: 50%;
+            overflow: hidden;
+
+            @media screen and (min-width: 1024px) {
+                width: 240px;
+                height: 240px;
+
+                &:hover {
+                    .allWorks__btnSpan {
+                        width: 240px;
+                        height: 240px;
+                    }
+                }
+            }
+        }
+
+        &__btnLink {
+            @include flexCenter;
+            color: $bk;
+            background: $wh;
+            @include font-btn;
+            border: 1px solid $bk;
+            border-radius: 50%;
+
+            @media screen and (min-width: 1024px) {
+                width: 240px;
+                height: 240px;
+                font-size: $pcSub;
+                mix-blend-mode: difference;
+            }
+        }
+
+        &__btnSpan {
+            position: absolute;
+            display: block;
+            width: 80px;
+            height: 80px;
+            background: $wh;
+            border-radius: 50%;
+            z-index: -1; //linkの下に
+            mix-blend-mode: difference; //上と両方に入れる！
+            transition: .4s;
+        }
+    }
+}

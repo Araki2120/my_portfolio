@@ -2,16 +2,42 @@
 //as *で読み込みファイル名を省略することができます
 @use "../global" as *;
 
-#top {
-    .isActive {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-        transition: .1s; //切り替え時のチラつきを無くす 無くてもいいかも
-    }
+// #top {
 
-    .rotateTxt {
-        transform-origin: center center;
-        animation: rotateTxt 60s linear infinite;
-    }
+.slideBtn {
+    left: 100%;
+    opacity: 0;
 }
+
+.closeBtnTop {
+    transform: rotate(45deg) scale(1, 1);
+}
+
+.closeBtnBottom {
+    transform: rotate(-45deg) scale(1, 1);
+}
+
+.logoInvert {
+    filter: invert(1);
+}
+
+.viewNav {
+    opacity: 1;
+    visibility: visible;
+    transition: .4s;
+}
+
+.rotateTxt {
+    transform-origin: center center;
+    animation: rotateTxt 60s linear infinite;
+}
+
+//GSAP用
+.isActive {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: .1s; //切り替え時のチラつきを無くす 無くてもいいかも
+}
+
+// }

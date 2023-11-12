@@ -73,7 +73,7 @@
 
 
     //conceptセクション
-    .box1 {
+    .concept {
         width: 100%;
         @include hideElement;
 
@@ -98,9 +98,9 @@
             @include font-din;
         }
 
-        &__box--01 {
-            // mix-blend-mode: difference;
-        }
+        // &__box--01 {
+        //     mix-blend-mode: difference;
+        // }
 
         &__ttl {
             position: relative;
@@ -137,7 +137,7 @@
     }
 
     //workセクション
-    .box2 {
+    .works {
         position: relative;
         width: 100%;
         // background: $bk;

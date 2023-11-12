@@ -1,3 +1,132 @@
 //各ファイルは必ず登録済みの変数を最初に読み込みます
 //as *で読み込みファイル名を省略することができます
 @use "../global" as *;
+
+.header {
+    // mix-blend-mode: difference;
+
+    &__container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 3px 6px 0 14px;
+        z-index: 10;
+
+        @media screen and (min-width: 768px) {
+            padding: 3px 9px 0 24px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            padding: 45px 4% 0 3.5%;
+        }
+    }
+
+    &__ttl {
+        width: 50px;
+        height: 32px;
+
+        @media screen and (min-width: 768px) {
+            width: 70px;
+            height: 45px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: 125px;
+            height: 80px;
+        }
+    }
+
+    &__wrap {
+        position: relative;
+        @include flexCenter;
+        width: 44px;
+        height: 44px;
+        cursor: pointer;
+
+        @media screen and (min-width: 768px) {
+            width: 75px;
+            height: 75px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            display: none;
+        }
+    }
+
+    &__openBtn {
+        position: absolute;
+        @include flexCenter;
+        width: 22px;
+
+        @media screen and (min-width: 768px) {
+            width: 33px;
+        }
+    }
+
+    &__openBtnLine {
+        @include headerBtn;
+
+        &:nth-of-type(1) {
+            transform: translateY(-8px);
+
+            @media screen and (min-width: 768px) {
+                transform: translateY(-12px);
+            }
+        }
+
+        &:nth-of-type(3) {
+            transform: translateY(8px);
+
+            @media screen and (min-width: 768px) {
+                transform: translateY(12px);
+
+            }
+        }
+    }
+
+    &__closeBtn {
+        position: absolute;
+        @include flexCenter;
+        width: 24px;
+
+        @media screen and (min-width: 768px) {
+            width: 36px;
+        }
+    }
+
+    &__closeBtnTop,
+    &__closeBtnBottom {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: $wh;
+        transition: .4s;
+    }
+
+    &__closeBtnTop {
+        transform: rotate(45deg) scale(0, 1);
+    }
+
+    &__closeBtnBottom {
+        transform: rotate(-45deg) scale(0, 1);
+    }
+
+    &__catch {
+        display: none;
+
+        @media screen and (min-width: 1024px) {
+            display: block;
+            position: fixed;
+            top: 50%;
+            left: 0;
+            color: $bk;
+            @include font-din(1rem);
+            transform: translateY(-50%) rotate(90deg);
+        }
+    }
+}
