@@ -5,7 +5,7 @@ const mv = document.querySelector('#mv');
 const concept = document.querySelector('#concept');
 const works = document.querySelector('#works');
 const skill = document.querySelector('#skill');
-const box3 = document.querySelector('#box3');
+const about = document.querySelector('#about');
 const contact = document.querySelector('#contact');
 
 
@@ -27,6 +27,7 @@ const scrollSet = {
     scrub: 1,//スクロールに合わせたアニメ 数字を入れると余韻が付く
     pin: true,//止まるかどうか
     pinSpacing: false,//これ大事！ 次のtlが連続になる
+    anticipatePin: 1,//ちらつき軽減
     ease: "power4.out",//変化率
 };
 
@@ -138,7 +139,8 @@ const worksTl = gsap.timeline({
     scrollTrigger: {
         trigger: works,
         ...scrollSet,
-        // toggleClass: { targets: box2, className: "isActive" },
+        end: 'bottom bottom',
+        // toggleClass: { targets: works, className: "isActive" },
         onEnter: () => {
             works.classList.add("isActive"); // アニメーション開始時にクラスを追加
         },
@@ -151,29 +153,29 @@ const worksTl = gsap.timeline({
 worksTl
     .to('.works__circle1', {
         keyframes: {
-            scale: [0, 0.7, 1, 3],
+            scale: [0, 0.6, 1, 3],
         },
-    }, '>')
+    })
 
     .to('.works__circle2', {
         keyframes: {
-            scale: [0, 0.5, 1, 3],
+            scale: [0, 0.4, 1, 3],
         },
     }, '<')
 
     .to('.works__ttl', {
         keyframes: {
-            autoAlpha: [0, 0, 1, 1],
+            autoAlpha: [0, 0.2, 1, 1],
         },
     }, '<')
 
-    .from('.works__circle3', { //ここは単純に縮めたいためfrom
+    .from('.works__circle3', { //ここは単純に拡大したいためfrom
         scale: 0
     })
 
     .to('.works__ttl', {
         keyframes: {
-            autoAlpha: [1, 1, 0.4]
+            autoAlpha: [1, 0.4]
         }
     })
 
@@ -195,62 +197,102 @@ worksTl
         autoAlpha: 0,
     }, '<')
 
-    .from('.works__works-slider', {
+    .from('.works__slider', {
         scale: 0.9,
         autoAlpha: 0,
     }, '<');
 
 
 ////works 個別slide用 timelime
-const slideWorks = document.querySelectorAll('.works__works-container');
-const worksNum = works.length;
+const slideWorks = document.querySelectorAll('.works__container');
+const worksNum = slideWorks.length;
 const slideRatio = (-100 / worksNum);
+console.log(slideRatio);
 
 // gsap.utils.toArray()
 slideWorks.forEach((work, i) => { //同じ動きを配列で処理
-    const pic = work.querySelector('.works__works-pic');
-    const more = work.querySelector('.works__works-more');
-    const box = work.querySelector('.works__works-box');
-    const mask = work.querySelector('.works__works-mask');
+    const pic = work.querySelector('.works__pic');
+    const box = work.querySelector('.works__box');
+    const mask = work.querySelector('.works__mask');
+    const more = work.querySelector('.works__more');
     const curretNum = i += 1;
 
     worksTl
-        .to('.works__works-slider', { //全体で動き続ける
-            left: (curretNum * slideRatio) + '%',
-        }, '>')
+        .to('.works__slider', { //全体で動き続けたい・・・！
+            left: (slideRatio * curretNum) + '%',
+        })
 
+        //ここから拡大
         .to(pic, { //works丸の大きさより少し小さいサイズから始まり、スムーズに見えるように調整
             keyframes: {
-                scale: [0.6, 1, 1, 0.6],
-                autoAlpha: [0.4, 1, 1, 0],
+                scale: [0.6, 0.8, 1],
+                autoAlpha: [0.4, 0.7, 1],
             }
         }, '<')
 
-        .to(more, { //picに遅れて拡大
+        .to(more, {
             keyframes: {
-                scale: [0, 0, 1, 1, 0],
+                scale: [0, 0, 1],
             }
-        }, '<')
+        }, '<') //picに遅れて拡大
 
         .to(box, {
             keyframes: {
-                x: ['-100%', '-100%', 0, 0, '-100%'],
+                x: ['-100%', '-100%', 0],
             }
         }, '<')
 
         .to(mask, {
             keyframes: {
-                x: ['100%', '100%', 0, 0, '100%'],
+                x: ['100%', '100%', 0,],
             }
-        }, '<');
+        }, '<')
+
+        //一旦止まる
+        .to(pic, {
+            keyframes: {
+                scale: [1, 1],
+                autoAlpha: [1, 1],
+            }
+        }, '>')
+
+        //ここから縮小
+        .to(more, {
+            keyframes: {
+                scale: [1, 0],
+            }
+        }, '>')
+
+        .to(box, {
+            keyframes: {
+                x: [0, '-100%'],
+            }
+        }, '<')
+
+        .to(mask, {
+            keyframes: {
+                x: [0, '100%'],
+            }
+        }, '<')
+
+        .to(pic, {
+            keyframes: {
+                scale: [1, 0.6],
+                autoAlpha: [1, 0],
+            }
+        }, '<')
+
+    // .to('.works__slider', { //全体で動き続ける
+    //     left: (slideRatio * curretNum) + '%',
+    // }, '0');
 });
 
 // skill用 timeline
 const skillTl = gsap.timeline({ //動き変えるため個別登録
     scrollTrigger: {
-        trigger: skill,
-        start: 'top bottom',
-        end: 'bottom top',
+        trigger: '.skill__container',
+        start: 'top top',
+        end: 'bottom bottom',
         markers: true,//目印
         scrub: 2,
         ease: "power4.in",
@@ -260,14 +302,14 @@ const skillTl = gsap.timeline({ //動き変えるため個別登録
 skillTl
     .to('.skill__bg', {
         keyframes: {
-            top: ['80%', '40%', '0%'],
+            top: ['16%', '4%', '0%'],
         },
     })
 
     .to('.skill__container', {
         keyframes: {
-            paddingTop: ['100%', '75%', '50%'],
-            autoAlpha: [0, 0.6, 1, 1],
+            paddingTop: ['30%', '20%', '10%'],
+            autoAlpha: [0, 1, 1],
         },
     }, '0');
 
@@ -275,34 +317,34 @@ skillTl
 //about用 timelime
 const aboutTl = gsap.timeline({
     scrollTrigger: {
-        trigger: box3,
-        toggleClass: { targets: box3, className: "isActive" },
+        trigger: about,
+        toggleClass: { targets: about, className: "isActive" },
         ...scrollSet,
     }
 });
 
 aboutTl
-    .to('.box3__circle1', {
+    .to('.about__circle1', {
         keyframes: {
             scale: [0, 1, 1, 0],//停止を少し多めに
         },
     })
 
-    .to('.box3__circle2', {
+    .to('.about__circle2', {
         keyframes: {
             scale: [0, 1, 1, 0],
             rotateY: [100, 0, 0, 100],
         },
     }, '0')
 
-    .to('.box3__circle3', {
+    .to('.about__circle3', {
         keyframes: {
             scale: [0, 1, 1, 0],
             rotateY: [210, 55, 55, 210],
         },
     }, '0')
 
-    .to('.box3__container--01', {
+    .to('.about__container--01', {
         keyframes: {
             autoAlpha: [0, 0, 1, 1, 0, 0], //丸が少し広がってから出現するよう調整
         },
@@ -315,10 +357,15 @@ const circleTxt = document.querySelector('.contact__circleTxt');
 const contactTl = gsap.timeline({
     scrollTrigger: {
         trigger: contact,
-        toggleClass: { targets: contact, className: "isActive" },
         ...scrollSet,
         pinSpacing: true, // 次の要素が無ければいれる
-        end: 'bottom top', // スクロールがトリガーの上部に到達したらトリガーを解除
+        end: 'bottom top',
+        onEnter: () => {
+            contact.classList.add("isActive");
+        },
+        onLeaveBack: () => {
+            contact.classList.remove("isActive");
+        }
     }
 });
 
@@ -345,15 +392,4 @@ contactTl
 
     .add(() => { //最後に文字が回るように
         circleTxt.classList.toggle('rotateTxt');//toggleで戻ると止まる
-    }, '>')
-
-    //調整用 止まるように
-    .fromTo('.contact__circle, .contact__container--01, .contact__container--01',
-        {
-            scale: 1,
-            autoAlpha: 1,
-        },
-        {
-            scale: 1,
-            autoAlpha: 1,
-        });
+    }, '>0');
