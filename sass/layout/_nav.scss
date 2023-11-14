@@ -16,6 +16,22 @@
     transition: .4s;
     z-index: 1;
 
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+
+        @media screen and (min-width: 1024px) {
+            display: none;
+        }
+    }
+
 
     @media screen and (min-width: 768px) {
         padding-top: 158px;
@@ -27,8 +43,7 @@
         width: 100%;
         height: 80px;
         padding-top: 45px;
-        background: transparent; //透明に
-        mix-blend-mode: difference; //////
+        background: transparent;
         opacity: 1;
         visibility: visible;
         z-index: 10;
@@ -49,7 +64,7 @@
     &__link {
         position: relative;
         padding: 10px 0;
-        color: $bk;
+        color: $wh;
         @include font-din($spNav);
         line-height: 0.8;
 
@@ -60,7 +75,7 @@
 
         @media screen and (min-width: 1024px) {
             padding: 10px;
-            color: $wh; //whで文字出る
+            color: $bk;
             font-size: $pcNav;
 
             &::after {
@@ -71,8 +86,7 @@
                 display: block;
                 width: calc(100% - 20px);
                 height: 2px;
-                background: $wh; //////
-                mix-blend-mode: difference; //////
+                background: $bk;
                 transform: scale(0, 1);
                 transform-origin: right top;
                 transition: transform .4s;
@@ -88,6 +102,7 @@
     &__unit {
         display: flex;
         align-items: center;
+        gap: 20px;
 
         @media screen and (min-width: 1024px) {
             gap: 10px;
@@ -124,7 +139,7 @@
 
         @media screen and (min-width: 1024px) {
             width: 20px;
-            mix-blend-mode: difference; //////
+            filter: invert(1); //単純反転
         }
     }
 
@@ -137,14 +152,43 @@
 
     &__circle {
         fill: transparent;
-        stroke: $wh;
+        stroke: $bk;
         stroke-width: 2;
         stroke-dasharray: 0 107; //直径34*3.14
-        mix-blend-mode: difference; //////
         transition: .3s;
 
         &:hover {
             stroke-dasharray: 107 107;
+        }
+    }
+}
+
+//TOPのみ、色が反転する設定
+#top {
+    .gnav {
+        @media screen and (min-width: 1024px) {
+            mix-blend-mode: difference;
+
+            &__link {
+                color: $wh;
+
+                &::after {
+                    background: $wh;
+                    mix-blend-mode: difference; //////
+                }
+            }
+
+            &__git,
+            &__twitter {
+                filter: invert(0);
+                mix-blend-mode: difference;
+            }
+
+            &__circle {
+                fill: transparent;
+                stroke: $wh;
+                mix-blend-mode: difference; //////
+            }
         }
     }
 }

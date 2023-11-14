@@ -2,8 +2,8 @@
 //as *で読み込みファイル名を省略することができます
 @use "../global" as *;
 
+//Topページ用
 #top {
-
     .isActive {
         opacity: 1;
         visibility: visible;
@@ -14,14 +14,15 @@
         transform-origin: center center;
         animation: rotateTxt 80s linear infinite;
     }
-
 }
 
 
-//全体用
-.slideBtn {
+//全体ページ用
+.slideOpenBtn {
     left: 100%;
-    opacity: 0;
+    background: $wh;
+    opacity: .1;
+    visibility: hidden;
 }
 
 .closeBtnTop {
@@ -39,5 +40,10 @@
 .viewNav {
     opacity: 1;
     visibility: visible;
-    transition: .4s;
+}
+
+.closeNav {
+    &::after {
+        animation: closeNav .3s linear;
+    }
 }
