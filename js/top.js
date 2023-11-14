@@ -1,5 +1,4 @@
 //TOPページ用JS
-
 const windowHeight = window.innerHeight;
 const mv = document.querySelector('#mv');
 const concept = document.querySelector('#concept');
@@ -7,6 +6,7 @@ const works = document.querySelector('#works');
 const skill = document.querySelector('#skill');
 const about = document.querySelector('#about');
 const contact = document.querySelector('#contact');
+const footer = document.querySelector('#footer');
 
 
 //色の設定
@@ -359,7 +359,6 @@ const contactTl = gsap.timeline({
         trigger: contact,
         ...scrollSet,
         pinSpacing: true, // 次の要素が無ければいれる
-        end: 'bottom top',
         onEnter: () => {
             contact.classList.add("isActive");
         },
@@ -393,3 +392,18 @@ contactTl
     .add(() => { //最後に文字が回るように
         circleTxt.classList.toggle('rotateTxt');//toggleで戻ると止まる
     }, '>0');
+
+
+//Timeline以外の設定
+const bodyHeight = document.body.clientHeight;
+const pageBottom = bodyHeight - windowHeight;
+
+window.addEventListener('scroll', () => {
+    const ST = window.scrollY;
+
+    if (pageBottom <= ST) {
+        footer.classList.add('isActive');
+    } else {
+        footer.classList.remove('isActive');
+    }
+});

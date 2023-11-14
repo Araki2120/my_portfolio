@@ -2,6 +2,18 @@
 
 @use "../setting" as *;
 
+//topページ用
+@keyframes rotateTxt {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+//header用
 @keyframes slideBtn {
     0% {
         left: 0;
@@ -20,12 +32,13 @@
     }
 }
 
-@keyframes rotateTxt {
+//workページ用
+@keyframes workURL {
     0% {
-        transform: rotate(0deg);
+        left: 0;
     }
 
     100% {
-        transform: rotate(360deg);
+        left: 100%;
     }
 }

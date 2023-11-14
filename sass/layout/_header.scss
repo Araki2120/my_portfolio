@@ -3,7 +3,6 @@
 @use "../global" as *;
 
 .header {
-    // mix-blend-mode: difference;
 
     &__container {
         position: fixed;
@@ -39,6 +38,11 @@
             height: 80px;
         }
     }
+
+    // &__logo {
+    //     mix-blend-mode: difference; //////
+    //     background: transparent; ///////
+    // }
 
     &__wrap {
         position: relative;
@@ -120,10 +124,10 @@
         display: none;
 
         @media screen and (min-width: 1024px) {
-            display: block;
             position: fixed;
             top: 50%;
             left: 0;
+            display: block;
             color: $bk;
             @include font-din(1rem);
             transform: translateY(-50%) rotate(90deg);

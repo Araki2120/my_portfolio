@@ -47,7 +47,7 @@
             <svg class="gnav__svg" width="36" height="36">
               <circle class="gnav__circle" cx="18" cy="18" r="17" />
             </svg>
-            <a href="#" class="gnav__iconLink">
+            <a href="#" target="_blank" class="gnav__iconLink">
               <img src="../images/twitter_icon.svg" alt="Twitter" class="gnav__twitter">
             </a>
           </div>
@@ -56,7 +56,7 @@
             <svg class="gnav__svg" width="38" height="38">
               <circle class="gnav__circle" cx="19" cy="19" r="17" />
             </svg>
-            <a href="#" class="gnav__iconLink">
+            <a href="https://github.com/Araki2120" target="_blank" class="gnav__iconLink">
               <img src="../images/git_icon.svg" alt="Git Hub" class="gnav__git">
             </a>
           </div>
@@ -74,19 +74,22 @@
             <h2 class="work__ttl">cafe azito<span class="work__type">Web Site (PC)</span></h2>
             <p class="work__txt">Web Design & Create</p>
           </div>
-          <p class="work__url"><a href="#" class="work__link">URL：https://webstudysapporo.com/</a></p>
+          <p class="work__url">URL ：<a href="#" class="work__link">https://webstudysapporo.com/</a></p>
         </div>
-        <div class="work__container--02">
-          <dl class="work__dl">
-            <div class="worl__unit"></div>
+        <dl class="work__container--02">
+          <div class="work__unit">
             <dt class="work__dt"><span class="work__span">View Size</span>対応サイズ</dt>
             <dd class="work__dd">PC(1920×1080)</dd>
+          </div>
+          <div class="work__unit">
             <dt class="work__dt"><span class="work__span">Create Days</span>実装期間</dt>
             <dd class="work__dd">3日間</dd>
+          </div>
+          <div class="work__unit">
             <dt class="work__dt"><span class="work__span">Used Technology</span>使用技術</dt>
             <dd class="work__dd">jQuery</dd>
-          </dl>
-        </div>
+          </div>
+        </dl>
       </section>
 
       <section class="about">
@@ -106,11 +109,14 @@
           </div>
 
           <div class="about__box">
-            <div class="works__design">
-              <h3 class="about__designSub"><span class="about__designSpan">Fonts & Colors</span></h3>
-              <div class="about__en"><img src="../images/" alt="Montserrat" class="about__img"></div>
-              <div class="about__jp"><img src="../images/" alt="Yu Gothic Pr6N" class="about__img"></div>
-              <p class="about__color"><img src="../images/" alt="" class="about__colorImg"></p>
+            <div class="about__design">
+              <h3 class="about__designSub">Fonts & Colors</h3>
+              <div class="about__unit">
+                <div class="about__en"><img src="../images/azito_font-en.png" alt="Montserrat" class="about__img"></div>
+                <div class="about__jp"><img src="../images/azito_font-jp.png" alt="Yu Gothic Pr6N" class="about__img">
+                </div>
+              </div>
+              <p class="about__color"><img src="../images/azito_color.png" alt="color" class="about__colorImg"></p>
             </div>
             <p class="about__txt">
               細めのフォントを使用し、背景は白を全面に使うことでお店のコンセプトである「ゆったりした大人の雰囲気」を表現しています。アクセントで青を取り入れ海風のようなさわやかさをプラスしました。</p>
@@ -120,14 +126,25 @@
 
       <section class="image">
         <div class="image__container">
-
+          <div class="image__box">
+            <p class="image__allPage">
+              <img src="../images/azito_allpage.jpg" alt="cafe azito all paga" class="image__img">
+            </p>
+          </div>
+          <div class="image__box">
+            <p class="image__allPage">
+              <img src="../images/azito_menu.jpg" alt="cafe azito menu" class="image__img">
+            </p>
+          </div>
         </div>
+
       </section>
 
-      <p class="work__btn">
-        <a href="../allworks/index.html" class="work__btnLink">All Works</a>
-        <span class="work__btnSpan"></span>
-      </p>
+      <div class="backBtn">
+        <a href="../allworks/index.html" class="backBtn__link">All Works</a>
+        <span class="backBtn__span"></span>
+      </div>
+
     </main>
 
   </div>

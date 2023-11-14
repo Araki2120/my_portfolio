@@ -2,7 +2,23 @@
 //as *で読み込みファイル名を省略することができます
 @use "../global" as *;
 
+#top {
 
+    .isActive {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .rotateTxt {
+        transform-origin: center center;
+        animation: rotateTxt 80s linear infinite;
+    }
+
+}
+
+
+//全体用
 .slideBtn {
     left: 100%;
     opacity: 0;
@@ -24,19 +40,4 @@
     opacity: 1;
     visibility: visible;
     transition: .4s;
-}
-
-.rotateTxt {
-    transform-origin: center center;
-    animation: rotateTxt 60s linear infinite;
-}
-
-#top {
-
-    //GSAP用
-    .isActive {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-    }
 }

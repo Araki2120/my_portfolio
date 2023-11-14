@@ -80,10 +80,21 @@
         }
 
         &__circle1 {
+            position: relative;
             width: 38.5vw;
             height: 38.5vw;
             background: $wh;
             border-radius: 50%;
+
+            // &::before {
+            //     content: '';
+            //     position: absolute;
+            //     display: block;
+            //     width: 100%;
+            //     height: 100%;
+            //     border-radius: 50%;
+            //     background: rgb(0, 0, 0, 0);
+            // }
         }
 
         &__container--01 {
@@ -99,8 +110,8 @@
             position: relative;
             left: -20%;
             padding-bottom: 40px;
-            font-size: $pcTtl; //100
             color: $wh;
+            @include font-din($pcTtl);
         }
 
         &__span {
@@ -180,7 +191,6 @@
             @include flexCenter;
             width: 38.5vw;
             height: 38.5vw;
-            z-index: -1;
         }
 
         &__pic {
@@ -229,6 +239,7 @@
             border-radius: 50%;
             transform: scale(0);
             overflow: hidden;
+            z-index: 10; //上にして押せるように
         }
 
         &__link {
@@ -236,7 +247,6 @@
             @include flexCenter;
             color: $bk;
             @include font-btn;
-            z-index: 10; //上に
         }
 
         &__moreSpan {
@@ -267,6 +277,7 @@
             left: 0;
             width: 100%;
             z-index: -1; //picの下を通る
+            pointer-events: none;
 
             &::before {
                 content: 'WORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKS';

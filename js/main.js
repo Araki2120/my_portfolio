@@ -25,4 +25,20 @@ btn.addEventListener('click', () => {
 });
 
 
+//テスト
+// const text = document.querySelector('.gnav');
+// const link = document.querySelector('.gnav__link');
+// console.log(link);
+
+// // Color inversion function
+// function invertColor(color) {
+//     return '#' + (0xffffff ^ parseInt(color.slice(1), 16)).toString(16).padStart(6, '0');
+// }
+
+// const computedColor = window.getComputedStyle(link).color;
+// console.log(computedColor);
+
+// link.style.filter = `invert(0) grayscale(100%)`;
+// link.style.color = invertColor(computedColor);
+
 

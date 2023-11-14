@@ -13,8 +13,9 @@
     background: $bk;
     opacity: 0;
     visibility: hidden;
-    transition: .4s; //にゅっとなる
+    transition: .4s;
     z-index: 1;
+
 
     @media screen and (min-width: 768px) {
         padding-top: 158px;
@@ -27,6 +28,7 @@
         height: 80px;
         padding-top: 45px;
         background: transparent; //透明に
+        mix-blend-mode: difference; //////
         opacity: 1;
         visibility: visible;
         z-index: 10;
@@ -47,7 +49,7 @@
     &__link {
         position: relative;
         padding: 10px 0;
-        color: $wh;
+        color: $bk;
         @include font-din($spNav);
         line-height: 0.8;
 
@@ -58,7 +60,7 @@
 
         @media screen and (min-width: 1024px) {
             padding: 10px;
-            color: $bk;
+            color: $wh; //whで文字出る
             font-size: $pcNav;
 
             &::after {
@@ -69,7 +71,8 @@
                 display: block;
                 width: calc(100% - 20px);
                 height: 2px;
-                background: $bk;
+                background: $wh; //////
+                mix-blend-mode: difference; //////
                 transform: scale(0, 1);
                 transform-origin: right top;
                 transition: transform .4s;
@@ -121,22 +124,23 @@
 
         @media screen and (min-width: 1024px) {
             width: 20px;
-            filter: invert(1);
+            mix-blend-mode: difference; //////
         }
     }
 
     &__svg {
         position: absolute;
-        transform: rotate(-90deg); //上から描画が始まる
+        transform: rotate(-90deg);
         pointer-events: none;
         z-index: 10;
     }
 
     &__circle {
         fill: transparent;
-        stroke: $bk;
+        stroke: $wh;
         stroke-width: 2;
-        stroke-dasharray: 0 107; //直径３４*3.14
+        stroke-dasharray: 0 107; //直径34*3.14
+        mix-blend-mode: difference; //////
         transition: .3s;
 
         &:hover {

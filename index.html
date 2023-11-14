@@ -17,7 +17,53 @@
 
 <body id="top">
   <div class="wrapper">
-    <header class="header"></header>
+    <header class="header">
+      <div class="header__container">
+        <h1 class="header__ttl"><a href="../index.html" class="header__link"><img src="../images/header_logo.svg"
+              alt="BEAT" class="header__logo"></a></h1>
+        <div class="header__wrap">
+          <div class="header__openBtn">
+            <span class="header__openBtnLine"></span>
+            <span class="header__openBtnLine"></span>
+            <span class="header__openBtnLine"></span>
+          </div>
+          <div class="header__closeBtn">
+            <span class="header__closeBtnTop"></span>
+            <span class="header__closeBtnBottom"></span>
+          </div>
+        </div>
+      </div>
+      <nav id="gnav" class="gnav">
+        <ul class="gnav__nav">
+          <li class="gnav__list"><a href="../index.html" class="gnav__link">TOP</a></li>
+          <li class="gnav__list"><a href="../allworks/index.html" class="gnav__link">WORKS</a></li>
+          <li class="gnav__list"><a href="../index.html" class="gnav__link">SKILL</a></li>
+          <li class="gnav__list"><a href="../about/index.html" class="gnav__link">ABOUT</a></li>
+          <li class="gnav__list"><a href="../contact/index.html" class="gnav__link">CONTACT</a></li>
+        </ul>
+        <div class="gnav__unit">
+          <div class="gnav__icon">
+            <svg class="gnav__svg" width="36" height="36">
+              <circle class="gnav__circle" cx="18" cy="18" r="17" />
+            </svg>
+            <a href="#" target="_blank" class="gnav__iconLink">
+              <img src="../images/twitter_icon.svg" alt="Twitter" class="gnav__twitter">
+            </a>
+          </div>
+
+          <div class="gnav__icon">
+            <svg class="gnav__svg" width="38" height="38">
+              <circle class="gnav__circle" cx="19" cy="19" r="17" />
+            </svg>
+            <a href="https://github.com/Araki2120" target="_blank" class="gnav__iconLink">
+              <img src="../images/git_icon.svg" alt="Git Hub" class="gnav__git">
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header__catch">Yuri Araki's Port Folio</div>
+    </header>
 
     <main class="main">
 
@@ -265,7 +311,7 @@
 
     </main>
 
-    <footer class="footer">
+    <footer id="footer" class="footer">
       <div class="footer__container">
         <p class="footer__sns"><a href="#" class="footer__link">Twitter</a></p>
         <p class="footer__sns"><a href="#" class="footer__link">Git Hub</a></p>
@@ -280,6 +326,7 @@
   <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
   <script src="js/top.js"></script>
   <!-- <script src="js/main.js"></script> -->
 </body>

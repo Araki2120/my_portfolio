@@ -23,7 +23,7 @@
         @media screen and (min-width: 1024px) {
             width: 100%;
             margin-bottom: 120px;
-            padding: 185px 166px 0;
+            padding: 185px 8.6% 0;
         }
 
         &__ttl {
@@ -139,6 +139,7 @@
         }
 
         &__btn {
+            //全体の背景をtransparentに
             position: relative;
             @include flexCenter;
             width: 120px;
