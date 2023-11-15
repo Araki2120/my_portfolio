@@ -141,8 +141,11 @@
 #top {
     .header {
         &__container {
-            filter: invert(0);
             mix-blend-mode: difference; //fixedしているからここにもいれる？
+        }
+
+        &__logo {
+            filter: none;
         }
 
         &__openBtnLine {
@@ -160,10 +163,11 @@
 
 //背景が黒いページの設定
 #about,
-#contact-page {
+#contact-page,
+#thanks-page {
     .header {
         &__logo {
-            filter: invert(0);
+            filter: none;
         }
 
         &__openBtnLine {

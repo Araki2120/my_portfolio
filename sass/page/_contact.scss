@@ -122,8 +122,21 @@
             position: relative;
             left: calc(100% - 95px);
             width: 80px;
+            @include flexCenter;
             height: 80px;
             border-radius: 50%;
+
+            &::before {
+                content: '';
+                position: absolute;
+                right: -16%;
+                display: block;
+                width: 32%;
+                height: 1px;
+                background: $wh;
+                mix-blend-mode: difference;
+                z-index: 1;
+            }
 
             @media screen and (min-width: 768px) {
                 left: 0;
@@ -134,41 +147,17 @@
 
             @media screen and (min-width: 1470px) {
                 position: absolute;
-                bottom: 0;
+                bottom: -2%; //下辺が揃って見えるように少し下に調整
                 left: calc(100% + 80px);
-                @include flexCenter;
                 width: 240px;
                 height: 240px;
                 margin: 0;
 
                 &:hover {
-                    .form__btnSpan {
+                    .form__btnCircle {
                         width: 240px;
                         height: 240px;
                     }
-                }
-            }
-
-            &::before {
-                content: '';
-                position: absolute;
-                top: 50%;
-                right: -15px;
-                display: block;
-                width: 30px;
-                height: 1px;
-                background: $wh;
-                transform: translateY(-50%);
-                z-index: 2;
-
-                @media screen and (min-width: 768px) {
-                    right: -25px;
-                    width: 50px;
-                }
-
-                @media screen and (min-width: 1470px) {
-                    right: -50px;
-                    width: 100px;
                 }
             }
         }
@@ -176,10 +165,9 @@
         &__submit {
             width: 100%;
             height: 100%;
-            @include flexCenter;
             background: transparent;
             color: $wh;
-            font-size: $spTxt;
+            @include font-btn;
             border: 1px solid $wh;
             border-radius: 50%;
             cursor: pointer;
@@ -190,11 +178,12 @@
             }
 
             @media screen and (min-width: 1470px) {
+                font-size: $pcSub;
                 mix-blend-mode: difference;
             }
         }
 
-        &__btnSpan {
+        &__btnCircle {
             display: none;
 
             @media screen and (min-width: 1470px) {

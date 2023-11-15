@@ -357,6 +357,10 @@
         }
 
         &__box {
+            @media screen and (min-width: 1024px) {
+                width: calc(50% - 20px);
+            }
+
             &:not(:first-child) {
                 display: none;
 

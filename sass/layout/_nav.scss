@@ -194,8 +194,9 @@
 }
 
 //背景が黒いページの設定
-#about,
-#contact-page {
+#about-page,
+#contact-page,
+#thanks-page {
     .gnav {
         &__link {
             color: $wh;

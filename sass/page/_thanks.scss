@@ -2,4 +2,92 @@
 //as *で読み込みファイル名を省略することができます
 @use "../global" as *;
 
-#thanks-page {}
+#thanks-page {
+    .wrapper {
+        background: $bk;
+        color: $wh;
+    }
+
+    .thanks {
+        @include flexCenter;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+
+        &__ttl {
+            margin-bottom: 40px;
+            text-align: center;
+            font-size: 1rem;
+
+            @media screen and (min-width: 768px) {
+                margin-bottom: 60px;
+            }
+        }
+
+        &__span {
+            display: block;
+            margin-bottom: 20px;
+            @include font-din($spTtl);
+
+            @media screen and (min-width: 768px) {
+                font-size: $tabTtl;
+            }
+
+            @media screen and (min-width: 1024px) {
+                font-size: $pcTtl;
+            }
+        }
+    }
+
+    .backBtn {
+        position: relative;
+        @include flexCenter;
+        width: 120px;
+        height: 120px;
+        margin: 0 auto;
+        border-radius: 50%;
+        overflow: hidden;
+
+        @media screen and (min-width: 1024px) {
+            width: 240px;
+            height: 240px;
+
+            &:hover {
+                .backBtn__span {
+                    width: 240px;
+                    height: 240px;
+                }
+            }
+        }
+
+        &__link {
+            @include flexCenter;
+            color: $wh;
+            @include font-btn;
+            border: 1px solid $wh;
+            border-radius: 50%;
+
+            @media screen and (min-width: 1024px) {
+                width: 240px;
+                height: 240px;
+                font-size: $pcSub;
+                mix-blend-mode: difference;
+            }
+        }
+
+        &__span {
+            position: absolute;
+            display: none;
+            width: 80px;
+            height: 80px;
+            background: $wh;
+            border-radius: 50%;
+            mix-blend-mode: difference; //上と両方に入れる！
+            transition: .4s;
+
+            @media screen and (min-width: 1024px) {
+                display: block;
+            }
+        }
+    }
+}
