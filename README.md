@@ -1,2 +1,2 @@
-# portforio_test
+# portfolio_test
  gsapのテスト用
