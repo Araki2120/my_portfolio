@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width">
+  <title>CONTACT | BEAT</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="https://use.typekit.net/nlp3pds.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet" media="all">
+</head>
+
+<body id="contact-page">
+  <div class="wrapper">
+
+    <header class="header">
+      <div class="header__container">
+        <h2 class="header__ttl"><a href="../index.html" class="header__link"><img src="../images/header_logo.svg"
+              alt="BEAT" class="header__logo"></a></h2>
+        <div class="header__wrap">
+          <div class="header__openBtn">
+            <span class="header__openBtnLine"></span>
+            <span class="header__openBtnLine"></span>
+            <span class="header__openBtnLine"></span>
+          </div>
+          <div class="header__closeBtn">
+            <span class="header__closeBtnTop"></span>
+            <span class="header__closeBtnBottom"></span>
+          </div>
+        </div>
+      </div>
+      <nav id="gnav" class="gnav closeNav">
+        <ul class="gnav__nav">
+          <li class="gnav__list"><a href="../index.html" class="gnav__link">TOP</a></li>
+          <li class="gnav__list"><a href="../allworks/index.html" class="gnav__link">WORKS</a></li>
+          <li class="gnav__list"><a href="../index.html#skill" class="gnav__link">SKILL</a></li>
+          <li class="gnav__list"><a href="../about/index.html" class="gnav__link">ABOUT</a></li>
+          <li class="gnav__list"><a href="index.html" class="gnav__link">CONTACT</a></li>
+        </ul>
+        <div class="gnav__unit">
+          <div class="gnav__icon">
+            <svg class="gnav__svg" width="36" height="36">
+              <circle class="gnav__circle" cx="18" cy="18" r="17" />
+            </svg>
+            <a href="#" target="_blank" class="gnav__iconLink">
+              <img src="../images/twitter_icon.svg" alt="Twitter" class="gnav__twitter">
+            </a>
+          </div>
+
+          <div class="gnav__icon">
+            <svg class="gnav__svg" width="38" height="38">
+              <circle class="gnav__circle" cx="19" cy="19" r="17" />
+            </svg>
+            <a href="https://github.com/Araki2120" target="_blank" class="gnav__iconLink">
+              <img src="../images/git_icon.svg" alt="Git Hub" class="gnav__git">
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header__catch">Yuri Araki's Port Folio</div>
+    </header>
+
+    <main class="main">
+
+      <section class="contact">
+
+        <h2 class="contact__ttl">CONTACT</h2>
+        <form id="contactForm" class="form"
+          action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScJlYc7aGl-Exy-MA6X6NInEcwDp3I9WamE8Y6Nh0JjWN6Ssg/formResponse"
+          method="post" target="hidden_iframe" onsubmit="submitted=true;">
+          <div class="form__container">
+            <div class="form__box">
+              <label class="form__label" for="name"><span class="form__span">YOUR NAME：</span>お名前</label>
+              <input id="name" class="form__input" type="text" name="entry.1413369704" required>
+            </div>
+            <div class="form__box">
+              <label class="form__label" for="company"><span class="form__span">COMPANY NAME：</span>貴社名</label>
+              <input id="company" class="form__input" type="text" name="entry.188680717">
+            </div>
+            <div class="form__box">
+              <label for="email" class="form__label"><span class="form__span">MAIL：</span>メールアドレス</label>
+              <input id="email" class="form__input" type="email" name="entry.1002880260" required>
+            </div>
+            <div class="form__box">
+              <label for="tel" class="form__label"><span class="form__span">TEL：</span>お電話番号</label>
+              <input id="email" class="form__input" type="tel" name="entry.1982915253">
+            </div>
+            <div class="form__box">
+              <label for="message" class="form__label"><span class="form__span">MESSAGEE：</span>お問い合わせ内容</label>
+              <textarea name="entry.13192436055" id="message" class="form__message" required></textarea>
+            </div>
+          </div>
+
+          <div class="form__btn">
+            <input type="submit" class="form__submit" value="SUBMUT 送信">
+            <span class="form__btnSpan"></span>
+          </div>
+        </form>
+      </section>
+
+      <!-- <p class="allWorks__btn">
+        <a href="../index.html" class="allWorks__btnLink">BACK TO TOP</a>
+        <span class="allWorks__btnSpan"></span>
+      </p> -->
+
+    </main>
+
+  </div>
+
+  <script>var submitted = false;</script>
+  <iframe id="hidden_iframe" name="hidden_iframe" style="display:none;"
+    onload="if(submitted)  {window.location='../thanks/index.html';}"></iframe>
+  <script src="../js/main.js"></script>
+</body>
+
+</html>

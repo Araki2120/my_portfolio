@@ -28,6 +28,7 @@
         width: 50px;
         height: 32px;
 
+
         @media screen and (min-width: 768px) {
             width: 70px;
             height: 45px;
@@ -117,17 +118,17 @@
     }
 
     &__catch {
+        position: fixed;
+        top: 50%;
+        left: 0;
         display: none;
+        color: $bk;
+        @include font-din(1rem);
+        transform: translateY(-50%) rotate(90deg);
         z-index: 10;
 
         @media screen and (min-width: 1024px) {
-            position: fixed;
-            top: 50%;
-            left: 0;
             display: block;
-            color: $bk;
-            @include font-din(1rem);
-            transform: translateY(-50%) rotate(90deg);
         }
     }
 }
@@ -137,14 +138,32 @@
     .header {
         &__logo {
             mix-blend-mode: difference;
-            // background: transparent;
+        }
+
+        &__openBtnLine {
+            ////まだ
+            mix-blend-mode: difference;
+        }
+
+        &__catch {
+            @media screen and (min-width: 1024px) {
+                color: $wh;
+                mix-blend-mode: difference;
+            }
         }
     }
+}
 
-    &__catch {
-        @media screen and (min-width: 1024px) {
+//背景が黒いページの設定
+#about,
+#contact-page {
+    .header {
+        &__openBtnLine {
+            background: $wh;
+        }
+
+        &__catch {
             color: $wh;
-            mix-blend-mode: difference;
         }
     }
 }

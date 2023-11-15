@@ -192,3 +192,26 @@
         }
     }
 }
+
+//背景が黒いページの設定
+#about,
+#contact-page {
+    .gnav {
+        &__link {
+            color: $wh;
+
+            &::after {
+                background: $wh;
+            }
+        }
+
+        &__git,
+        &__twitter {
+            filter: invert(0);
+        }
+
+        &__circle {
+            stroke: $wh;
+        }
+    }
+}

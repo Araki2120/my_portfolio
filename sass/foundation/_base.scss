@@ -5,11 +5,16 @@
 .wrapper {
     background: $bk;
     color: $wh;
+    font-size: $spTxt;
     font-family: $noto;
     font-weight: $light;
     letter-spacing: 0.02em;
     line-height: 1.8;
     overflow: hidden;
+
+    @media screen and (min-width: 768px) {
+        font-size: 1rem;
+    }
 }
 
 .pin-spacer {
