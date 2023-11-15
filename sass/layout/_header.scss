@@ -40,6 +40,10 @@
         }
     }
 
+    &__logo {
+        filter: invert(1);
+    }
+
     &__wrap {
         position: relative;
         @include flexCenter;
@@ -136,13 +140,13 @@
 //TOPのみ、色が反転する設定
 #top {
     .header {
-        &__logo {
-            mix-blend-mode: difference;
+        &__container {
+            filter: invert(0);
+            mix-blend-mode: difference; //fixedしているからここにもいれる？
         }
 
         &__openBtnLine {
-            ////まだ
-            mix-blend-mode: difference;
+            background: $wh;
         }
 
         &__catch {
@@ -158,6 +162,10 @@
 #about,
 #contact-page {
     .header {
+        &__logo {
+            filter: invert(0);
+        }
+
         &__openBtnLine {
             background: $wh;
         }

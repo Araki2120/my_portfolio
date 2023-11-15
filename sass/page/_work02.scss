@@ -3,7 +3,7 @@
 @use "../global" as *;
 
 
-#work03-page {
+#work02-page {
 
     .wrapper {
         width: 90%;
@@ -240,10 +240,11 @@
         &__box {
             @media screen and (min-width: 768px) {
                 &:nth-of-type(2) {
-                    order: 2
+                    order: 2;
                 }
             }
         }
+
 
         &__sub {
             margin-bottom: 3%;
@@ -313,14 +314,14 @@
             margin-bottom: 20px;
 
             @media screen and (min-width: 768px) {
-                max-width: 425px;
+                max-width: 434px;
                 margin-bottom: 40px;
             }
         }
 
         &__jp {
             @media screen and (min-width: 768px) {
-                max-width: 514px;
+                max-width: 479px;
             }
         }
 
@@ -329,7 +330,7 @@
             align-self: center;
 
             @media screen and (min-width: 768px) {
-                max-width: 400px;
+                max-width: 550px;
             }
         }
     }
@@ -352,7 +353,7 @@
 
             @media screen and (min-width: 1024px) {
                 flex-direction: row-reverse;
-                align-items: flex-start;
+                // align-items: flex-start;
             }
         }
 
@@ -384,7 +385,6 @@
     }
 
     .backBtn {
-        //全体の背景をtransparentに
         position: relative;
         @include flexCenter;
         width: 120px;

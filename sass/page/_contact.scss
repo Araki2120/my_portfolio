@@ -56,7 +56,7 @@
         &__container {
             margin-bottom: 5%;
 
-            @media screen and (min-width: 1024px) {
+            @media screen and (min-width: 1470px) {
                 margin-bottom: 0;
             }
         }
@@ -68,7 +68,7 @@
                 margin-bottom: 0;
             }
 
-            @media screen and (min-width: 1024px) {
+            @media screen and (min-width: 1470px) {
                 margin-bottom: 30px;
             }
 
@@ -102,6 +102,9 @@
             font-size: 14px;
             letter-spacing: .2em;
 
+            &:focus {
+                outline: none;
+            }
         }
 
         &__message {
@@ -129,7 +132,7 @@
                 margin: 0 auto;
             }
 
-            @media screen and (min-width: 1024px) {
+            @media screen and (min-width: 1470px) {
                 position: absolute;
                 bottom: 0;
                 left: calc(100% + 80px);
@@ -163,7 +166,7 @@
                     width: 50px;
                 }
 
-                @media screen and (min-width: 1024px) {
+                @media screen and (min-width: 1470px) {
                     right: -50px;
                     width: 100px;
                 }
@@ -186,7 +189,7 @@
                 font-size: 1rem;
             }
 
-            @media screen and (min-width: 1024px) {
+            @media screen and (min-width: 1470px) {
                 mix-blend-mode: difference;
             }
         }
@@ -194,7 +197,7 @@
         &__btnSpan {
             display: none;
 
-            @media screen and (min-width: 1024px) {
+            @media screen and (min-width: 1470px) {
                 position: absolute;
                 display: block;
                 width: 80px;
