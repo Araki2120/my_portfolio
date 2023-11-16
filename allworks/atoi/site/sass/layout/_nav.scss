@@ -1,0 +1,182 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+//スライドメニュー用
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .4s;
+
+    &__pic {
+        width: 273px;
+        height: 80px;
+        margin-bottom: 60px;
+    }
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 1200px;
+        margin: 0 auto;
+        padding: 181px 0;
+    }
+
+    &__wrap {
+        width: 60%;
+    }
+
+    &__ul {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+    }
+
+    &__link {
+        padding: 10px;
+        color: $wh;
+        font-size: 14px;
+        font-weight: $sem;
+        transition: .3s;
+
+        &:hover {
+            color: $subBlue;
+        }
+    }
+
+    &__ticket {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        width: 40%;
+        height: 380px;
+        background: $wh;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 62px;
+            background: url(../images/ticket_icon01.svg) center center / cover;
+        }
+    }
+
+    &__txt {
+        color: $mainBlue;
+        font-size: 64px;
+        font-family: $lea;
+        font-weight: $sem;
+    }
+
+    &__btn {
+        width: 240px;
+    }
+
+    &__more {
+        padding: 15px 0;
+        color: $mainBlue;
+        font-size: 14px;
+        font-weight: $sem;
+        text-align: center;
+        border: 2px solid $bk;
+        border-radius: 100px;
+        transition: .3s;
+
+        &:hover {
+            color: $wh;
+            background: $mainBlue;
+            border-color: $mainBlue;
+        }
+    }
+}
+
+.gnav {
+    margin-bottom: 100px;
+
+    &__nav {
+        display: grid;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        grid-auto-flow: column;
+    }
+
+    &__list {
+        width: 70%;
+        font-size: $ttl;
+        font-family: $lea;
+        font-weight: $sem;
+        line-height: 1;
+    }
+
+    &__link,
+    &__topLink,
+    &__accessLink {
+        padding: 10px;
+        color: $subBlue;
+        transition: .3s;
+
+        &:hover {
+            color: $mainBlue2;
+        }
+    }
+
+    &__span {
+        padding-top: 5px;
+        color: $wh;
+        font-family: $noto;
+        font-size: 14px;
+    }
+}
+
+.fnav {
+    width: 50%;
+    padding-right: 80px;
+
+    &__dl {
+        display: flex;
+        gap: 150px;
+        margin-bottom: 90px;
+    }
+
+    &__box {
+        width: 200px;
+        font-weight: $bold;
+    }
+
+    &__dt {
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 2px solid $mainBlue;
+    }
+
+    &__link {
+        padding: 5px;
+        color: $bk;
+        transition: .3s;
+
+        &:hover {
+            color: $subBlue;
+        }
+    }
+
+    &__nav {
+        display: flex;
+        justify-content: flex-start;
+        gap: 20px;
+        margin-bottom: 30px;
+        font-size: 14px;
+        font-weight: $sem;
+    }
+}

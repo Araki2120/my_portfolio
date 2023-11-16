@@ -1,0 +1,913 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+#top {
+
+    .mv {
+        position: relative;
+        height: 760px;
+        overflow: hidden;
+
+        &__pic {
+            width: 100%;
+            height: 100%;
+            background: url(../images/mv.jpg) center center / cover;
+            animation: scaleMv 40s linear infinite alternate;
+        }
+    }
+
+    .about {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 80px;
+        background: rgba(0, 0, 0, 0.5);
+
+        &__link {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            width: 100%;
+            height: 100%;
+            padding: 0 80px; //paddingはここ！
+            color: $wh;
+            font-weight: $sem;
+            transition: .8s;
+
+            &:hover {
+                background: rgba(184, 211, 214, 0.4);
+            }
+        }
+
+        &__sub {
+            width: 240px;
+            margin-bottom: 5px;
+            font-size: $txt1;
+            text-align: left;
+        }
+
+        &__txt {
+            display: flex;
+            gap: 10px;
+            width: 240px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 20px;
+                right: 80px;
+                display: block;
+                width: 40px;
+                height: 40px;
+                background: url(../images/arrow_icon01.svg) center center / cover;
+            }
+        }
+
+        &__picspan {
+            display: block;
+            width: 105px; //svg大きさ設定してあげる
+            height: 25px;
+        }
+
+    }
+
+    .ticketBtn {
+        position: fixed;
+        bottom: 50px;
+        right: 50px;
+        width: 120px;
+        height: 120px;
+        opacity: 0;
+        pointer-events: none;
+        transition: .5s;
+        z-index: 1;
+
+        &__link {
+            transition: .3s;
+
+            &:hover {
+                filter: brightness(1.2);
+            }
+        }
+    }
+
+    .today {
+        margin-bottom: 100px;
+        padding-top: 40px;
+        text-align: center;
+
+        &__date {
+            margin-bottom: 20px;
+            color: $wh;
+            font-size: 48px;
+            font-family: $lea;
+            font-weight: $sem;
+        }
+
+        &__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            width: 57%;
+            margin: 0 auto;
+            padding: 15px 3%;
+            background: $mainBlue;
+            border-radius: 15px;
+        }
+
+        &__event {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: $wh;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: .3s;
+
+            &:hover {
+                background: $subBlue;
+            }
+
+            &Txt {
+                font-size: $sub;
+                font-weight: $sem;
+            }
+
+            &::after {
+                content: '';
+                display: block;
+                width: 20px;
+                height: 20px;
+                background: url(../images/triarrow_bk.svg) center center / cover;
+            }
+        }
+
+        &__box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 160px;
+            height: 85px;
+            color: $wh;
+        }
+
+        &__sub {
+            margin-bottom: 20px;
+            font-size: $sub;
+            font-weight: $sem;
+
+            &::after {
+                content: '';
+                position: relative;
+                top: 10px;
+                left: 0;
+                display: block;
+                width: 160px;
+                height: 2px;
+                background: $wh;
+            }
+        }
+
+        &__hour {
+            font-size: 24px;
+            font-family: $lea;
+            font-weight: $sem;
+            line-height: 1;
+        }
+
+        &__span {
+            font-size: $txt3;
+        }
+
+        &__txt {
+            font-size: $txt3;
+            font-family: $noto;
+            font-weight: normal;
+        }
+
+        &__pic {
+            width: 81px;
+            height: 20px;
+            margin-bottom: 10px;
+        }
+
+        &__wrap {
+            max-width: 200px;
+            width: 25%;
+        }
+
+        &__ticket {
+            margin-bottom: 15px;
+        }
+
+        &__link {
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            color: $bk;
+            background: $wh;
+            font-size: $sub;
+            font-weight: $sem;
+            border-radius: 15px;
+            transition: .3s;
+
+            &:hover {
+                background: $subBlue;
+            }
+        }
+
+        &__ticketTxt,
+        &__accessTxt {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10%;
+
+            &::after {
+                content: '';
+                position: relative;
+                display: block;
+                width: 20px;
+                height: 20px;
+                background: url(../images/triarrow_bk.svg) center center / cover;
+            }
+        }
+
+        &__ticketTxt::before {
+            content: '';
+            position: relative;
+            display: block;
+            width: 30px;
+            height: 20px;
+            background: url(../images/ticket_icon02.svg) center center / cover;
+        }
+
+        &__accessTxt::before {
+            content: '';
+            position: relative;
+            display: block;
+            width: 30px;
+            height: 20px;
+            background: url(../images/access_icon02.svg) center center / cover;
+        }
+    }
+
+    .modal {
+        &__event {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            visibility: hidden;
+            transition: .4s;
+            z-index: 10;
+        }
+
+        &__wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        &__box {
+            position: relative;
+            max-width: 1000px;
+            width: 52%;
+            height: 670px;
+            padding: 60px;
+            background: $wh;
+            border-radius: 20px;
+        }
+
+        &__sub {
+            margin-bottom: 10px;
+            color: $mainBlue;
+            font-size: 24px;
+            font-weight: $sem;
+        }
+
+        &__span--01,
+        &__span--02,
+        &__span--03 {
+            font-size: 16px;
+        }
+
+        &__span--02,
+        &__span--03 {
+            color: $bk;
+        }
+
+        &__span--03 {
+            font-weight: normal;
+        }
+
+        &__btn {
+            position: absolute;
+            top: 50px;
+            right: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+
+            &:hover {
+                opacity: .5;
+            }
+
+            &:active {
+
+                .modal__top,
+                .modal__bottom {
+                    transform: rotate(0deg);
+                }
+            }
+        }
+
+        &__top {
+            position: absolute;
+            display: block;
+            width: 80%;
+            height: 2px;
+            background: $bk;
+            transform: rotate(45deg);
+            transition: .2s;
+        }
+
+        &__bottom {
+            position: absolute;
+            display: block;
+            width: 80%;
+            height: 2px;
+            background: $bk;
+            transform: rotate(-45deg);
+            transition: .2s;
+        }
+
+        &__table {
+            display: flex;
+        }
+
+        &__dl--01 {
+            width: 50%;
+            height: 500px;
+        }
+
+        &__dl--02 {
+            width: 25%;
+        }
+
+        &__dt,
+        &__dd {
+            display: flex;
+            align-items: center;
+            padding-left: 30px;
+            font-size: $txt1;
+            font-weight: $sem;
+        }
+
+        &__dt {
+            height: 10%;
+            color: $wh;
+            background: $mainBlue;
+            border-left: 2px solid $wh;
+
+            &:first-child {
+                border: 0;
+            }
+        }
+
+        &__dd {
+            height: 18%;
+
+            &:nth-child(even) {
+                background: $subBlue;
+            }
+        }
+    }
+
+    .pu {
+        position: relative;
+        padding-bottom: 60px;
+
+        &::after {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            content: '';
+            display: block;
+            width: 240px;
+            height: 240px;
+            background: url(../images/bgtri_right.svg) center center / cover;
+        }
+
+        &__ttl {
+            position: relative;
+            margin-bottom: 25px;
+            color: $wh;
+            font-size: $sub;
+            font-family: $lea;
+            font-weight: $sem;
+            text-align: center;
+
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: -8px;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                width: 80px;
+                height: 10px;
+                background: url(../images/head_underline01.svg) center center / cover;
+            }
+        }
+
+        &__container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        &__btn {
+            position: relative;
+            top: 50px;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        &__btn:nth-of-type(2) {
+            transform: rotate(180deg);
+        }
+
+        &__box {
+            width: 280px;
+        }
+
+        &__link {
+            &:hover {
+                .pu__pic {
+                    filter: brightness(1.15);
+                }
+            }
+        }
+
+        &__pic {
+            height: 140px;
+            margin-bottom: 10px;
+            transition: .3s;
+        }
+
+        &__txt {
+            color: $wh;
+        }
+    }
+
+    .contents {
+        position: relative;
+        display: flex;
+        padding: 60px 80px 60px 0;
+        background: $wh;
+
+        &::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '';
+            display: block;
+            width: 240px;
+            height: 240px;
+            background: url(../images/bgtri_left.svg);
+        }
+
+        &__ttlBox {
+            width: 80px;
+            margin-right: 100px;
+            z-index: 1;
+            transition: opacity 1s, all 2s;
+        }
+
+        &__ttl {
+            width: 80px;
+            color: $bk;
+            font-size: $ttl;
+            font-family: $lea;
+            font-weight: $sem;
+            writing-mode: vertical-rl;
+        }
+
+        &__secBox {
+            width: calc(100vw - 260px);
+            transition: opacity 1s, all 2s;
+        }
+
+        &__sub {
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+            margin-bottom: 65px;
+            font-size: 22px;
+            font-weight: $sem;
+        }
+
+        &__span {
+            width: 211px;
+            height: 50px;
+        }
+
+        &__container {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        &__box {
+            width: 100%;
+        }
+
+        &__head {
+            margin-bottom: 10px;
+            font-size: $sub;
+            font-weight: $sem;
+        }
+
+        &__pic {
+            margin-bottom: 30px;
+        }
+
+        &__txt {
+            margin-bottom: 34px;
+            font-size: $txt2;
+        }
+
+        &__btn {
+            width: 200px;
+        }
+
+        &__more {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            color: $wh;
+            background: $bk;
+            font-size: $txt2;
+            border-radius: 100px;
+            transition: .3s;
+
+            &::after {
+                content: '';
+                display: block;
+                width: 15px;
+                height: 17px;
+                background: url(../images/triarrow_wh.svg) center center / cover;
+            }
+
+            &:hover {
+                background: $mainBlue2;
+            }
+        }
+
+    }
+
+    .floor {
+        position: relative;
+        display: flex;
+        padding: 120px 80px 120px 0;
+
+        &::after {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            content: '';
+            display: block;
+            width: 240px;
+            height: 240px;
+            background: url(../images/bgtri_right.svg);
+        }
+
+        &__ttlBox {
+            width: 80px;
+            margin-right: 100px;
+            transition: opacity 1s, all 2s;
+        }
+
+        &__ttl {
+            width: 80px;
+            color: $wh;
+            font-size: $ttl;
+            font-family: $lea;
+            font-weight: $sem;
+            writing-mode: vertical-rl;
+        }
+
+        &__secBox {
+            width: calc(100vw - 260px);
+            transition: opacity 1s, all 2s;
+        }
+
+        &__container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        &__box {
+            max-width: 780px;
+            width: 47%;
+        }
+
+        &__txt {
+            margin-bottom: 20px;
+            color: $subBlue;
+            font-size: $ttl;
+            font-weight: $bold;
+        }
+
+        &__map {
+            margin-bottom: 30px;
+        }
+
+        &__pic {
+            height: 250px;
+        }
+
+        &__btn {
+            width: 250px;
+        }
+
+        &__more {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            color: $wh;
+            background: $mainBlue;
+            font-size: $sub;
+            border-radius: 100px;
+            transition: .3s;
+
+            &::after {
+                content: '';
+                display: block;
+                width: 15px;
+                height: 17px;
+                background: url(../images/triarrow_wh.svg) center center / cover;
+            }
+
+            &:hover {
+                background: $mainBlue2;
+            }
+        }
+
+
+    }
+
+    .insta {
+        position: relative;
+        padding: 80px;
+        padding-left: 120px;
+        background: $wh;
+
+        &::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '';
+            display: block;
+            width: 240px;
+            height: 240px;
+            background: url(../images/bgtri_left.svg);
+        }
+
+        &__ttl {
+            position: relative; //static以外にする
+            margin-bottom: 10px;
+            font-size: $ttl;
+            font-family: $lea;
+            font-weight: $sem;
+            transition: opacity 1s, all 2s;
+            z-index: 1;
+        }
+
+        &__container {
+            display: flex;
+            transition: opacity 1s, all 2s;
+        }
+
+        &__pic {
+            width: calc(100% / 4);
+        }
+
+        &__link {
+            transition: .3s;
+
+            &:hover {
+                opacity: .8;
+            }
+        }
+    }
+
+    .info {
+        padding: 60px 80px 0;
+
+        &__ttl {
+            position: relative;
+            margin-bottom: 35px;
+            color: $wh;
+            font-size: $ttl;
+            font-family: $lea;
+            font-weight: $sem;
+            text-align: center;
+
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: -8px;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                width: 230px;
+                height: 10px;
+                background: url(../images/head_underline02.svg) center center / cover;
+            }
+        }
+
+        &__container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 60px;
+        }
+
+        &__ticket,
+        &__staff {
+            max-width: 850px;
+            width: 44%;
+            height: 200px;
+        }
+
+        &__ticket {
+            background: $wh;
+        }
+
+        &__staff {
+            background: $subBlue;
+        }
+
+        &__link {
+            width: 100%;
+            height: 100%;
+            transition: .3s;
+
+            &:hover {
+                background: $mainBlue2;
+                ;
+            }
+        }
+
+        &__ticketTxt,
+        &__staffTxt {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5%;
+            height: 100%;
+            font-size: $ttl;
+            font-weight: $sem;
+        }
+
+        &__ticketTxt {
+            color: $bk;
+
+            &::before {
+                content: '';
+                display: block;
+                width: 160px;
+                height: 160px;
+                background: url(../images/ticket_sircle02.svg) center center / cover;
+            }
+
+            &::after {
+                content: '';
+                display: block;
+                width: 25px;
+                height: 28px;
+                background: url(../images/triarrow_bl.svg) center center / cover;
+            }
+        }
+
+        &__staffTxt {
+            color: $wh;
+            font-family: $lea;
+
+            &::after {
+                content: '';
+                display: block;
+                width: 30px;
+                height: 30px;
+                background: url(../images/voice_icon.svg) center center / cover;
+            }
+        }
+
+        &__snsContainer {
+            display: flex;
+            border-top: 2px solid #ccc;
+        }
+
+        &__sns {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: calc(100% / 3);
+            height: 120px;
+
+            &:nth-of-type(1)::after,
+            &:nth-of-type(2)::after {
+                content: '';
+                position: absolute;
+                top: 10px;
+                right: 0;
+                display: block;
+                width: 2px;
+                height: 100px;
+                background: #ccc;
+            }
+        }
+
+        &__snsLink--01,
+        &__snsLink--02,
+        &__snsLink--03 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+            height: 100%;
+            color: $wh;
+            font-size: $sub;
+            font-family: $lea;
+            letter-spacing: 0.1em;
+            transition: .3s;
+
+            &:hover {
+                opacity: .7;
+            }
+        }
+
+        &__snsLink {
+            &--01 {
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 35px;
+                    height: 35px;
+                    background: url(../images/instaicon.svg) center center / cover;
+                }
+            }
+
+            &--02 {
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 40px;
+                    height: 35px;
+                    background: url(../images/twittericon.svg) center center / cover;
+                }
+            }
+
+            &--03 {
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 35px;
+                    height: 25px;
+                    background: url(../images/youtubeicon.svg) center center / cover;
+                }
+            }
+        }
+    }
+}
+
+@keyframes scaleMv {
+    0% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

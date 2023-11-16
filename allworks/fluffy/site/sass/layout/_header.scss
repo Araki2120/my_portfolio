@@ -1,0 +1,111 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 80px; //pc95
+    padding: 0 5%;
+    background: #fff;
+    transition: .4s;
+    z-index: 5;
+
+    @include pc {
+        height: 95px;
+        padding: 0 58px;
+    }
+
+    &__logo {
+        width: 52px;
+        height: 60px;
+    }
+
+    &__box {
+        display: flex;
+        gap: 15px;
+    }
+
+    &__searchIcon,
+    &__cartIcon {
+        width: 26px;
+        height: 26px;
+    }
+
+    &__link {
+        width: 100%;
+        height: 100%;
+        transition: .4s;
+
+        &:hover {
+            opacity: .5;
+        }
+    }
+
+    &__btn {
+        position: relative;
+        @include flexCenter;
+        width: 26px;
+        height: 26px;
+        transition: .6s;
+        cursor: pointer;
+        z-index: 10;
+
+        &Top {
+            @include headerBtn(7px);
+        }
+
+        &Middle {
+            @include headerBtn;
+        }
+
+        &Bottom {
+            @include headerBtn(-7px);
+        }
+    }
+
+    &__search {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.9);
+        opacity: 0;
+        visibility: hidden;
+        transition: .4s;
+
+        &Form {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        &Field {
+            width: 200px;
+            height: 40px;
+            border: 0;
+            border-bottom: 1px solid $bk;
+
+            @include tab {
+                width: 400px;
+            }
+
+            &:focus {
+                outline: 0;
+            }
+
+        }
+
+        &Btn {
+            width: 26px;
+            height: 26px;
+        }
+    }
+}

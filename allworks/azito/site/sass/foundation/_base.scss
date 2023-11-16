@@ -1,0 +1,45 @@
+@charset "utf-8";
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+// baseファイルはサイトの基本的な設定などを行います
+
+.wrapper {
+  color: $txtColor;
+  font-size: $txt;
+  font-family: $yuGothic;
+  animation: fadeIn 2s linear forwards;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: .2; //初めから少し見えるように
+    }
+
+    50% {
+      opacity: .6; //途中で気持ちゆっくりにし、ゆったりした時間の流れを表現
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+h2 {
+  font-size: $ttl;
+  font-family: $mont;
+  letter-spacing: 0.1em;
+}
+
+a {
+  display: block;
+  color: $txtColor;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

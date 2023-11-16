@@ -1,0 +1,65 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+#top {
+
+    //ハンバーガーメニュー・スライドメニュー用
+    .navSlide {
+        right: 0;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .rotateTop {
+        animation: rotateTop .6s forwards;
+    }
+
+    .hideMiddle {
+        opacity: 0;
+    }
+
+    .rotateBottom {
+        animation: rotateBottom .6s forwards;
+    }
+
+    //ヘッダーのsearchForm・productモーダル用
+    .showElement {
+        opacity: 1;
+        visibility: visible;
+        z-index: 30;
+    }
+
+    //mvcatchアニメーション用
+    .mv__span {
+        display: block;
+        opacity: 0;
+        animation: fallTxt 1.2s ease-out forwards;
+    }
+
+    //スクロールに応じてヘッダー変更用
+    .changeHeader {
+        background: rgba(255, 255, 255, 0.6);
+    }
+
+    // フェードイン用
+    .target {
+        position: relative;
+        transform: translate(0, 80px);
+        opacity: 0;
+        transition: 1s;
+    }
+
+    .fadeIn {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+
+    .delay01 {
+        transition-delay: .6s;
+    }
+
+    .delay02 {
+        transition-delay: 1.2s;
+    }
+}

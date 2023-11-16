@@ -1,0 +1,134 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+
+    &__topLink {
+        position: relative;
+        width: 30px;
+        margin: 0 auto 30px;
+
+        //TOP上の線
+        &::before {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 60px;
+            margin: 0 auto 8px;
+            background: $gray;
+            z-index: 0;
+        }
+
+        //アニメーション用の図形
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            display: block;
+            width: 5px;
+            height: 10px;
+            background: #fff;
+            animation: scrollTop 2.4s linear infinite;
+        }
+
+        &:hover::after {
+            animation: scrollTop 1s linear infinite;
+        }
+    }
+
+
+    &__container {
+        padding: 5% 5% 3%;
+
+        @include tab {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        @include pc {
+            padding: 150px 58px 60px;
+        }
+    }
+
+    &__logo {
+        width: 180px;
+
+        @include tab {
+            width: 120px;
+        }
+
+        &Link {
+            padding: 10px;
+        }
+    }
+
+    &__box--01 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include tab {
+            flex-direction: row;
+        }
+    }
+
+    &__ul {
+        display: flex;
+    }
+
+    &__link {
+        padding: 20px;
+        font-size: 0.625rem; //10px
+        transition: .4s;
+
+        &:hover {
+            color: $gray;
+        }
+
+        @include tab {
+            padding: 10px;
+        }
+    }
+
+    &__unit {
+        display: flex;
+        justify-content: center;
+        gap: 23px;
+        margin-bottom: 30px;
+
+        @include tab {
+            margin-bottom: 8px;
+        }
+    }
+
+    &__sns {
+        width: 60px;
+        height: 60px;
+
+        @include tab {
+            width: 36px;
+            height: 36px;
+        }
+
+        &Link {
+            padding: 5px;
+            transition: .4s;
+
+            &:hover {
+                opacity: .5;
+            }
+        }
+    }
+
+    &__copy {
+        text-align: center;
+    }
+}

@@ -1,0 +1,439 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+
+#atoi-page {
+
+    .wrapper {
+        width: 90%;
+        margin: 0 auto;
+        padding-top: 86px;
+        color: $bk;
+        background: transparent;
+        font-size: $spTxt;
+
+        @media screen and (min-width: 768px) {
+            padding-top: 118px;
+            font-size: 1rem;
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: 100%;
+            margin: 0;
+            padding: 185px 8.6% 0;
+        }
+    }
+
+    .work {
+        margin-bottom: 60px;
+
+        @media screen and (min-width: 768px) {
+            margin-bottom: 80px;
+        }
+
+        &__pic {
+            width: 100%;
+            height: 60vh;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+
+            @media screen and (min-width: 768px) {
+                height: auto;
+                aspect-ratio: 2 / 1;
+                margin-bottom: 20px;
+            }
+
+            @media screen and (min-width: 1024px) {
+                margin-bottom: 40px;
+            }
+        }
+
+        &__container--01 {
+            margin-bottom: 60px;
+
+            @media screen and (min-width: 768px) {
+                margin-bottom: 80px;
+            }
+
+            @media screen and (min-width: 1024px) {
+                display: flex;
+                align-items: center;
+                gap: 40px;
+                margin-bottom: 120px;
+            }
+        }
+
+        &__box {
+            margin-bottom: 20px;
+        }
+
+        &__ttl {
+            @include font-din($spTtl);
+
+            @media screen and (min-width: 768px) {
+                font-size: $tabTtl;
+            }
+
+            @media screen and (min-width: 1024px) {
+                font-size: $pcTtl;
+            }
+        }
+
+        &__type {
+            margin-left: 10px;
+            @include font-din(1rem);
+
+            @media screen and (min-width: 768px) {
+                margin-left: 20px;
+                font-size: $tabSub; //36
+            }
+
+            @media screen and (min-width: 1024px) {
+                font-size: $pcSub; //40
+            }
+        }
+
+        &__txt {
+            @include font-din(1rem);
+
+            @media screen and (min-width: 768px) {
+                font-size: $dinTxt; //20
+            }
+        }
+
+        &__url {
+            display: flex;
+            align-items: flex-end;
+        }
+
+        &__link {
+            position: relative;
+            bottom: -7px;
+            padding: 10px;
+            width: fit-content;
+
+            @media screen and (min-width: 1024px) {
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: -10px;
+                    bottom: 7px;
+                    display: block;
+                    width: 20px;
+                    height: 2px;
+                    background: $wh;
+                    z-index: 1;
+                }
+
+                &:hover::before {
+                    animation: workURL .8s linear;
+                }
+
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 7px;
+                display: block;
+                width: calc(100% - 20px);
+                border-bottom: 2px solid $bk;
+                transform: scale(1, 1);
+                transform-origin: right top;
+            }
+        }
+
+        &__url,
+        &__link {
+            color: $bk;
+            @include font-din(1rem);
+
+            @media screen and (min-width: 768px) {
+                font-size: $dinTxt; //20
+            }
+        }
+
+        &__line {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: $bk;
+        }
+
+        &__container--02 {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+
+            @media screen and (min-width: 1024px) {
+                flex-direction: column;
+                width: fit-content;
+                margin: 0 auto;
+            }
+        }
+
+        &__unit {
+            display: flex;
+            align-items: center;
+            gap: 10%;
+            width: 100%;
+            margin-bottom: 3%;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+
+            @media screen and (min-width: 768px) {
+                gap: 100px;
+            }
+        }
+
+        &__dt {
+            width: 160px;
+
+            @media screen and (min-width: 768px) {
+                width: 180px;
+            }
+        }
+
+        &__dd {
+            width: fit-content;
+        }
+
+        &__span {
+            margin-right: 6px;
+            @include font-din(1rem);
+
+            @media screen and (min-width: 768px) {
+                font-size: $dinTxt;
+            }
+        }
+    }
+
+    .about {
+        margin-bottom: 80px;
+
+        @media screen and (min-width: 768px) {
+            margin-bottom: 120px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            max-width: 1258px;
+            width: 80%;
+            margin: 0 auto 120px;
+        }
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+
+            @media screen and (min-width: 768px) {
+                gap: 80px;
+            }
+        }
+
+        &__box {
+            @media screen and (min-width: 768px) {
+                &:nth-of-type(2) {
+                    order: 2;
+                }
+            }
+        }
+
+
+        &__sub {
+            margin-bottom: 3%;
+            font-size: $spTxt;
+            font-weight: $light;
+
+            @media screen and (min-width: 768px) {
+                font-size: 1rem;
+            }
+
+            @media screen and (min-width: 1024px) {
+                margin-bottom: 15px;
+            }
+        }
+
+        &__span {
+            margin-right: 6px;
+            @include font-din(1rem);
+
+            @media screen and (min-width: 768px) {
+                font-size: $dinTxt;
+            }
+        }
+
+        &__design {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 20px;
+            width: 100%;
+            height: 100%;
+            margin-bottom: 10px;
+            padding: 20px;
+            background: $bk;
+            border-radius: 20px;
+
+            @media screen and (min-width: 768px) {
+                gap: 40px;
+                margin-bottom: 20px;
+                padding: 40px 60px;
+            }
+
+            @media screen and (min-width: 1024px) {
+                max-width: 774px;
+                width: 62%;
+                margin: 0 auto 40px;
+            }
+        }
+
+        &__designSub {
+            color: $wh;
+            @include font-din(1rem);
+
+            @media screen and (min-width: 768px) {
+                font-size: $dinTxt;
+            }
+        }
+
+        &__unit {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            align-self: center;
+        }
+
+        &__en {
+            margin-bottom: 20px;
+
+            @media screen and (min-width: 768px) {
+                max-width: 434px;
+                margin-bottom: 40px;
+            }
+        }
+
+        &__jp {
+            @media screen and (min-width: 768px) {
+                max-width: 479px;
+            }
+        }
+
+        &__color {
+            max-width: 300px;
+            align-self: center;
+
+            @media screen and (min-width: 768px) {
+                max-width: 550px;
+            }
+        }
+    }
+
+    .image {
+        margin-bottom: 80px;
+
+        @media screen and (min-width: 768px) {
+            margin-bottom: 120px;
+        }
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            @media screen and (min-width: 768px) {
+                gap: 40px;
+            }
+
+            @media screen and (min-width: 1024px) {
+                flex-direction: row-reverse;
+            }
+        }
+
+        &__box {
+            @media screen and (min-width: 1024px) {
+                width: calc(50% - 20px);
+            }
+
+            &:not(:first-child) {
+                display: none;
+
+                @media screen and (min-width: 768px) {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 40px;
+                }
+            }
+        }
+
+        &__bg {
+            @include flexCenter;
+            width: 100%;
+            aspect-ratio: 2 / 1;
+            padding: 16px;
+            background: $gray;
+            border-radius: 20px;
+
+            @media screen and (min-width: 768px) {
+                padding: 40px;
+            }
+        }
+    }
+
+    .backBtn {
+        position: relative;
+        @include flexCenter;
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 80px;
+        border-radius: 50%;
+        overflow: hidden;
+
+        @media screen and (min-width: 768px) {
+            margin-bottom: 120px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: 240px;
+            height: 240px;
+
+            &:hover {
+                .backBtn__span {
+                    width: 240px;
+                    height: 240px;
+                }
+            }
+        }
+
+        &__link {
+            @include flexCenter;
+            color: $bk;
+            background: $wh;
+            @include font-btn;
+            border: 1px solid $bk;
+            border-radius: 50%;
+
+            @media screen and (min-width: 1024px) {
+                width: 240px;
+                height: 240px;
+                font-size: $pcSub;
+                mix-blend-mode: difference;
+            }
+        }
+
+        &__span {
+            position: absolute;
+            display: block;
+            width: 80px;
+            height: 80px;
+            background: $wh;
+            border-radius: 50%;
+            z-index: -1; //linkの下に
+            transition: .4s;
+        }
+    }
+}
