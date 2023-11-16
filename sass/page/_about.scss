@@ -1,0 +1,365 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+
+#about-page {
+
+    .wrapper {
+        background: $bk;
+        color: $wh;
+    }
+
+    .about {
+        width: 90%;
+        margin: 0 auto;
+        padding-top: 86px;
+
+        @media screen and (min-width: 768px) {
+            padding-top: 118px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: 100%;
+            margin-bottom: 120px;
+            padding: 185px 8.6% 0;
+        }
+
+        &__ttl {
+            margin-bottom: 60px;
+            @include font-din($spTtl);
+
+            @media screen and (min-width: 768px) {
+                margin-bottom: 40px;
+                font-size: $tabTtl;
+            }
+
+            @media screen and (min-width: 1024px) {
+                margin-bottom: 60px;
+                font-size: $pcTtl;
+            }
+        }
+
+        &__container {
+            position: relative;
+            display: flex;
+            flex-direction: column-reverse;
+            margin-bottom: 80px;
+
+            @media screen and (min-width: 1024px) {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-end;
+                margin-bottom: 120px;
+                padding: 0 80px;
+
+
+                &:nth-of-type(2) {
+                    flex-direction: row-reverse;
+                    align-items: center;
+                }
+            }
+        }
+
+        &__box {
+            @media screen and (min-width: 1024px) {
+                width: 54%;
+            }
+        }
+
+        &__name {
+            margin-bottom: 40px;
+            font-size: $dinTxt;
+            font-weight: bold;
+
+            @media screen and (min-width: 768px) {
+                margin-bottom: 60px;
+            }
+
+            @media screen and (min-width: 1024px) {
+                margin-bottom: 80px;
+            }
+        }
+
+        &__span {
+            margin-right: 20px;
+            @include font-din($tabSub);
+
+            @media screen and (min-width: 768px) {
+                font-size: $tabTtl;
+            }
+
+            @media screen and (min-width: 1440px) {
+                margin-right: 40px;
+                font-size: $pcTtl;
+            }
+        }
+
+        &__profile-list {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            margin-bottom: 60px;
+
+            @media screen and (min-width: 1024px) {}
+        }
+
+        &__profile-team {
+            width: 100px;
+            @include font-din($dinTxt);
+        }
+
+        &__profile-detail {
+            width: calc(100% - 100px);
+        }
+
+        &__txt {
+            margin-bottom: 30px;
+
+            &:last-child {
+                margin: 0;
+            }
+
+            @media screen and (min-width: 1024px) {
+                margin-bottom: 40px;
+            }
+        }
+
+        &__pic--01,
+        &__pic--02 {
+            width: 260px;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-self: center;
+            margin-bottom: 60px;
+            border-radius: 20px;
+            overflow: hidden;
+
+            @media screen and (min-width: 768px) {
+                max-width: 320px;
+                width: 38%;
+            }
+
+            @media screen and (min-width: 1024px) {
+                max-width: 540px;
+                margin: 0;
+            }
+        }
+
+        &__pic--01 {
+            @media screen and (min-width: 768px) {
+                position: absolute;
+                top: -18%;
+                align-self: flex-end;
+            }
+
+            @media screen and (min-width: 1024px) {
+                position: static;
+                align-self: center;
+            }
+
+            @media screen and (min-width: 1440px) {
+                align-self: flex-end;
+            }
+        }
+
+        &__pic--02 {
+            @media screen and (min-width: 768px) {
+                align-self: flex-start;
+            }
+        }
+    }
+
+    .words {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 80px;
+
+        @media screen and (min-width: 1024px) {
+            width: 100%;
+            margin-bottom: 120px;
+            padding: 0 8.6%;
+        }
+
+        &__sub {
+            margin-bottom: 40px;
+            @include font-din($dinTxt);
+            text-align: center;
+        }
+
+        &__box {
+            position: relative;
+            width: 330px;
+            height: 330px;
+
+            @media screen and (min-width: 768px) {
+                width: 370px;
+                height: 370px;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                display: block;
+                width: 100%;
+                height: 100%;
+                background: $blue;
+                border-radius: 50%;
+            }
+        }
+
+        &__word {
+            font-size: $dinTxt;
+            font-weight: bold;
+            text-align: center;
+
+            &::before {
+                content: 'Triple Effort';
+                display: block;
+                @include font-din($spTtl);
+            }
+        }
+
+        &__txt {
+            width: 100%;
+        }
+    }
+
+    .gallary {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 80px;
+
+        @media screen and (min-width: 768px) {
+            margin-bottom: 120px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            width: 100%;
+            margin-bottom: 180px;
+            padding: 0 8.6%;
+        }
+
+        &__sub {
+            margin-bottom: 40px;
+            @include font-din($dinTxt);
+
+            @media screen and (min-width: 1024px) {
+                width: 100%;
+                margin-bottom: 0;
+            }
+        }
+
+        &__container {
+            &:first-of-type {
+                margin-bottom: 20px;
+
+                @media screen and (min-width: 1024px) {
+                    margin-bottom: 0;
+                }
+            }
+
+            @media screen and (min-width: 768px) {
+                display: flex;
+                gap: 20px;
+            }
+
+            @media screen and (min-width: 1024px) {
+                width: calc(100% / 2 - 20px);
+                gap: 40px;
+            }
+        }
+
+        &__bigPic,
+        &__pic {
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        &__bigPic {
+            margin-bottom: 20px;
+
+            @media screen and (min-width: 768px) {
+                width: calc(100% / 3 * 2);
+                margin-bottom: 0;
+            }
+        }
+
+        &__box {
+            display: flex;
+            gap: 15px;
+
+            @media screen and (min-width: 768px) {
+                flex-direction: column;
+                width: calc(100% / 3);
+            }
+
+            @media screen and (min-width: 1024px) {
+                position: relative;
+                top: 60px;
+                gap: 40px;
+            }
+        }
+    }
+
+
+    .backBtn {
+        position: relative;
+        @include flexCenter;
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 80px;
+        border-radius: 50%;
+        overflow: hidden;
+
+        @media screen and (min-width: 768px) {
+            margin-bottom: 120px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: 240px;
+            height: 240px;
+
+            &:hover {
+                .backBtn__span {
+                    width: 240px;
+                    height: 240px;
+                }
+            }
+        }
+
+        &__link {
+            @include flexCenter;
+            color: $wh;
+            @include font-btn;
+            border: 1px solid $wh;
+            border-radius: 50%;
+            z-index: 1;
+
+            @media screen and (min-width: 1024px) {
+                width: 240px;
+                height: 240px;
+                font-size: $pcSub;
+                mix-blend-mode: difference;
+            }
+        }
+
+        &__span {
+            display: none;
+
+            @media screen and (min-width: 1024px) {
+                position: absolute;
+                display: block;
+                width: 80px;
+                height: 80px;
+                background: $wh;
+                border-radius: 50%;
+                transition: .4s;
+            }
+        }
+    }
+}

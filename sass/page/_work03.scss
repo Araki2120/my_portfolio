@@ -437,7 +437,6 @@
             background: $wh;
             border-radius: 50%;
             z-index: -1; //linkの下に
-            mix-blend-mode: difference; //上と両方に入れる！
             transition: .4s;
         }
     }

@@ -22,9 +22,10 @@
             padding-top: 118px;
         }
 
-        @media screen and (min-width: 1024px) {
-            margin-bottom: 130px;
-            padding: 185px 8.6% 0;
+        @media screen and (min-width: 1440px) {
+            width: 100%;
+            margin-bottom: 0;
+            padding: 150px 8.6% 60px;
         }
 
         &__ttl {
@@ -37,7 +38,7 @@
                 font-size: $tabTtl;
             }
 
-            @media screen and (min-width: 1024px) {
+            @media screen and (min-width: 1444px) {
                 margin-bottom: 35px;
                 font-size: $pcTtl;
             }
@@ -56,7 +57,7 @@
         &__container {
             margin-bottom: 5%;
 
-            @media screen and (min-width: 1470px) {
+            @media screen and (min-width: 1440px) {
                 margin-bottom: 0;
             }
         }
@@ -68,7 +69,7 @@
                 margin-bottom: 0;
             }
 
-            @media screen and (min-width: 1470px) {
+            @media screen and (min-width: 1440px) {
                 margin-bottom: 30px;
             }
 
@@ -145,10 +146,10 @@
                 margin: 0 auto;
             }
 
-            @media screen and (min-width: 1470px) {
+            @media screen and (min-width: 1440px) {
                 position: absolute;
-                bottom: -2%; //下辺が揃って見えるように少し下に調整
-                left: calc(100% + 80px);
+                bottom: -1%; //下辺が揃って見えるように少し下に調整
+                left: calc(100% + 60px);
                 width: 240px;
                 height: 240px;
                 margin: 0;
@@ -177,7 +178,7 @@
                 font-size: 1rem;
             }
 
-            @media screen and (min-width: 1470px) {
+            @media screen and (min-width: 1440px) {
                 font-size: $pcSub;
                 mix-blend-mode: difference;
             }
@@ -186,7 +187,7 @@
         &__btnCircle {
             display: none;
 
-            @media screen and (min-width: 1470px) {
+            @media screen and (min-width: 1440px) {
                 position: absolute;
                 display: block;
                 width: 80px;

@@ -168,6 +168,7 @@
             @include font-btn;
             border: 1px solid $bk;
             border-radius: 50%;
+            z-index: 1; //linkを上に
 
             @media screen and (min-width: 1024px) {
                 width: 240px;
@@ -184,7 +185,6 @@
             height: 80px;
             background: $wh;
             border-radius: 50%;
-            z-index: -1; //linkの下に
             mix-blend-mode: difference; //上と両方に入れる！
             transition: .4s;
         }
