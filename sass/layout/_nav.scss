@@ -16,6 +16,10 @@
     transition: .4s;
     z-index: 5; //コンテンツより上、ヘッダー（ロゴ、ボタン）より下
 
+    // @media screen and (min-width: 1024px) {
+    //     transition: 0;
+    // }
+
     &::after {
         content: '';
         position: absolute;

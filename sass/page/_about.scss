@@ -53,7 +53,6 @@
                 margin-bottom: 120px;
                 padding: 0 80px;
 
-
                 &:nth-of-type(2) {
                     flex-direction: row-reverse;
                     align-items: center;
@@ -175,7 +174,7 @@
         margin: 0 auto;
         margin-bottom: 80px;
 
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1440px) {
             width: 100%;
             margin-bottom: 120px;
             padding: 0 8.6%;
@@ -185,45 +184,170 @@
             margin-bottom: 40px;
             @include font-din($dinTxt);
             text-align: center;
+
+            @media screen and (min-width: 1440px) {
+                margin-bottom: 0;
+            }
         }
 
-        &__box {
+        &__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+
+            @media screen and (min-width: 1440px) {
+                max-width: 100%;
+                width: 1800px;
+                margin: 0 auto;
+            }
+        }
+
+        &__circle {
             position: relative;
+            @include flexCenter;
+            flex-direction: column;
             width: 330px;
             height: 330px;
+            background: $blue;
+            border-radius: 50%;
+
+            ///////お試し
+            @media screen and (min-width: 1440px) {
+                left: -34%;
+            }
+
+            &:nth-child(2) {
+                background: $green;
+
+                ///////お試し
+                @media screen and (min-width: 1440px) {
+                    left: -4%;
+                    margin-top: -8%;
+                }
+            }
+
+            &:nth-child(3) {
+                background: $orange;
+
+                ///////お試し
+                @media screen and (min-width: 1440px) {
+                    left: -26%;
+                    margin-top: -4%;
+                }
+            }
 
             @media screen and (min-width: 768px) {
                 width: 370px;
                 height: 370px;
             }
 
-            &::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                display: block;
+            // svg {
+            //     width: 100%;
+            //     height: auto;
+            //     overflow: visible;
+            // }
+
+            // text {
+            //     width: 100%;
+            //     height: 62px;
+            //     @include font-din($spTtl);
+            //     fill: transparent;
+            //     stroke: $wh;
+            //     stroke-width: 1;
+            //     stroke-dasharray: 150;
+            //     // stroke-dashoffset: 400;
+            // }
+        }
+
+        &__box {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            @media screen and (min-width: 1440px) {
+                right: -80px;
                 width: 100%;
-                height: 100%;
-                background: $blue;
-                border-radius: 50%;
+                align-items: flex-start;
             }
         }
 
-        &__word {
+        &__word--01,
+        &__word--02,
+        &__word--03 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px;
             font-size: $dinTxt;
             font-weight: bold;
             text-align: center;
 
+            @media screen and (min-width: 1440px) {
+                align-items: flex-start;
+                margin-bottom: 0;
+                text-align: left;
+            }
+
+            &::before {
+                content: '';
+                display: block;
+                width: 230px;
+                margin-bottom: 10px;
+                color: transparent;
+                @include font-din($spTtl);
+                -webkit-text-stroke: 1px $wh;
+                text-stroke: 1px $wh;
+
+                @media screen and (min-width: 768px) {
+                    width: 170%;
+                    font-size: $tabTtl;
+                }
+
+                @media screen and (min-width: 1440px) {
+                    width: 260%;
+                    margin-bottom: 0;
+                    font-size: $aboutWord;
+                }
+            }
+        }
+
+        &__word--01 {
             &::before {
                 content: 'Triple Effort';
-                display: block;
-                @include font-din($spTtl);
+            }
+        }
+
+        &__word--02 {
+            &::before {
+                content: 'Stagnation is decline';
+
+                @media screen and (min-width: 1440px) {
+                    width: 200%;
+                }
+            }
+        }
+
+        &__word--03 {
+            &::before {
+                content: 'Always rising after a fall';
             }
         }
 
         &__txt {
             width: 100%;
+            text-align: center;
+
+            @media screen and (min-width: 768px) {
+                width: 120%;
+            }
+
+            @media screen and (min-width: 1440px) {
+                text-align: left;
+            }
         }
+
     }
 
     .gallary {
