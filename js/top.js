@@ -320,6 +320,7 @@ const aboutTl = gsap.timeline({
         trigger: about,
         toggleClass: { targets: about, className: "isActive" },
         ...scrollSet,
+        pin: false,
     }
 });
 
@@ -358,7 +359,7 @@ const contactTl = gsap.timeline({
     scrollTrigger: {
         trigger: contact,
         ...scrollSet,
-        pinSpacing: true, // 次の要素が無ければいれる
+        // pinSpacing: true, // 次の要素が無ければいれる
         onEnter: () => {
             contact.classList.add("isActive");
         },

@@ -22,7 +22,7 @@
 
         &__logo {
             position: absolute;
-            top: 51%; //ロゴの上が重たいので、真ん中に見えるように少し下げる！
+            top: 51%; //ロゴの上が重たいので、中央に見えるように少し下に
             left: 50%;
             width: 311px;
             height: 198px;
@@ -53,7 +53,7 @@
         }
 
         &__circle3 {
-            //少し大きく設定
+            //少し大きく
             width: 55vw;
             height: 55vw;
         }

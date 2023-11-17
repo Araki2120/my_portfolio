@@ -13,8 +13,13 @@
     background: $bk;
     opacity: 0;
     visibility: hidden;
+    overflow-y: auto;
     transition: .4s;
     z-index: 5; //コンテンツより上、ヘッダー（ロゴ、ボタン）より下
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     // @media screen and (min-width: 1024px) {
     //     transition: 0;

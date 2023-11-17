@@ -2,6 +2,26 @@
 //as *で読み込みファイル名を省略することができます
 @use "../global" as *;
 
+body {
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $wh;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $bk;
+        border-radius: 2px;
+        mix-blend-mode: difference;
+    }
+
+    // &::-webkit-scrollbar {
+    //     display: none;
+    // }
+}
+
 .wrapper {
     background: $bk;
     color: $wh;
