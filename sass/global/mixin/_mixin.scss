@@ -48,7 +48,6 @@
 
 //font用
 @mixin font-din($size: 2.5rem) {
-    //40px
     font-size: $size;
     font-family: $din;
     font-weight: $regular;
@@ -57,7 +56,6 @@
 }
 
 @mixin font-btn($size: 1.125rem) {
-    //18px
     font-size: $size;
     font-family: $din;
     font-weight: $regular;

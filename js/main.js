@@ -26,21 +26,29 @@ btn.addEventListener('click', () => {
 });
 
 
+//Aboutページ用
+const wordCircles = document.querySelectorAll('.words__circle');
 
-//テスト
-// const text = document.querySelector('.gnav');
-// const link = document.querySelector('.gnav__link');
-// console.log(link);
+const options = {
+    root: null,
+    rootMargin: '-4% 0px',
+    threshold: 1
+};
 
-// // Color inversion function
-// function invertColor(color) {
-//     return '#' + (0xffffff ^ parseInt(color.slice(1), 16)).toString(16).padStart(6, '0');
-// }
+const observer = new IntersectionObserver(showElement, options);
 
-// const computedColor = window.getComputedStyle(link).color;
-// console.log(computedColor);
+wordCircles.forEach((wordCircle) => {
+    observer.observe(wordCircle);
+});
 
-// link.style.filter = `invert(0) grayscale(100%)`;
-// link.style.color = invertColor(computedColor);
+function showElement(entries) {
+    entries.forEach((entry) => {
+        // console.log(entry);
+        if (entry.isIntersecting) {
+            entry.target.classList.add('showCircle');
+        }
+    });
+};
+
 
 

@@ -21,7 +21,7 @@
 
         @media screen and (min-width: 1024px) {
             width: 100%;
-            margin-bottom: 120px;
+            margin-bottom: 160px;
             padding: 185px 8.6% 0;
         }
 
@@ -34,7 +34,7 @@
                 font-size: $tabTtl;
             }
 
-            @media screen and (min-width: 1024px) {
+            @media screen and (min-width: 1440px) {
                 margin-bottom: 60px;
                 font-size: $pcTtl;
             }
@@ -47,15 +47,16 @@
             margin-bottom: 80px;
 
             @media screen and (min-width: 1024px) {
-                flex-direction: row;
+                flex-direction: row-reverse;
                 justify-content: space-between;
                 align-items: flex-end;
                 margin-bottom: 120px;
                 padding: 0 80px;
 
                 &:nth-of-type(2) {
-                    flex-direction: row-reverse;
+                    flex-direction: row;
                     align-items: center;
+                    margin-bottom: 160px;
                 }
             }
         }
@@ -70,17 +71,11 @@
             margin-bottom: 40px;
             font-size: $dinTxt;
             font-weight: bold;
-
-            @media screen and (min-width: 768px) {
-                margin-bottom: 60px;
-            }
-
-            @media screen and (min-width: 1024px) {
-                margin-bottom: 80px;
-            }
         }
 
         &__span {
+            position: relative;
+            top: 3px; //下が揃って見えるように
             margin-right: 20px;
             @include font-din($tabSub);
 
@@ -148,13 +143,13 @@
         &__pic--01 {
             @media screen and (min-width: 768px) {
                 position: absolute;
-                top: -18%;
+                top: -24%;
                 align-self: flex-end;
             }
 
             @media screen and (min-width: 1024px) {
                 position: static;
-                align-self: center;
+                align-self: flex-start;
             }
 
             @media screen and (min-width: 1440px) {
@@ -176,7 +171,7 @@
 
         @media screen and (min-width: 1440px) {
             width: 100%;
-            margin-bottom: 120px;
+            margin-bottom: 160px;
             padding: 0 8.6%;
         }
 
@@ -209,56 +204,72 @@
             flex-direction: column;
             width: 330px;
             height: 330px;
-            background: $blue;
             border-radius: 50%;
 
-            ///////お試し
-            @media screen and (min-width: 1440px) {
-                left: -34%;
+            @media screen and (min-width: 768px) {
+                width: 420px;
+                height: 420px;
             }
 
-            &:nth-child(2) {
-                background: $green;
+            @media screen and (min-width: 1440px) {
+                width: 370px;
+                height: 370px;
+            }
 
-                ///////お試し
+            // 1番目の丸
+            &:first-child {
+                &::before {
+                    background: $blue;
+                }
+
+                @media screen and (min-width: 1440px) {
+                    left: -34%;
+                }
+
+            }
+
+            // 2番目の丸
+            &:nth-child(2) {
+                &::before {
+                    background: $green;
+                }
+
                 @media screen and (min-width: 1440px) {
                     left: -4%;
                     margin-top: -8%;
                 }
+
             }
 
+            // 3番目の丸
             &:nth-child(3) {
-                background: $orange;
+                &::before {
+                    background: $orange;
+                }
 
-                ///////お試し
                 @media screen and (min-width: 1440px) {
                     left: -26%;
                     margin-top: -4%;
                 }
             }
-
-            @media screen and (min-width: 768px) {
-                width: 370px;
-                height: 370px;
-            }
-
-            // svg {
-            //     width: 100%;
-            //     height: auto;
-            //     overflow: visible;
-            // }
-
-            // text {
-            //     width: 100%;
-            //     height: 62px;
-            //     @include font-din($spTtl);
-            //     fill: transparent;
-            //     stroke: $wh;
-            //     stroke-width: 1;
-            //     stroke-dasharray: 150;
-            //     // stroke-dashoffset: 400;
-            // }
         }
+
+        // svg {
+        //     width: 100%;
+        //     height: auto;
+        //     overflow: visible;
+        // }
+
+        // text {
+        //     width: 100%;
+        //     height: 62px;
+        //     @include font-din($spTtl);
+        //     fill: transparent;
+        //     stroke: $wh;
+        //     stroke-width: 1;
+        //     stroke-dasharray: 150;
+        //     // stroke-dashoffset: 400;
+        // }
 
         &__box {
             position: absolute;
@@ -306,7 +317,7 @@
                 }
 
                 @media screen and (min-width: 1440px) {
-                    width: 260%;
+                    // width: 265%;
                     margin-bottom: 0;
                     font-size: $aboutWord;
                 }
@@ -316,6 +327,10 @@
         &__word--01 {
             &::before {
                 content: 'Triple Effort';
+
+                @media screen and (min-width: 1440px) {
+                    width: 468px;
+                }
             }
         }
 
@@ -324,7 +339,7 @@
                 content: 'Stagnation is decline';
 
                 @media screen and (min-width: 1440px) {
-                    width: 200%;
+                    width: 826px;
                 }
             }
         }
@@ -332,6 +347,10 @@
         &__word--03 {
             &::before {
                 content: 'Always rising after a fall';
+
+                @media screen and (min-width: 1440px) {
+                    width: 966px;
+                }
             }
         }
 
@@ -347,7 +366,6 @@
                 text-align: left;
             }
         }
-
     }
 
     .gallary {
@@ -362,9 +380,9 @@
         @media screen and (min-width: 1024px) {
             display: flex;
             flex-wrap: wrap;
-            gap: 40px;
+            column-gap: 30px;
             width: 100%;
-            margin-bottom: 180px;
+            margin-bottom: 180px; //写真の分多く
             padding: 0 8.6%;
         }
 
@@ -374,7 +392,6 @@
 
             @media screen and (min-width: 1024px) {
                 width: 100%;
-                margin-bottom: 0;
             }
         }
 
@@ -394,7 +411,7 @@
 
             @media screen and (min-width: 1024px) {
                 width: calc(100% / 2 - 20px);
-                gap: 40px;
+                gap: 30px;
             }
         }
 
@@ -402,6 +419,18 @@
         &__pic {
             border-radius: 20px;
             overflow: hidden;
+            transition: .4s;
+
+            &:hover {
+                .gallary__img {
+                    transform: scale(1.08);
+                    filter: blur(2px);
+                }
+            }
+        }
+
+        &__img {
+            transition: .4s;
         }
 
         &__bigPic {
@@ -425,7 +454,7 @@
             @media screen and (min-width: 1024px) {
                 position: relative;
                 top: 60px;
-                gap: 40px;
+                gap: 30px;
             }
         }
     }

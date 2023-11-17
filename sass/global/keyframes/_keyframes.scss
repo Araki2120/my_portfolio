@@ -36,3 +36,19 @@
         left: 100%;
     }
 }
+
+//aboutページ用
+@keyframes wordCircle {
+    0% {
+        opacity: 0;
+        clip-path: circle(0% at center);
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    100% {
+        clip-path: circle(100% at center);
+    }
+}
