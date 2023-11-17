@@ -109,16 +109,26 @@
         display: block;
         width: 100%;
         height: 3px;
-        background: $wh;
-        transition: .4s;
+        border-radius: 1.5px;
+        overflow: hidden;
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: $wh;
+            transform: translateX(100%);
+            transition: .6s;
+        }
     }
 
     &__closeBtnTop {
-        transform: rotate(45deg) scale(0, 1);
+        transform: rotate(45deg);
     }
 
     &__closeBtnBottom {
-        transform: rotate(-45deg) scale(0, 1);
+        transform: rotate(-45deg);
     }
 
     &__catch {

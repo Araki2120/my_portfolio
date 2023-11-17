@@ -2,6 +2,22 @@
 @use "../setting" as *;
 
 //全体ページ用
+@keyframes slideNavList {
+    30% {
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(0.7, 1);
+        transform-origin: left top;
+    }
+
+    100% {
+        left: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1, 1);
+    }
+}
+
 @keyframes closeNav {
     0% {
         background: $wh;
@@ -44,11 +60,8 @@
         clip-path: circle(0% at center);
     }
 
-    40% {
-        opacity: 1;
-    }
-
     100% {
+        opacity: 1;
         clip-path: circle(100% at center);
     }
 }

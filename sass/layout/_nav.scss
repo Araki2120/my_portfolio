@@ -13,17 +13,8 @@
     background: $bk;
     opacity: 0;
     visibility: hidden;
-    overflow-y: auto;
     transition: .4s;
     z-index: 5; //コンテンツより上、ヘッダー（ロゴ、ボタン）より下
-
-    &::-webkit-scrollbar {
-        display: none;
-    }
-
-    // @media screen and (min-width: 1024px) {
-    //     transition: 0;
-    // }
 
     &::after {
         content: '';
@@ -67,6 +58,19 @@
             align-items: center;
             margin-bottom: 0;
             margin-right: 21px;
+        }
+    }
+
+    &__list {
+        position: relative;
+        left: -50%;
+        opacity: 0;
+        visibility: hidden;
+
+        @media screen and (min-width: 1024px) {
+            left: 0;
+            opacity: 1;
+            visibility: visible;
         }
     }
 
@@ -120,6 +124,7 @@
 
     &__icon {
         position: relative;
+        left: -50%;
         @include flexCenter;
         width: 60px;
         height: 60px;

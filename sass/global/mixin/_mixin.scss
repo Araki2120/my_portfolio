@@ -41,6 +41,7 @@
     width: 100%;
     height: 3px;
     background: $bk;
+    border-radius: 1.5px;
     transform: translateY($transrate);
     transition: .6s;
 }

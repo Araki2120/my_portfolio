@@ -2,26 +2,6 @@
 //as *で読み込みファイル名を省略することができます
 @use "../global" as *;
 
-body {
-    &::-webkit-scrollbar {
-        width: 4px;
-    }
-
-    &::-webkit-scrollbar-track {
-        background: $wh;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: $bk;
-        border-radius: 2px;
-        mix-blend-mode: difference;
-    }
-
-    // &::-webkit-scrollbar {
-    //     display: none;
-    // }
-}
-
 .wrapper {
     background: $bk;
     color: $wh;
@@ -41,7 +21,6 @@ body {
     z-index: -10;
 }
 
-//その他標準設定
 h2 {
     font-family: $din;
     font-weight: $regular;
@@ -60,4 +39,20 @@ a {
     width: 100%;
     height: 100%;
     text-decoration: none;
+}
+
+//スクロールバーの設定
+body {
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $wh;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $bk;
+        border-radius: 10px;
+    }
 }

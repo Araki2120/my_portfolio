@@ -4,18 +4,22 @@
 
 //全体ページ用
 .slideOpenBtn {
-    left: 100%;
+    left: 200%;
     background: $wh;
     opacity: .1;
     visibility: hidden;
 }
 
 .closeBtnTop {
-    transform: rotate(45deg) scale(1, 1);
+    &::after {
+        transform: translate(0);
+    }
 }
 
 .closeBtnBottom {
-    transform: rotate(-45deg) scale(1, 1);
+    &::after {
+        transform: translate(0);
+    }
 }
 
 .logoInvert {
@@ -25,11 +29,36 @@
 .viewNav {
     opacity: 1;
     visibility: visible;
+    overflow: auto;
+    overscroll-behavior: none;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $bk;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $wh;
+        border-radius: 10px;
+    }
+}
+
+.slideNavList {
+    animation: slideNavList .4s forwards;
 }
 
 .closeNav {
     &::after {
         animation: closeNav .3s linear;
+    }
+}
+
+.hideScrollber {
+    &::-webkit-scrollbar {
+        display: none;
     }
 }
 
@@ -56,7 +85,7 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            animation: wordCircle 1s linear forwards;
+            animation: wordCircle 1s ease-out;
         }
     }
 }

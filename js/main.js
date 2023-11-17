@@ -7,12 +7,20 @@ const closeTop = document.querySelector('.header__closeBtnTop');
 const closeBottom = document.querySelector('.header__closeBtnBottom');
 const headerLogo = document.querySelector('.header__logo');
 const gnav = document.querySelector('#gnav');
+const gnavLists = document.querySelectorAll('.gnav__list, .gnav__icon');
+const body = document.querySelector('body');
 
 btn.addEventListener('click', () => {
     btnLines.forEach((btnLine, i) => {
         setTimeout(() => {
             btnLine.classList.toggle('slideOpenBtn');
         }, 100 * i);//順番にスライド
+    });
+
+    gnavLists.forEach((gnavList, i) => {
+        setTimeout(() => {
+            gnavList.classList.toggle('slideNavList');
+        }, 100 * i);
     });
 
     //×ボタンの設定
@@ -23,6 +31,7 @@ btn.addEventListener('click', () => {
     headerLogo.classList.toggle('logoInvert');
     gnav.classList.toggle('viewNav');
     gnav.classList.toggle('closeNav');
+    body.classList.toggle('hideScrollber');
 });
 
 
@@ -43,7 +52,6 @@ wordCircles.forEach((wordCircle) => {
 
 function showElement(entries) {
     entries.forEach((entry) => {
-        // console.log(entry);
         if (entry.isIntersecting) {
             entry.target.classList.add('showCircle');
         }
