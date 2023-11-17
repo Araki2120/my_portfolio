@@ -24,8 +24,8 @@ btn.addEventListener('click', () => {
     });
 
     //×ボタンの設定
-    closeTop.classList.toggle('closeBtnTop');
-    closeBottom.classList.toggle('closeBtnBottom');
+    closeTop.classList.toggle('closeBtn');
+    closeBottom.classList.toggle('closeBtn');
 
     //開閉時の設定
     headerLogo.classList.toggle('logoInvert');

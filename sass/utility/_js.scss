@@ -10,13 +10,7 @@
     visibility: hidden;
 }
 
-.closeBtnTop {
-    &::after {
-        transform: translate(0);
-    }
-}
-
-.closeBtnBottom {
+.closeBtn {
     &::after {
         transform: translate(0);
     }
@@ -29,8 +23,23 @@
 .viewNav {
     opacity: 1;
     visibility: visible;
-    overflow: auto;
+    overflow: scroll;
     overscroll-behavior: none;
+    touch-action: none;
+
+    //背景スクロール防止用 つっかえ棒 ちょっと動く
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1px;
+        height: calc(100% + 0.3px);
+
+        @media screen and (min-width: 1024px) {
+            display: none;
+        }
+    }
 
     &::-webkit-scrollbar {
         width: 6px;
