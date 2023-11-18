@@ -5,6 +5,7 @@
 .footer {
     position: fixed;
     bottom: 0;
+    left: 0;
     width: 90%;
     @include hideElement;
     transition: 1s;

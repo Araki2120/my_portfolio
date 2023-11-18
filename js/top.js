@@ -139,7 +139,7 @@ const worksTl = gsap.timeline({
     scrollTrigger: {
         trigger: works,
         ...scrollSet,
-        end: 'bottom bottom',
+        // end: 'bottom bottom',
         // toggleClass: { targets: works, className: "isActive" },
         onEnter: () => {
             works.classList.add("isActive"); // アニメーション開始時にクラスを追加
@@ -290,25 +290,29 @@ slideWorks.forEach((work, i) => { //同じ動きを配列で処理
 // skill用 timeline
 const skillTl = gsap.timeline({ //動き変えるため個別登録
     scrollTrigger: {
-        trigger: '.skill__container',
-        start: 'top top',
+        trigger: skill,
+        start: 'top 40%',
         end: 'bottom bottom',
         markers: true,//目印
-        scrub: 2,
+        scrub: 1,
         ease: "power4.in",
     }
 });
 
 skillTl
+    .set('.skill__container', {
+        autoAlpha: 0,
+    })
+
     .to('.skill__bg', {
         keyframes: {
-            top: ['16%', '4%', '0%'],
+            top: ['20%', '-3%', '-8%'],
         },
-    })
+    }, '0')
 
     .to('.skill__container', {
         keyframes: {
-            paddingTop: ['30%', '20%', '10%'],
+            marginTop: ['-24%', '-30%'],
             autoAlpha: [0, 1, 1],
         },
     }, '0');
@@ -320,7 +324,9 @@ const aboutTl = gsap.timeline({
         trigger: about,
         toggleClass: { targets: about, className: "isActive" },
         ...scrollSet,
-        pin: false,
+        // end: 'bottom bottom',
+        // pin: false,
+        // pinSpacing: true,
     }
 });
 
@@ -359,7 +365,7 @@ const contactTl = gsap.timeline({
     scrollTrigger: {
         trigger: contact,
         ...scrollSet,
-        // pinSpacing: true, // 次の要素が無ければいれる
+        pinSpacing: true, // 次の要素が無ければいれるs
         onEnter: () => {
             contact.classList.add("isActive");
         },
@@ -372,27 +378,27 @@ const contactTl = gsap.timeline({
 contactTl
     .from('.contact__circle', {
         keyframes: {
-            scale: [0.2, 0.6, 1]
+            scale: [0.2, 1]
         }
     })
 
     .to('.contact__container--01', {
         keyframes: {
-            autoAlpha: [0, 0.3, 1],
+            autoAlpha: [0, 1],
         }
     }, '0')
 
     .to('.contact__container--02', {
         keyframes: {
-            scale: [0.2, 0.6, 1],
-            autoAlpha: [0, 0.3, 1],
+            scale: [0.2, 1],
+            autoAlpha: [0, 1],
         }
 
     }, '0')
 
-    .add(() => { //最後に文字が回るように
-        circleTxt.classList.toggle('rotateTxt');//toggleで戻ると止まる
-    }, '>0');
+    .add(() => {
+        circleTxt.classList.add('rotateTxt');
+    });
 
 
 //Timeline以外の設定
@@ -407,4 +413,13 @@ window.addEventListener('scroll', () => {
     } else {
         footer.classList.remove('isActive');
     }
+});
+
+//リサイズと再読み込み
+window.addEventListener('resize', () => {
+    console.log('リサイズ');
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+    console.log('再読み込み');
 });

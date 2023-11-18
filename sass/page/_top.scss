@@ -14,19 +14,28 @@
         background: $wh;
 
         &__logoCircle {
-            width: 38.5vw;
-            height: 38.5vw;
+            width: 60vw;
+            height: 60vw;
             border: 2px solid $bk;
             border-radius: 50%;
+
+            @media screen and (min-width: 1024px) {
+                width: 38.5vw;
+                height: 38.5vw;
+            }
         }
 
         &__logo {
             position: absolute;
             top: 51%; //ロゴの上が重たいので、中央に見えるように少し下に
             left: 50%;
-            width: 311px;
-            height: 198px;
+            width: max(30%, 110px);
+            height: auto;
             transform: translate(-50%, -50%);
+
+            @media screen and (min-width: 1024px) {
+                width: min(20%, 311px);
+            }
         }
 
         &__animation {
@@ -42,10 +51,16 @@
         &__circle2,
         &__circle3,
         &__circle4 {
-            width: 50vw;
-            height: 50vw;
-            border: 2px solid $bk;
+            width: 60vw;
+            height: 60vw;
+            border: 1px solid $bk;
             border-radius: 50%;
+
+            @media screen and (min-width: 1024px) {
+                width: 50vw;
+                height: 50vw;
+                border: 2px solid $bk;
+            }
         }
 
         &__circle1 {
@@ -54,8 +69,8 @@
 
         &__circle3 {
             //少し大きく
-            width: 55vw;
-            height: 55vw;
+            width: 70vw;
+            height: 70vw;
         }
 
         &__circle4 {
@@ -66,9 +81,14 @@
     //conceptセクション
     .concept {
         position: relative;
-        width: 100%;
+        width: 90%;
         height: 160vh; //スクロール可能な幅
+        margin: 0 auto;
         @include hideElement;
+
+        @media screen and (min-width: 1024px) {
+            width: 100%;
+        }
 
         &__animation {
             @include animationBox;
@@ -81,20 +101,15 @@
 
         &__circle1 {
             position: relative;
-            width: 38.5vw;
-            height: 38.5vw;
+            width: 60vw;
+            height: 60vw;
             background: $wh;
             border-radius: 50%;
 
-            // &::before {
-            //     content: '';
-            //     position: absolute;
-            //     display: block;
-            //     width: 100%;
-            //     height: 100%;
-            //     border-radius: 50%;
-            //     background: rgb(0, 0, 0, 0);
-            // }
+            @media screen and (min-width: 1024px) {
+                width: 38.5vw;
+                height: 38.5vw;
+            }
         }
 
         &__container--01 {
@@ -102,8 +117,19 @@
         }
 
         &__catch {
-            color: $bk;
+            width: 95px;
             @include font-din;
+            color: $bk;
+            text-align: center;
+
+            @media screen and (min-width: 768px) {
+                width: 100%;
+                font-size: $tabSub;
+            }
+
+            @media screen and (min-width: 1024px) {
+                font-size: $pcSub;
+            }
         }
 
         &__ttl {
@@ -111,7 +137,15 @@
             left: -20%;
             padding-bottom: 40px;
             color: $wh;
-            @include font-din($pcTtl);
+            @include font-din;
+
+            @media screen and (min-width: 768px) {
+                font-size: $tabTtl;
+            }
+
+            @media screen and (min-width: 1024px) {
+                font-size: $pcTtl;
+            }
         }
 
         &__span {
@@ -132,19 +166,29 @@
 
         &__circle2 {
             //でっかい丸
-            width: 200vw;
-            height: 200vw;
+            width: 400vw;
+            height: 400vw;
             background: $bk;
             border-radius: 50%;
+
+            @media screen and (min-width: 1024px) {
+                width: 200vw;
+                height: 200vw;
+            }
         }
     }
 
     //workセクション
     .works {
         position: relative;
-        width: 100%;
+        width: 85%;
         height: 300vh;
+        margin: 0 auto;
         @include hideElement;
+
+        @media screen and (min-width: 1024px) {
+            width: 100%;
+        }
 
         &__animation {
             @include animationBox;
@@ -156,17 +200,28 @@
         }
 
         &__circle1 {
-            width: 65vw;
-            height: 65vw;
-            border: 2px solid $wh;
+            width: 104vw;
+            height: 104vw;
+            border: 1px solid $wh;
             border-radius: 50%;
+
+            @media screen and (min-width: 1024px) {
+                width: 65vw;
+                height: 65vw;
+                border: 2px solid $wh;
+            }
         }
 
         &__circle2 {
-            width: 50vw;
-            height: 50vw;
+            width: 80vw;
+            height: 80vw;
             background: $lightBlue;
             border-radius: 50%;
+
+            @media screen and (min-width: 1024px) {
+                width: 50vw;
+                height: 50vw;
+            }
         }
 
         &__container--01 {
@@ -174,28 +229,48 @@
         }
 
         &__ttl {
-            font-size: $pcTtl; //100
+            @include font-din($spTtl);
+
+            @media screen and (min-width: 768px) {
+                font-size: $tabTtl;
+            }
+
+            @media screen and (min-width: 1024px) {
+                font-size: $pcTtl;
+            }
         }
 
         &__circle3 {
-            width: 38.5vw;
-            height: 38.5vw;
+            width: 60vw;
+            height: 60vw;
             background: $bk;
             border-radius: 50%;
             mix-blend-mode: difference;
+
+            @media screen and (min-width: 1024px) {
+                width: 38.5vw;
+                height: 38.5vw;
+            }
         }
 
         //works紹介部分
         &__container {
             position: absolute;
             @include flexCenter;
-            width: 38.5vw;
-            height: 38.5vw;
+            width: 60vw;
+            height: 60vw;
+
+            @media screen and (min-width: 1024px) {
+                width: 38.5vw;
+                height: 38.5vw;
+            }
         }
 
         &__pic {
             @include sircle;
             overflow: hidden;
+
+            @media screen and (min-width: 1024px) {}
         }
 
         &__box {
@@ -217,6 +292,14 @@
             margin-bottom: 5px;
             color: $bk;
             @include font-din;
+
+            @media screen and (min-width: 768px) {
+                font-size: $tabSub;
+            }
+
+            @media screen and (min-width: 1024px) {
+                font-size: $pcSub;
+            }
         }
 
         &__type {
@@ -294,13 +377,19 @@
         position: relative;
         width: 100%;
         height: 100%;
+        margin: 0 auto;
         background: transparent;
         overflow: hidden;
+        pointer-events: none;
+
+        @media screen and (min-width: 1024px) {
+            padding-top: 60%; /////
+        }
 
         &__bg {
             //背景の大きい丸
             position: absolute;
-            top: 16%;
+            top: 20%;
             left: 50%;
             width: 220%;
             aspect-ratio: 1 / 1;
@@ -313,14 +402,18 @@
         &__container {
             position: relative;
             top: 0;
-            left: 50%;
+            left: 50%; ////
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 120px;
-            max-width: 1425px;
-            padding-top: 30%;
+            width: 85%;
+            margin-top: -20%;
             transform: translateX(-50%);
-            z-index: 10;
+            z-index: 5;
+
+            @media screen and (min-width: 1024px) {
+                width: 1425px;
+            }
         }
 
         &__ttl {
@@ -435,7 +528,7 @@
     .about {
         position: relative;
         width: 100%;
-        height: 200vh;
+        height: 160vh;
         @include hideElement;
 
         &__animation {
@@ -519,7 +612,8 @@
     .contact {
         position: relative;
         width: 100%;
-        height: 100vh;
+        height: 116vh; ////////????
+        // height: 100%;
         @include hideElement;
 
         &__animation {
