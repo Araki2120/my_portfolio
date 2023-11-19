@@ -1,2 +1,2 @@
-# portfolio_test
- gsapのテスト用
+# My_portfolio
+ ポートフォリオ用リポジトリ
