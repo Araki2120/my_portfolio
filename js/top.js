@@ -18,7 +18,6 @@ const green = '#028760';
 const yellow = '#EDDF29';
 const orange = '#EE7800';
 
-
 //GSAP timeline全体の設定
 const scrollSet = {
     start: "top top",//要素の位置 ウィンドウの位置
@@ -30,6 +29,12 @@ const scrollSet = {
     anticipatePin: 1,//ちらつき軽減
     ease: "power4.out",//変化率
 };
+
+//レスポンシブ用
+let mm = gsap.matchMedia();
+
+// mm.add("(min-width: 768px)", () => { });
+// mm.add("(min-width: 1024px)", () => { });
 
 
 //mv用 timelime
@@ -70,6 +75,8 @@ mvTl
             scale: [0, 1, 3],
         },
     });
+
+
 
 
 //concept用 timelime
