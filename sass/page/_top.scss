@@ -377,7 +377,6 @@
         position: relative;
         width: 100%;
         height: 100%;
-        margin: 0 auto;
         background: transparent;
         overflow: hidden;
         pointer-events: none;
@@ -402,25 +401,52 @@
         &__container {
             position: relative;
             top: 0;
-            left: 50%; ////
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 120px;
             width: 85%;
-            margin-top: -20%;
-            transform: translateX(-50%);
+            margin: 0 auto;
+            margin-top: 100%;
             z-index: 5;
 
+            @media screen and (min-width: 768px) {
+                margin-top: 50%;
+            }
+
             @media screen and (min-width: 1024px) {
-                width: 1425px;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8%;
+                width: min(85%, 1425px);
+                margin-top: -20%;
             }
         }
 
         &__ttl {
-            grid-column: 1 / 3; //全幅
+            margin-bottom: 40px;
             color: $wh;
-            font-size: $pcTtl; //100
+            @include font-din($spTtl);
             text-align: center;
+
+            @media screen and (min-width: 768px) {
+                margin-bottom: 60px;
+                font-size: $tabTtl;
+            }
+
+            @media screen and (min-width: 1024px) {
+                grid-column: 1 / 3; //全幅
+                margin-bottom: 0;
+                font-size: $pcTtl;
+            }
+        }
+
+        &__wrap {
+            margin-bottom: 60px;
+
+            @media screen and (min-width: 768px) {
+                margin-bottom: 80px;
+            }
+
+            @media screen and (min-width: 1024px) {
+                margin: 0;
+            }
         }
 
         &__type {
@@ -428,11 +454,22 @@
             display: flex;
             align-items: center;
             width: 100%;
-            height: 180px;
-            margin-bottom: 80px;
+            height: 120px;
+            margin-bottom: 20px;
             padding-left: 24px;
             color: $wh;
             @include font-din;
+
+            @media screen and (min-width: 768px) {
+                height: 160px;
+                margin-bottom: 80px;
+                font-size: $tabSub;
+            }
+
+            @media screen and (min-width: 1024px) {
+                height: 180px;
+                font-size: $pcSub;
+            }
         }
 
         &__circle--01,
@@ -443,13 +480,10 @@
             left: 0;
             display: flex;
             align-items: center;
+            height: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
             overflow: hidden;
-
-            @media screen and (min-width: 1024px) {
-                height: 100%;
-                aspect-ratio: 1 / 1;
-                border-radius: 50%;
-            }
 
             &::after {
                 content: '';
@@ -493,35 +527,60 @@
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            width: 100%;
-            height: 100px;
+            margin-bottom: 20px;
+            padding-left: 12px; //丸の左が揃って見えるように
+
+            @media screen and (min-width: 768px) {
+                margin-bottom: 40px;
+            }
 
             @media screen and (min-width: 1024px) {
                 margin-bottom: 40px;
-                padding-left: 12px; //丸の左が揃って見えるように
             }
         }
 
         &__name {
             position: relative;
             @include flexCenter;
-            width: 100px;
-            height: 100px;
-            margin-right: 40px;
+            width: 80px;
+            aspect-ratio: 1 / 1;
+            margin-right: 10px;
             border: 1px solid $wh;
             border-radius: 50%;
-            @include font-din(1.25rem);
+            @include font-din($pcNav);
             text-align: center;
+
+            @media screen and (min-width: 768px) {
+                width: 100px;
+                height: 100px;
+                margin-right: 40px;
+            }
         }
 
         &__txt {
-            width: 500px;
+            width: calc(100% - 90px);
+
+            @media screen and (min-width: 768px) {
+                width: calc(100% - 140px);
+            }
+
+            @media screen and (min-width: 1024px) {
+                width: min(70%, 500px);
+            }
         }
 
         &__catch {
             grid-column: 1 / 3; //全幅
             @include font-din;
             text-align: center;
+
+            @media screen and (min-width: 768px) {
+                font-size: $tabSub;
+            }
+
+            @media screen and (min-width: 1024px) {
+                font-size: $pcSub;
+            }
         }
     }
 
@@ -541,24 +600,30 @@
         }
 
         &__circle1 {
-            width: 65vw;
-            height: 65vw;
+            width: 104vw;
+            height: 104vw;
             background: $orange;
             border-radius: 50%;
+
+            @media screen and (min-width: 1024px) {
+                width: 65vw;
+                height: 65vw;
+            }
         }
 
-        &__circle2 {
-            width: 65vw;
-            height: 65vw;
-            border: 3px solid $wh;
-            border-radius: 50%;
-        }
-
+        &__circle2,
         &__circle3 {
-            width: 65vw;
-            height: 65vw;
-            border: 3px solid $wh;
+            width: 104vw;
+            height: 104vw;
+            border: 2px solid $wh;
             border-radius: 50%;
+
+            @media screen and (min-width: 1024px) {
+                width: 65vw;
+                height: 65vw;
+                border: 3px solid $wh;
+            }
+
         }
 
         &__container--01 {
@@ -568,18 +633,25 @@
         }
 
         &__ttl {
-            @include font-din($pcTtl); //100
+            margin-bottom: 10px;
+            @include font-din($spTtl);
+
+            @media screen and (min-width: 768px) {
+                margin-bottom: 20px;
+                font-size: $tabTtl;
+            }
 
             @media screen and (min-width: 1024px) {
                 margin-bottom: 40px;
+                font-size: $pcTtl;
             }
         }
 
         &__txt {
-            font-size: 2.5rem;
-            font-family: $din;
-            text-align: center;
+            margin-bottom: 10px;
+            @include font-din;
             line-height: 1.2;
+            text-align: center;
 
             @media screen and (min-width: 1024px) {
                 margin-bottom: 40px;
@@ -587,18 +659,23 @@
         }
 
         &__span {
-            font-size: 1rem;
+            font-size: $spTxt;
             font-family: $noto;
+
+            @media screen and (min-width: 768px) {
+                font-size: 1rem;
+            }
         }
 
         &__more {
+            width: 65%;
+            aspect-ratio: 1 / 1;
             background: $wh;
             border-radius: 50%;
             overflow: hidden;
 
             @media screen and (min-width: 1024px) {
-                width: 240px;
-                height: 240px;
+                width: min(60%, 240px);
             }
         }
 
@@ -606,6 +683,10 @@
             @include flexCenter;
             color: $bk;
             @include font-btn;
+
+            @media screen and (min-width: 768px) {
+                font-size: $btnTxt;
+            }
         }
     }
 
@@ -613,7 +694,6 @@
         position: relative;
         width: 100%;
         height: 116vh; ////////????
-        // height: 100%;
         @include hideElement;
 
         &__animation {
@@ -629,11 +709,16 @@
         }
 
         &__circle {
-            width: 38.5vw;
-            height: 38.5vw;
+            width: 60vw;
+            height: 60vw;
             background: $wh;
             border-radius: 50%;
             overflow: hidden;
+
+            @media screen and (min-width: 1024px) {
+                width: 38.5vw;
+                height: 38.5vw;
+            }
         }
 
         &__link {
@@ -643,20 +728,48 @@
         }
 
         &__ttl {
-            margin-bottom: 40px;
+            margin-bottom: 10px;
             color: $bk;
-            @include font-din($pcTtl); //100
+            @include font-din($spTtl);
+
+            @media screen and (min-width: 768px) {
+                margin-bottom: 20px;
+                font-size: $tabTtl;
+            }
+
+            @media screen and (min-width: 1024px) {
+                margin-bottom: 40px;
+                font-size: $pcTtl;
+            }
         }
 
         &__thanks {
+            width: 173px;
             color: $bk;
             @include font-din;
+            text-align: center;
+
+            @media screen and (min-width: 768px) {
+                width: 251px;
+                font-size: $tabSub;
+            }
+
+            @media screen and (min-width: 1024px) {
+                width: 100%;
+                font-size: $pcSub;
+            }
         }
 
         &__container--02 {
-            position: absolute;
-            width: 42vw;
-            height: 42vw;
+            display: none;
+
+            @media screen and (min-width: 1024px) {
+                position: absolute;
+                width: 65vw;
+                height: 65vw;
+                width: 42vw;
+                height: 42vw;
+            }
         }
 
         &__svg {

@@ -49,7 +49,7 @@
 
 //font用
 @mixin font-din($size: 1.5rem) {
-    //24
+    //24 spSub
     font-size: $size;
     font-family: $din;
     font-weight: $regular;
