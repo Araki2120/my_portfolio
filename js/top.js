@@ -30,11 +30,10 @@ const scrollSet = {
     ease: "power4.out",//変化率
 };
 
-//レスポンシブ用
-let mm = gsap.matchMedia();
-
-// mm.add("(min-width: 768px)", () => { });
-// mm.add("(min-width: 1024px)", () => { });
+//レスポンシブ用設定
+const breakPoint = 1024;
+const isDesktop = `(min-width: ${breakPoint})`;
+const isTab = `(max-width: ${breakPoint - 1})`;
 
 
 //mv用 timelime
@@ -43,7 +42,7 @@ const mvTl = gsap.timeline({
         trigger: mv,
         toggleClass: { targets: mv, className: "isActive" },
         ...scrollSet, // ...（スプレッド演算子）でscrollSetの設定を展開
-    }
+    },
 });
 
 const mvCircles = mv.querySelectorAll('.circle');
@@ -54,29 +53,26 @@ mvCircles.forEach((mc) => {
 mvTl
     .from('.mv__circle1', {
         keyframes: {
-            scale: [0, 0.6, 3],
+            scale: [0, 0.6, 6],
         },
     })
-
     .from('.mv__circle2', {
         keyframes: {
-            scale: [0, 0, 2.5],
+            scale: [0, 0, 5],
         },
     }, '0') //「0」tl開始と同じタイミングで発火
 
     .from('.mv__circle3', {
         keyframes: {
-            scale: [0, 0, 2.5],
+            scale: [0, 0, 5],
         },
     }, '0')
 
     .from('.mv__circle4', {
         keyframes: {
-            scale: [0, 1, 3],
+            scale: [0, 1, 6],
         },
     });
-
-
 
 
 //concept用 timelime
@@ -88,7 +84,6 @@ const conceptTl = gsap.timeline({
     }
 });
 
-//色が変化する丸 catch出たところで一旦止まる
 conceptTl
     .from('.concept__circle1', {
         keyframes: {
@@ -141,23 +136,22 @@ conceptTl
     }, '<');
 
 
-//works用 timelime
-const worksTl = gsap.timeline({
+//works用 PC版 Timeline
+const PcWorksTl = gsap.timeline({
     scrollTrigger: {
         trigger: works,
         ...scrollSet,
-        // end: 'bottom bottom',
-        // toggleClass: { targets: works, className: "isActive" },
+        toggleClass: { targets: works, className: "isActive" },
         onEnter: () => {
             works.classList.add("isActive"); // アニメーション開始時にクラスを追加
         },
         onLeaveBack: () => {
             works.classList.remove("isActive"); // スクロールして戻った時にクラスを削除
-        }
-    }
+        },
+    },
 });
 
-worksTl
+PcWorksTl
     .to('.works__circle1', {
         keyframes: {
             scale: [0, 0.6, 1, 3],
@@ -210,7 +204,76 @@ worksTl
     }, '<');
 
 
-////works 個別slide用 timelime
+//works用 タブレット・スマホ版 Timeline
+const TabWorksTl = gsap.timeline({
+    scrollTrigger: {
+        trigger: works,
+        ...scrollSet,
+        // toggleClass: { targets: works, className: "isActive" },
+        onEnter: () => {
+            works.classList.add("isActive"); // アニメーション開始時にクラスを追加
+        },
+        onLeaveBack: () => {
+            works.classList.remove("isActive"); // スクロールして戻った時にクラスを削除
+        },
+    }
+});
+
+
+TabWorksTl
+    .to('.works__circle1', {
+        keyframes: {
+            scale: [0, 1, 3],
+        },
+    })
+
+    .to('.works__circle2', {
+        keyframes: {
+            scale: [0, 1, 3],
+        },
+    }, '<')
+
+    .to('.works__ttl', {
+        keyframes: {
+            autoAlpha: [0, 0.2, 1],
+        },
+    }, '<')
+
+    .from('.works__circle3', {
+        scale: 0
+    })
+
+    .to('.works__ttl', {
+        keyframes: {
+            autoAlpha: [1, 0.4]
+        }
+    })
+
+    .to('.works__circle3', {
+        scale: 1,
+        opacity: 1,
+    }, '<')
+
+    .to('.works__circle2', {
+        backgroundColor: wh,
+    })
+
+    .to('.works__circle3', {
+        scale: 0.8,
+        autoAlpha: 0,
+    })
+
+    .to('.works__ttl', {
+        autoAlpha: 0,
+    }, '<')
+
+    .from('.works__slider', {
+        scale: 0.9,
+        autoAlpha: 0,
+    }, '<');
+
+
+//works個別紹介 スライド用
 const slideWorks = document.querySelectorAll('.works__container');
 const worksNum = slideWorks.length;
 const slideRatio = (-100 / worksNum);
@@ -224,7 +287,7 @@ slideWorks.forEach((work, i) => { //同じ動きを配列で処理
     const more = work.querySelector('.works__more');
     const curretNum = i += 1;
 
-    worksTl
+    PcWorksTl
         .to('.works__slider', { //全体で動き続けたい・・・！
             left: (slideRatio * curretNum) + '%',
         })
@@ -287,12 +350,59 @@ slideWorks.forEach((work, i) => { //同じ動きを配列で処理
                 scale: [1, 0.6],
                 autoAlpha: [1, 0],
             }
+        }, '<');
+
+    TabWorksTl
+        .to('.works__slider', {
+            left: (slideRatio * curretNum) + '%',
+        })
+
+        .to(pic, {
+            scale: 1,
+            autoAlpha: 1,
         }, '<')
 
-    // .to('.works__slider', { //全体で動き続ける
-    //     left: (slideRatio * curretNum) + '%',
-    // }, '0');
+        //拡大する
+        .to(pic, {
+            keyframes: {
+                scale: [1, 1.2],
+                autoAlpha: [1, 0.4],
+            }
+        })
+
+        .to(more, {
+            keyframes: {
+                y: ['-100%', '100%'],
+            }
+        })
+
+        .to(box, {
+            keyframes: {
+                y: ['-1000%', '1000%'],
+            }
+        }, '<')
+
+        .to(pic, {
+            scale: 0.6,
+            autoAlpha: 0,
+        });
+
 });
+
+//レスポンシブ設定
+let mm = gsap.matchMedia();
+
+mm.add(isTab, () => {
+    PcWorksTl.revert();
+    TabWorksTl.play();
+});
+
+mm.add(isDesktop, () => {
+    TabWorksTl.revert();
+    PcWorksTl.play();
+});
+
+
 
 // skill用 timeline
 const skillTl = gsap.timeline({ //動き変えるため個別登録
@@ -366,61 +476,54 @@ aboutTl
 
 
 ////contact用 timelime
-const circleTxt = document.querySelector('.contact__circleTxt');
+const circleTxt = document.querySelector('.contact__pic');
 
 const contactTl = gsap.timeline({
     scrollTrigger: {
         trigger: contact,
         ...scrollSet,
-        pinSpacing: true, // 次の要素が無ければいれるs
-        onEnter: () => {
-            contact.classList.add("isActive");
-        },
-        onLeaveBack: () => {
-            contact.classList.remove("isActive");
-        }
+        pinSpacing: true, // 次の要素が無ければいれる
     }
 });
 
 contactTl
-    .from('.contact__circle', {
-        keyframes: {
-            scale: [0.2, 1]
-        }
-    })
-
-    .to('.contact__container--01', {
+    .to('.contact__circle', {
         keyframes: {
             autoAlpha: [0, 1],
-        }
-    }, '0')
+            scale: [0.2, 1]
+        },
+    }, '<')
 
-    .to('.contact__container--02', {
+    .to('.contact__container', {
         keyframes: {
             scale: [0.2, 1],
             autoAlpha: [0, 1],
         }
+    }, '<')
 
-    }, '0')
+    .to(footer, {
+        autoAlpha: 1,
+    }, '<')
 
     .add(() => {
         circleTxt.classList.add('rotateTxt');
-    });
+    }, '>');
 
 
 //Timeline以外の設定
-const bodyHeight = document.body.clientHeight;
-const pageBottom = bodyHeight - windowHeight;
+// const html = document.querySelector('html')
+// const bodyHeight = document.body.clientHeight // bodyの高さを取得
+// const bottomPoint = bodyHeight - windowHeight // ページ最下部までスクロールしたかを判定するための位置を計算
 
-window.addEventListener('scroll', () => {
-    const ST = window.scrollY;
-
-    if (pageBottom <= ST) {
-        footer.classList.add('isActive');
-    } else {
-        footer.classList.remove('isActive');
-    }
-});
+// window.addEventListener('scroll', () => {
+//     const ST = window.scrollY; // スクロール量を取得
+//     if (bottomPoint <= ST) { // スクロール量が最下部の位置を過ぎたかどうか
+//         footer.classList.add('isActive')
+//         console.log('aaa');
+//     } else {
+//         footer.classList.remove('isActive')
+//     }
+// })
 
 //リサイズと再読み込み
 window.addEventListener('resize', () => {

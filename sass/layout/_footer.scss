@@ -5,15 +5,13 @@
 .footer {
     position: fixed;
     bottom: 0;
-    left: 50%;
+    left: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     margin-bottom: 40px;
     @include hideElement;
-    transform: translateX(-50%);
-    transition: 1s;
 
     @media screen and (min-width: 1024px) {
         left: 0;
@@ -38,11 +36,6 @@
         padding: 10px;
         color: $wh;
         @include font-din($pcNav);
-
-        @media screen and (min-width: 1024px) {
-            font-size: $btnTxt;
-        }
-
     }
 
     &__copy {
