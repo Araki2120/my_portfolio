@@ -372,7 +372,7 @@
 
             @media screen and (min-width: 1024px) {
                 bottom: calc(100% - 38.5vw);
-                left: 30px;
+                left: -60px;
             }
         }
 
@@ -408,17 +408,23 @@
 
         &__slider {
             position: relative;
-            left: 0;
-            width: 100%;
-            z-index: -1; //picの下を通る
             pointer-events: none;
+            z-index: -1;
 
             &::before {
                 content: 'WORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKSWORKS';
                 display: block;
                 color: $lightBlue;
-                @include font-din(40rem);
+                @include font-din(12.5rem);
                 opacity: 0.2;
+
+                @media screen and (min-width: 768px) {
+                    font-size: 25rem;
+                }
+
+                @media screen and (min-width: 1024px) {
+                    font-size: 40rem;
+                }
             }
         }
     }
@@ -427,14 +433,14 @@
     .skill {
         position: relative;
         width: 100%;
-        height: 400vh;
+        height: 450vh;
         padding-top: 160%; /////
         background: transparent;
         overflow: hidden;
         pointer-events: none;
 
         @media screen and (min-width: 768px) {
-            height: 340vh;
+            height: 370vh;
             padding-top: 120%; /////
         }
 
@@ -453,6 +459,7 @@
             background: $bk;
             border-radius: 50%;
             transform: translateX(-50%);
+            opacity: 0;
             z-index: 1;
         }
 
@@ -763,6 +770,7 @@
         width: 100%;
         height: 100vh;
         z-index: 1;
+        @include hideElement;
 
         &__animation {
             @include animationBox;

@@ -79,6 +79,11 @@
         pointer-events: auto;
     }
 
+    .hideElement {
+        opacity: 0;
+        visibility: hidden;
+    }
+
     .rotateTxt {
         transform-origin: center center;
         animation: rotateTxt 80s linear infinite;
