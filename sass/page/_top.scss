@@ -207,8 +207,8 @@
 
         &__circle2 {
             //でっかい丸
-            width: 400vw;
-            height: 400vw;
+            width: 300vh;
+            height: 300vh;
             background: $bk;
             border-radius: 50%;
 
@@ -436,7 +436,7 @@
         height: 450vh;
         padding-top: 160%; /////
         background: transparent;
-        overflow: hidden;
+        // overflow: hidden;
         pointer-events: none;
 
         @media screen and (min-width: 768px) {

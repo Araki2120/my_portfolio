@@ -117,13 +117,20 @@ conceptTl
     //concept説明が出ても丸は動き続ける
     .to('.concept__circle1', {
         keyframes: {
-            scale: [1.5, 2, 4],
+            scale: [1.5, 2],
         }
     }, '<')
+
+    .to('.concept__circle1', {
+        keyframes: {
+            scale: [2, 4],
+        }
+    })
 
     .from('.concept__circle2', {
         scale: 0,
     }, '>')
+
 
     //concept説明 また動き出す
     .from('.concept__box--01', {
@@ -303,13 +310,13 @@ slideWorks.forEach((work, i) => {
     //タブレット・スマートフォン
     mm.add("(max-width: 1023px)", () => {
         worksTl
-            .set(pic, {
-                autoAlpha: 0,
-            })
+            // .set(pic, {
+            //     autoAlpha: 0,
+            // })
 
             .to('.works__slider', {
                 left: (slideRatio * (currentNum + 1)) + '%',
-            }, '<')
+            })
 
             .to(pic, {
                 keyframes: {
@@ -320,7 +327,7 @@ slideWorks.forEach((work, i) => {
 
             .to(more, {
                 keyframes: {
-                    y: ['200px', '-300px'],
+                    y: ['100px', '-300px'],
                     scale: [1, 1],
                     autoAlpha: [0, 1, 0],
                 }
@@ -328,7 +335,7 @@ slideWorks.forEach((work, i) => {
 
             .to(box, {
                 keyframes: {
-                    y: ['100px', '-400px'],
+                    y: ['100px', '-300px'],
                     autoAlpha: [0, 1, 0],
                 }
             }, '<')
@@ -385,9 +392,9 @@ const aboutTl = gsap.timeline({
         trigger: about,
         toggleClass: { targets: about, className: "isActive" },
         ...scrollSet,
-        start: '-60% top',
-        pin: false,
-        pinSpacing: true,
+        start: '-20% top',
+        // pin: false,
+        // pinSpacing: true,
     }
 });
 
