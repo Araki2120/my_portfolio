@@ -5,12 +5,111 @@
 
 #top {
 
+    //お試し 製作中 ローディング画面
+    .loading {
+        position: fixed;
+        @include flexCenter;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh; /////
+        background: $wh;
+        z-index: 100;
+        animation: loading .8s ease-out forwards;
+
+        &__container {
+            position: relative;
+            @include flexCenter;
+            width: 100px;
+            height: 100px;
+            flex-direction: row;
+
+            @media screen and (min-width: 768px) {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
+        &__circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 1px solid $bk;
+
+            &:nth-child(1) {
+                animation: spinCircle1 3s infinite linear;
+            }
+
+            &:nth-child(2) {
+                animation: spinCircle2 2s infinite linear;
+            }
+
+            &:nth-child(3) {
+                animation: spinCircle3 1.5s infinite linear;
+            }
+
+            &:nth-child(4) {
+                animation: spinCircle1 1.5s infinite linear reverse;
+            }
+
+            &:nth-child(5) {
+                animation: spinCircle2 2s infinite linear reverse;
+            }
+
+            &:nth-child(6) {
+                animation: spinCircle3 3s infinite linear reverse;
+            }
+
+            @keyframes spinCircle1 {
+                0% {
+                    transform: rotateZ(20deg) rotateY(0deg);
+                }
+
+                100% {
+                    transform: rotateZ(100deg) rotateY(360deg);
+                }
+            }
+
+            @keyframes spinCircle2 {
+                0% {
+                    transform: rotateZ(100deg) rotateX(0deg);
+                }
+
+                100% {
+                    transform: rotateZ(0deg) rotateX(360deg);
+                }
+            }
+
+            @keyframes spinCircle3 {
+                0% {
+                    transform: rotateZ(100deg) rotateX(-360deg);
+                }
+
+                100% {
+                    transform: rotateZ(-360deg) rotateX(360deg);
+                }
+            }
+        }
+
+        &__txt {
+            position: absolute;
+            bottom: -24%;
+            @include font-din($spTxt);
+            color: $bk;
+
+            @media screen and (min-width: 768px) {
+                font-size: 1rem;
+            }
+        }
+    }
+
     //mvセクション
     .mv {
         position: relative;
         @include flexCenter;
         width: 100%;
         height: 100vh;
+        height: 100dvh; ////
         background: $wh;
 
         &__logoCircle {
@@ -91,14 +190,20 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            border: 2px solid $gray;
+            border: 1px solid $gray;
             z-index: -1;
+
+            @media screen and (max-height: 480px) {
+                //スマホ横長のとき
+                right: 6%;
+            }
 
             @media screen and (min-width: 768px) {
                 bottom: 36px;
                 width: 100px;
                 height: 100px;
             }
+
 
             @media screen and (min-width: 1024px) {
                 bottom: 42px;
@@ -114,34 +219,21 @@
                 height: 70%;
                 background: $bk;
                 animation: downLine 1.6s 2s infinite;
-
-                @media screen and (min-width: 768px) {}
             }
         }
 
         &__downLink {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            overflow: hidden;
+            @include flexCenter;
             color: $bk;
+            border-radius: 50%;
             @include font-btn(0.625rem);
             text-align: center;
+            overflow: hidden;
 
             @media screen and (min-width: 768px) {
                 font-size: 1rem;
             }
         }
-
-        // &__scrollTxt {
-        //     @include font-btn(0.625rem);
-        //     text-align: center;
-
-        //     @media screen and (min-width: 768px) {
-        //         font-size: 1rem;
-        //     }
-        // }
 
         &__svg {
             position: absolute;
@@ -211,7 +303,7 @@
             color: $bk;
             text-align: center;
 
-            @media screen and (min-width: 768px) {
+            @media screen and (min-width: 768px) and (min-height: 480px) {
                 width: 100%;
                 font-size: $tabSub;
             }
@@ -234,7 +326,7 @@
             color: $wh;
             @include font-din($spTtl);
 
-            @media screen and (min-width: 768px) {
+            @media screen and (min-width: 768px) and (min-height: 480px) {
                 width: 100%;
                 padding-bottom: 40px;
                 font-size: $tabTtl;
@@ -276,7 +368,7 @@
                 margin-bottom: 20px;
                 @include font-din(1rem);
 
-                @media screen and (min-width: 768px) {
+                @media screen and (min-width: 768px) and (min-height: 480px) {
                     margin-bottom: 40px;
                     font-size: $headTxt;
                 }
@@ -370,7 +462,7 @@
         &__ttl {
             @include font-din($spTtl);
 
-            @media screen and (min-width: 768px) {
+            @media screen and (min-width: 768px) and (min-height: 480px) {
                 font-size: $tabTtl;
             }
 
@@ -585,8 +677,7 @@
             transform: translateX(-50%);
 
             @media screen and (min-width: 1024px) {
-                // top: 20%;
-                top: 0;
+                top: 20%;
                 width: 220%;
             }
         }
@@ -616,7 +707,7 @@
             @include font-din($spTtl);
             text-align: center;
 
-            @media screen and (min-width: 768px) {
+            @media screen and (min-width: 768px) and (min-height: 480px) {
                 margin-bottom: 60px;
                 font-size: $tabTtl;
             }
@@ -827,7 +918,7 @@
             margin-bottom: 10px;
             @include font-din($spTtl);
 
-            @media screen and (min-width: 768px) {
+            @media screen and (min-width: 768px) and (min-height: 480px) {
                 margin-bottom: 20px;
                 font-size: $tabTtl;
             }
@@ -844,7 +935,7 @@
             line-height: 1.2;
             text-align: center;
 
-            @media screen and (min-width: 768px) {
+            @media screen and (min-width: 768px) and (min-height: 480px) {
                 font-size: $tabSub;
             }
 
@@ -859,7 +950,7 @@
             font-family: $noto;
             font-weight: $light;
 
-            @media screen and (min-width: 768px) {
+            @media screen and (min-width: 768px) and (min-height: 480px) {
                 position: relative;
                 top: -10px;
                 font-size: 1rem;
@@ -867,7 +958,7 @@
         }
 
         &__more {
-            width: 65%;
+            width: min(60%, 120px);
             aspect-ratio: 1 / 1;
             background: $wh;
             border-radius: 50%;
@@ -893,6 +984,7 @@
         position: relative;
         width: 100%;
         height: 100vh;
+        height: 100dvh; ////
         @include hideElement;
         z-index: 1;
 
@@ -927,7 +1019,8 @@
             color: $bk;
             @include font-din($spTtl);
 
-            @media screen and (min-width: 768px) {
+
+            @media screen and (min-width: 768px) and (min-height: 480px) {
                 margin-bottom: 20px;
                 font-size: $tabTtl;
             }
@@ -943,7 +1036,7 @@
             @include font-din;
             text-align: center;
 
-            @media screen and (min-width: 768px) {
+            @media screen and (min-width: 768px) and (min-height: 480px) {
                 width: 251px;
                 font-size: $tabSub;
             }

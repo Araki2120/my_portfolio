@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 viewport-fit=cover">
   <meta name="format-detection" content="telephone=no">
   <title>BEAT | Yuri Araki's Port Folio</title>
   <meta name="keywords" content="">
@@ -70,13 +71,20 @@
 
     <main class="main">
 
-      <div id="loading">
-        <div class="loading__circle"></div>
-        <div class="loading__circle"></div>
-        <div class="loading__circle"></div>
+      <!-- お試し ローディング画面設置中 -->
+      <div class="loading">
+        <div class="loading__container">
+          <div class="loading__circle"></div>
+          <div class="loading__circle"></div>
+          <div class="loading__circle"></div>
+          <div class="loading__circle"></div>
+          <div class="loading__circle"></div>
+          <div class="loading__circle"></div>
+          <!-- <p class="loading__txt">LOADING...</p> -->
+        </div>
       </div>
 
-      <div id="mv" class="mv">
+      <section id="mv" class="mv">
         <div class="mv__logoCircle">
           <p class="mv__logo"><img src="images/mv_logo.svg" alt="BEAT" class="mv__logoImg"></p>
         </div>
@@ -94,6 +102,7 @@
             <div class="mv__circle4 circle"></div>
           </div>
         </div>
+
         <div class="mv__scroll">
           <a href="#conceptPoint" class="mv__downLink">
             <p class="mv__scrollTxt">SCROLL<br>DOWN</p>
@@ -102,7 +111,7 @@
             </svg>
           </a>
         </div>
-      </div>
+      </section>
 
       <section id="concept" class="concept box">
         <div class="concept__animation">
@@ -164,7 +173,7 @@
                 </div>
               </div>
               <p class="works__more">
-                <a href="#" class="works__link">VIEW MORE
+                <a href="allworks/azito/index.html" class="works__link">VIEW MORE
                   <span class="works__moreSpan"></span>
                 </a>
               </p>
@@ -172,7 +181,7 @@
           </div>
 
           <div class="works__slide-container">
-            <p class="works__pic"><img src="images/works_pic2.jpg" alt="cafe azito" class="works__img"></p>
+            <p class="works__pic"><img src="images/works_pic2.jpg" alt="ATOI" class="works__img"></p>
             <div class="works__wrap">
               <div class="works__box">
                 <div class="works__mask">
@@ -181,7 +190,24 @@
                 </div>
               </div>
               <p class="works__more">
-                <a href="#" class="works__link">VIEW MORE
+                <a href="allworks/atoi/index.html" class="works__link">VIEW MORE
+                  <span class="works__moreSpan"></span>
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <div class="works__slide-container">
+            <p class="works__pic"><img src="images/works__pic3.jpg" alt="Fluffy" class="works__img"></p>
+            <div class="works__wrap">
+              <div class="works__box">
+                <div class="works__mask">
+                  <p class="works__name">Fluffy<span class="works__type">Web Site (Responsive)</p>
+                  <p class="works__txt">Web Design & Create</p>
+                </div>
+              </div>
+              <p class="works__more">
+                <a href="allworks/fluffy/index.html" class="works__link">VIEW MORE
                   <span class="works__moreSpan"></span>
                 </a>
               </p>
@@ -204,12 +230,12 @@
             <div class="skill__box">
               <p class="skill__name">HTML</p>
               <p class="skill__txt">
-                HTMLを使用して、webサイトの制作を行えます。コーディング全般で「他の人が見てもわかりやすいコード」を意識して、記述順やクラス名を統一し、見やすくなるように心がけています。</p>
+                HTMLを使用して、webサイトの制作を行うことが可能です。コーディング全般で「自分以外が見てもわかりやすいコード」を意識して記述順やクラス名を統一し、見やすくなるように心がけています。</p>
             </div>
             <div class="skill__box">
               <p class="skill__name">CSS</p>
               <p class="skill__txt">CSSを使用したwebサイトのスタイリングができます。
-                また、JavaScriptと組み合わせたり、keyframesやSVGを使ったアニメーションの実装も行えます。</p>
+                また、JavaScriptと組み合わせたり、keyframesやSVGを使ったアニメーションの実装も可能です。</p>
             </div>
             <div class="skill__box">
               <p class="skill__name">SASS</p>
@@ -225,11 +251,11 @@
             <div class="skill__box">
               <p class="skill__name">Java Script</p>
               <p class="skill__txt">
-                VanillaJSの基礎的な文法を学びました。現在も勉強中ですが、制作したWebサイトに動きを付けたり条件に合わせた制御を行うことができます。また、APIを取得したアプリ制作も行いました。</p>
+                VanillaJSの基礎的な文法を学びました。現在も勉強中ですが、制作したWebサイトに動きを付けたり条件に合わせた制御を行うことができます。また、APIからデータを取得し、アプリの制作を行いました。</p>
             </div>
             <div class="skill__box">
               <p class="skill__name">jQuery</p>
-              <p class="skill__txt">jQueryを使用して、webサイトにアニメーション等の動きを付けることができます。</p>
+              <p class="skill__txt">jQueryを使用し、webサイトにアニメーション等の動きを付けることができます。</p>
             </div>
             <div class="skill__box">
               <p class="skill__name">Node.js</p>
@@ -242,7 +268,7 @@
 
             <div class="skill__box">
               <p class="skill__name">Photo Shop</p>
-              <p class="skill__txt">画像の加工・修正が可能です。また切り抜き機能や簡単なパスを使用し、バナーやロゴのデザインを行えます</p>
+              <p class="skill__txt">画像の加工・修正が可能です。また切り抜き機能や簡単なパスを使用し、バナーやロゴのデザインを行うことができます。</p>
             </div>
             <div class="skill__box">
               <p class="skill__name">Figma</p>
@@ -259,11 +285,13 @@
 
             <div class="skill__box">
               <p class="skill__name">Git Hub</p>
-              <p class="skill__txt">個人開発の範囲でのバージョン管理、ターミナルを使用した管理も行いました。</p>
+              <p class="skill__txt">個人開発の範囲でのバージョン管理が可能です。管理にはターミナルのコマンドを使用しています。</p>
             </div>
             <div class="skill__box">
               <p class="skill__name">Word Press</p>
-              <p class="skill__txt">WordPressを使用したサイトの作成が可能です。テンプレートだけではなく、オリジナルのデザインを使用し実装をすることができたいです。（仮）</p>
+              <p class="skill__txt">
+                WordPressを使用したサイトを作成し、サーバーにアップロードが可能です。またHTML・CSSで作られたテーマをPHPを使用して読み込み、WordPressの機能を実装をすることができます。
+              </p>
             </div>
             <div class="skill__box">
               <p class="skill__name">Chatwork<br>Quip</p>
@@ -322,12 +350,22 @@
 
     <footer id="footer" class="footer">
       <div class="footer__container">
-        <p class="footer__sns"><a href="#" class="footer__link">Twitter</a></p>
-        <p class="footer__sns"><a href="#" class="footer__link">Git Hub</a></p>
+        <p class="footer__sns"><a href="#" target="_blank" class="footer__link">Twitter</a></p>
+        <p class="footer__sns"><a href="https://github.com/Araki2120" target="_blank" class="footer__link">Git Hub</a>
+        </p>
       </div>
       <p class="footer__copy">
         <small class="footer__small">Yuri Araki's Port Folio 2023. BEAT. Be Evolve All the Time.</small>
       </p>
+
+      <div class="footer__scroll">
+        <a href="#top" class="footer__topLink">
+          <p class="footer__scrollTxt">BACK<br>TO TOP</p>
+          <svg class="footer__svg">
+            <circle class="footer__svgCircle" cx="32" cy="32" r="30" />
+          </svg>
+        </a>
+      </div>
     </footer>
 
   </div>

@@ -15,12 +15,16 @@
     visibility: hidden;
     z-index: 10;
 
-    @media screen and (min-width: 1024px) {
-        left: 0;
+    @media screen and (min-width: 768px) and (max-height: 500px) {
         align-items: flex-start;
-        width: fit-content;
+        padding: 0 3.5%;
+    }
+
+    @media screen and (min-width: 1024px) {
+        align-items: flex-start;
+        // width: fit-content;/////???
         margin-bottom: 50px;
-        padding: 0 45px 0 3.5%;
+        padding: 0 3.5%;
         transform: none;
     }
 
@@ -46,5 +50,61 @@
         @media screen and (min-width: 1024px) {
             margin-left: 10px;
         }
+    }
+
+
+    &__scroll {
+        display: none;
+
+        @media screen and (min-width: 1024px) {
+            position: absolute;
+            bottom: 0;
+            right: 6%;
+            @include flexCenter;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 1px solid $gray;
+            z-index: -1;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -60%;
+            display: block;
+            width: 1.4px;
+            height: 70%;
+            background: $wh;
+            animation: downLine 1.6s 2s infinite reverse;
+        }
+    }
+
+    &__topLink {
+        @include flexCenter;
+        color: $wh;
+        border-radius: 50%;
+        @include font-btn(0.625rem);
+        text-align: center;
+        overflow: hidden;
+
+        @media screen and (min-width: 768px) {
+            font-size: 1rem;
+        }
+    }
+
+    &__svg {
+        position: absolute;
+        width: 104px;
+        height: 104px;
+        stroke-dasharray: 327 327;
+        stroke-dashoffset: 0;
+        animation: scrollCircleTab 2s infinite, rotateCircle 2s infinite;
+    }
+
+    &__svgCircle {
+        fill: transparent;
+        stroke: $wh;
+        stroke-width: 2;
     }
 }

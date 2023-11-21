@@ -29,16 +29,10 @@ const scrollSet = {
     markers: true,//目印
     scrub: 1,//スクロールに合わせたアニメ 数字を入れると余韻が付く
     pin: true,//止まるかどうか
-    pinSpacing: false,//これ大事！ 次のtlが連続になる
+    pinSpacing: false,//これ大事 次のtlが連続になる
     anticipatePin: 1,//ちらつき軽減
     ease: "power4.out",//変化率
 };
-
-//レスポンシブ用設定
-// let mm = gsap.matchMedia();
-const breakPoint = 1024;
-const isDesktop = `"(min-width: ${breakPoint})"`;
-const isTab = `"(max-width: ${breakPoint - 1})"`;
 
 
 //mv用 timelime
@@ -349,11 +343,11 @@ mm.add("(min-width: 1024px", () => {
     const skillTl = gsap.timeline({ //動き変えるため個別登録
         scrollTrigger: {
             trigger: '.skill__bg',
-            start: 'top 60%',
+            start: 'top 70%',
             end: 'bottom bottom',
             toggleClass: { targets: '.skill__bg', className: "isActive" },
             markers: true,//目印
-            scrub: 1,
+            scrub: 2,
             ease: "power4.in",
         }
     });
@@ -361,7 +355,7 @@ mm.add("(min-width: 1024px", () => {
     skillTl
         .to('.skill__bg', {
             keyframes: {
-                top: ['20%', '-3%', '-8%'],
+                top: ['20%', '-10%', '-20%'],
             },
         }, '0')
 
@@ -410,7 +404,6 @@ const aboutTl = gsap.timeline({
         trigger: about,
         toggleClass: { targets: about, className: "isActive" },
         ...scrollSet,
-        // start: '-20% top',
         pin: false,
         pinSpacing: true,
     }
@@ -445,7 +438,7 @@ aboutTl
 
 
 ////contact用 timelime
-const circleTxt = document.querySelector('.contact__pic');
+const circlePic = document.querySelector('.contact__pic');
 
 const contactTl = gsap.timeline({
     scrollTrigger: {
@@ -480,19 +473,32 @@ contactTl
         autoAlpha: 1,
     }, '<')
 
+    .to(circlePic, {
+        rotate: '180deg',
+    }, '<')
+
     .add(() => {
-        circleTxt.classList.add('rotateTxt');
-    });
+        circlePic.classList.add('rotateTxt');
+    }, '<');
+// 上のaddが効きません（どうやら下までスクロールできていないようです。）
+// endポイントを変更しても解決できませんでした。原因はわかりますでしょうか？）    
 
 
-//スクロールの丸サイズ 変更
+//mvスクロールダウンの丸サイズ変更
 const tabBP = window.matchMedia('(min-width: 768px)');
+const spBP = window.matchMedia('(max-height: 480px)');
 const svgCircle = document.querySelector('.mv__svgCircle');
+const svgCircles = document.querySelectorAll('.mv__svgCircle, .footer__svgCircle');
 
 if (tabBP.matches) {
-
     console.log('タブレットです');
-    const changeH = svgCircle.setAttribute('cx', '52');
-    const changeW = svgCircle.setAttribute('cy', '52');
-    const changeR = svgCircle.setAttribute('r', '50');
+
+    svgCircles.forEach((svgCircle) => {
+        svgCircle.setAttribute('cx', '52');
+        svgCircle.setAttribute('cy', '52');
+        svgCircle.setAttribute('r', '50');
+
+    });
+} else if (spBP.matches) {
+    console.log('縦が小さいです！');
 }
