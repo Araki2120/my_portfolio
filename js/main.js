@@ -4,8 +4,7 @@ window.addEventListener('DOMContentLoaded', () => {
     console.log('再読み込みしました');
 });
 
-//リサイズの設定
-//横画面
+//リサイズ検証用の設定
 const changeHorizon = () => {
     window.addEventListener('orientationchange', function () {
         console.log('画面を倒しました');
@@ -19,47 +18,66 @@ const changeHorizon = () => {
     })
 };
 
+window.addEventListener('resize', () => {
+    location.reload();
+});
+
+
 //画面幅を変更した時
 let timer = false;
 let windowWidth = window.innerWidth;
 
-const resize = () => {
-    console.log('画面幅を変更しました');
-    //ユーザーのデバイスを調べる
-    let ua = navigator.userAgent;
-    if (!(ua.indexOf('iPhone') > 0 || ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0 || ua.indexOf('Mobile') > 0)) {
-        // PC向けの処理
-        window.addEventListener('resize', () => {
-            if (timer !== false) {
-                clearTimeout(timer);
-            }
-            timer = setTimeout(() => {
-                let currentWidth = window.innerWidth;
-                // リロードする
-                if (windowWidth !== currentWidth) {
-                    // リロード
-                    location.reload();
-                }
-                windowWidth = currentWidth;
-            }, 200);
-        });
-    } else {
-        //スマホ向けの処理
-        window.addEventListener('orientationchange', function () {
-            console.log('スマホ画面変更');
-            if (timer !== false) {
-                clearTimeout(timer);
-            }
-            timer = setTimeout(function () {
-                // リロード
-                location.reload();
-            }, 200);
-        });
+window.addEventListener('resize', () => {
+    if (timer !== false) {
+        clearTimeout(timer);
     }
-};
+    timer = setTimeout(() => {
+        let currentWidth = window.innerWidth;
+        //前の画面幅と変更後の画面幅が違ったら…
+        if (windowWidth !== currentWidth) {
+            location.reload();
+        }
+        windowWidth = currentWidth;
+    }, 200);
+});
+
+// const resize = () => {
+//     console.log('画面幅を変更しました');
+//     //ユーザーのデバイスを調べる
+//     let ua = navigator.userAgent;
+//     if (!(ua.indexOf('iPhone') > 0 || ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0 || ua.indexOf('Mobile') > 0)) {
+//         // PC向けの処理
+//         window.addEventListener('resize', () => {
+//             if (timer !== false) {
+//                 clearTimeout(timer);
+//             }
+//             timer = setTimeout(() => {
+//                 let currentWidth = window.innerWidth;
+//                 // リロードする
+//                 if (windowWidth !== currentWidth) {
+//                     // リロード
+//                     location.reload();
+//                 }
+//                 windowWidth = currentWidth;
+//             }, 200);
+//         });
+//     } else {
+// //スマホ向けの処理
+// window.addEventListener('orientationchange', function () {
+//     console.log('スマホ画面変更');
+//     if (timer !== false) {
+//         clearTimeout(timer);
+//     }
+//     timer = setTimeout(function () {
+//         // リロード
+//         location.reload();
+//     }, 200);
+// });
+// //     }
+// // };
 
 changeHorizon();
-resize();
+// resize();
 
 
 //gnav用

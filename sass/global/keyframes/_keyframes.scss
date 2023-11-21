@@ -31,6 +31,53 @@
 }
 
 //topページ用
+@keyframes rotateCircle {
+    0% {
+        transform: none;
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes scrollCircle {
+    0% {
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dashoffset: -380;
+    }
+}
+
+@keyframes scrollCircleTab {
+    0% {
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dashoffset: -654;
+    }
+}
+
+@keyframes downLine {
+    0% {
+        transform: scaleY(0);
+        transform-origin: center top;
+    }
+
+    50% {
+        transform: scaleY(100%);
+        transform-origin: center top;
+    }
+
+    100% {
+        transform: scaleY(0);
+        transform-origin: center bottom;
+    }
+}
+
 @keyframes rotateTxt {
     0% {
         transform: rotate(0deg);

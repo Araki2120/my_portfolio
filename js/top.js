@@ -216,11 +216,11 @@ worksTl
 
 
 //works個別紹介用
-const slideWorks = document.querySelectorAll('.works__container');
-const worksCircles = document.querySelectorAll('.works__circle-container');
+const slideWorks = document.querySelectorAll('.works__slide-container');
 const worksNum = slideWorks.length;
 
 slideWorks.forEach((work, i) => {
+    const wrap = work.querySelector('.works__wrap');
     const pic = work.querySelector('.works__pic');
     const box = work.querySelector('.works__box');
     const mask = work.querySelector('.works__mask');
@@ -310,10 +310,6 @@ slideWorks.forEach((work, i) => {
     //タブレット・スマートフォン
     mm.add("(max-width: 1023px)", () => {
         worksTl
-            // .set(pic, {
-            //     autoAlpha: 0,
-            // })
-
             .to('.works__slider', {
                 left: (slideRatio * (currentNum + 1)) + '%',
             })
@@ -325,65 +321,87 @@ slideWorks.forEach((work, i) => {
                 }
             })
 
-            .to(more, {
+            .to(wrap, {
                 keyframes: {
-                    y: ['100px', '-300px'],
+                    y: ['100%', 0, '-100%'],
                     scale: [1, 1],
-                    autoAlpha: [0, 1, 0],
+                    autoAlpha: [0, 1, 1, 0],
                 }
             })
-
-            .to(box, {
-                keyframes: {
-                    y: ['100px', '-300px'],
-                    autoAlpha: [0, 1, 0],
-                }
-            }, '<')
 
             .to(work, {
                 scale: 0.6,
                 autoAlpha: 0,
             })
+
+            .to('.works__slider', {
+                left: (slideRatio * (currentNum + 2)) + '%',
+            }, '<');
     });
 });
 
 
-// skill用 timeline
-const skillTl = gsap.timeline({ //動き変えるため個別登録
-    scrollTrigger: {
-        trigger: skill,
-        start: 'top 40%',
-        end: 'bottom bottom',
-        toggleClass: { targets: '.skill__bg', className: "isActive" },
-        markers: true,//目印
-        scrub: 1,
-        ease: "power4.in",
-    }
+// skill用 timeline 
+let mm = gsap.matchMedia();
+
+//PC
+mm.add("(min-width: 1024px", () => {
+    const skillTl = gsap.timeline({ //動き変えるため個別登録
+        scrollTrigger: {
+            trigger: '.skill__bg',
+            start: 'top 60%',
+            end: 'bottom bottom',
+            toggleClass: { targets: '.skill__bg', className: "isActive" },
+            markers: true,//目印
+            scrub: 1,
+            ease: "power4.in",
+        }
+    });
+
+    skillTl
+        .to('.skill__bg', {
+            keyframes: {
+                top: ['20%', '-3%', '-8%'],
+            },
+        }, '0')
+
+        .to('.skill__container', {
+            keyframes: {
+                marginTop: ['-24%', '-30%'],
+                // marginTop: ['50%', '40%'],
+                autoAlpha: [0, 1, 1],
+            },
+        }, '0');
+
 });
 
-skillTl
-    .set('.skill__container', {
-        autoAlpha: 0,
-    })
+//タブレット・スマートフォン
+mm.add("(max-width: 1023px)", () => {
+    const skillTl = gsap.timeline({
+        scrollTrigger: {
+            start: 'top 60%',
+            end: 'bottom bottom',
+            toggleClass: { targets: '.skill__bg', className: "isActive" },
+            markers: true,//目印
+            scrub: 1,
+            ease: "power4.in",
+        }
+    });
 
-    .to('.skill__bg', {
-        keyframes: {
-            top: ['20%', '-3%', '-8%'],
-        },
-    }, '0')
+    skillTl
+        .to('.skill__bg', {
+            keyframes: {
+                top: ['40%', '-5%'],
+            },
+        })
 
-    .to('.skill__container', {
-        keyframes: {
-            marginTop: ['-24%', '-30%'],
-            autoAlpha: [0, 1, 1],
-        },
-    }, '0')
-
-    .add(() => {
-        worksCircles.forEach((circle) => {
-            circle.classList.toggle("hideElement");
-        });
-    }, '>');
+        .to('.skill__container', {
+            keyframes: {
+                marginTop: ['-20%', '-30%'],
+                autoAlpha: [0, 1],
+            },
+        }, '0');
+});
 
 
 //about用 timelime
@@ -392,9 +410,9 @@ const aboutTl = gsap.timeline({
         trigger: about,
         toggleClass: { targets: about, className: "isActive" },
         ...scrollSet,
-        start: '-20% top',
-        // pin: false,
-        // pinSpacing: true,
+        // start: '-20% top',
+        pin: false,
+        pinSpacing: true,
     }
 });
 
@@ -433,13 +451,13 @@ const contactTl = gsap.timeline({
     scrollTrigger: {
         trigger: contact,
         ...scrollSet,
+        pinSpacing: true, // 次の要素が無ければいれる
         onEnter: () => {
             contact.classList.add("isActive"); // アニメーション開始時にクラスを追加
         },
         onLeaveBack: () => {
             contact.classList.remove("isActive"); // スクロールして戻った時にクラスを削除
         },
-        pinSpacing: true, // 次の要素が無ければいれる
     }
 });
 
@@ -464,6 +482,17 @@ contactTl
 
     .add(() => {
         circleTxt.classList.add('rotateTxt');
-    }, '>');
+    });
 
 
+//スクロールの丸サイズ 変更
+const tabBP = window.matchMedia('(min-width: 768px)');
+const svgCircle = document.querySelector('.mv__svgCircle');
+
+if (tabBP.matches) {
+
+    console.log('タブレットです');
+    const changeH = svgCircle.setAttribute('cx', '52');
+    const changeW = svgCircle.setAttribute('cy', '52');
+    const changeR = svgCircle.setAttribute('r', '50');
+}

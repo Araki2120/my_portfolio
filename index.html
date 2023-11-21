@@ -70,6 +70,12 @@
 
     <main class="main">
 
+      <div id="loading">
+        <div class="loading__circle"></div>
+        <div class="loading__circle"></div>
+        <div class="loading__circle"></div>
+      </div>
+
       <div id="mv" class="mv">
         <div class="mv__logoCircle">
           <p class="mv__logo"><img src="images/mv_logo.svg" alt="BEAT" class="mv__logoImg"></p>
@@ -88,6 +94,14 @@
             <div class="mv__circle4 circle"></div>
           </div>
         </div>
+        <div class="mv__scroll">
+          <a href="#conceptPoint" class="mv__downLink">
+            <p class="mv__scrollTxt">SCROLL<br>DOWN</p>
+            <svg class="mv__svg">
+              <circle class="mv__svgCircle" cx="32" cy="32" r="30" />
+            </svg>
+          </a>
+        </div>
       </div>
 
       <section id="concept" class="concept box">
@@ -97,7 +111,7 @@
             <div class="concept__circle1"></div>
           </div>
 
-          <div class="concept__container--01">
+          <div id="conceptPoint" class="concept__container--01">
             <p class="concept__catch">Be Evolve All the Time</p>
           </div>
           <div class="concept__container--02">
@@ -133,41 +147,45 @@
           <div class="works__circle-container">
             <div class="works__circle2"></div>
           </div>
-          <div class="works__container--01">
+          <div class="works__txt-container">
             <h2 class="works__ttl">WORKS</h2>
           </div>
           <div class="works__circle-container">
             <div class="works__circle3"></div>
           </div>
 
-          <div class="works__container">
+          <div class="works__slide-container">
             <p class="works__pic"><img src="images/works_pic1.jpg" alt="cafe azito" class="works__img"></p>
-            <div class="works__box">
-              <div class="works__mask">
-                <p class="works__name">cafe azito<span class="works__type">Web Site (PC)</p>
-                <p class="works__txt">Web Design & Create</p>
+            <div class="works__wrap">
+              <div class="works__box">
+                <div class="works__mask">
+                  <p class="works__name">cafe azito<span class="works__type">Web Site (PC)</p>
+                  <p class="works__txt">Web Design & Create</p>
+                </div>
               </div>
+              <p class="works__more">
+                <a href="#" class="works__link">VIEW MORE
+                  <span class="works__moreSpan"></span>
+                </a>
+              </p>
             </div>
-            <p class="works__more">
-              <a href="#" class="works__link">VIEW MORE
-                <span class="works__moreSpan"></span>
-              </a>
-            </p>
           </div>
 
-          <div class="works__container">
+          <div class="works__slide-container">
             <p class="works__pic"><img src="images/works_pic2.jpg" alt="cafe azito" class="works__img"></p>
-            <div class="works__box">
-              <div class="works__mask">
-                <p class="works__name">ATOI<span class="works__type">Web Site (PC)</p>
-                <p class="works__txt">Web Design & Create</p>
+            <div class="works__wrap">
+              <div class="works__box">
+                <div class="works__mask">
+                  <p class="works__name">ATOI<span class="works__type">Web Site (PC)</p>
+                  <p class="works__txt">Web Design & Create</p>
+                </div>
               </div>
+              <p class="works__more">
+                <a href="#" class="works__link">VIEW MORE
+                  <span class="works__moreSpan"></span>
+                </a>
+              </p>
             </div>
-            <p class="works__more">
-              <a href="#" class="works__link">VIEW MORE
-                <span class="works__moreSpan"></span>
-              </a>
-            </p>
           </div>
 
           <div class="works__slider"></div>
@@ -175,9 +193,9 @@
         </div>
       </section>
 
-      <section id="skill" class="skill">
+      <section class="skill">
         <div class="skill__bg"></div>
-        <div class="skill__container">
+        <div id="skill" class="skill__container">
           <h2 class="skill__ttl">SKILL</h2>
 
           <div class="skill__wrap">
@@ -294,7 +312,8 @@
           </div>
 
           <div class="contact__container">
-            <p class="contact__pic"><img src="images/thanks_svg.svg" alt="" class="contact__img"></p>
+            <p class="contact__pic"><img src="images/thanks_circle.svg" alt="Thank you very much view for your time!"
+                class="contact__img"></p>
           </div>
 
         </div>

@@ -130,13 +130,18 @@
             &::before {
                 content: '';
                 position: absolute;
-                right: -16%;
+                right: -10%;
                 display: block;
-                width: 32%;
+                width: 20%;
                 height: 1px;
                 background: $wh;
                 mix-blend-mode: difference;
                 z-index: 1;
+
+                @media screen and (min-width: 768px) {
+                    right: -16%;
+                    width: 32%;
+                }
             }
 
             @media screen and (min-width: 768px) {
@@ -171,6 +176,7 @@
             @include font-btn;
             border: 1px solid $wh;
             border-radius: 50%;
+            text-align: center;
             cursor: pointer;
             z-index: 1;
 
