@@ -5,111 +5,13 @@
 
 #top {
 
-    //お試し 製作中 ローディング画面
-    .loading {
-        position: fixed;
-        @include flexCenter;
-        width: 100%;
-        height: 100vh;
-        height: 100dvh; /////
-        background: $wh;
-        z-index: 100;
-        animation: loading .8s ease-out forwards;
-
-        &__container {
-            position: relative;
-            @include flexCenter;
-            width: 100px;
-            height: 100px;
-            flex-direction: row;
-
-            @media screen and (min-width: 768px) {
-                width: 180px;
-                height: 180px;
-            }
-        }
-
-        &__circle {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 1px solid $bk;
-
-            &:nth-child(1) {
-                animation: spinCircle1 3s infinite linear;
-            }
-
-            &:nth-child(2) {
-                animation: spinCircle2 2s infinite linear;
-            }
-
-            &:nth-child(3) {
-                animation: spinCircle3 1.5s infinite linear;
-            }
-
-            &:nth-child(4) {
-                animation: spinCircle1 1.5s infinite linear reverse;
-            }
-
-            &:nth-child(5) {
-                animation: spinCircle2 2s infinite linear reverse;
-            }
-
-            &:nth-child(6) {
-                animation: spinCircle3 3s infinite linear reverse;
-            }
-
-            @keyframes spinCircle1 {
-                0% {
-                    transform: rotateZ(20deg) rotateY(0deg);
-                }
-
-                100% {
-                    transform: rotateZ(100deg) rotateY(360deg);
-                }
-            }
-
-            @keyframes spinCircle2 {
-                0% {
-                    transform: rotateZ(100deg) rotateX(0deg);
-                }
-
-                100% {
-                    transform: rotateZ(0deg) rotateX(360deg);
-                }
-            }
-
-            @keyframes spinCircle3 {
-                0% {
-                    transform: rotateZ(100deg) rotateX(-360deg);
-                }
-
-                100% {
-                    transform: rotateZ(-360deg) rotateX(360deg);
-                }
-            }
-        }
-
-        &__txt {
-            position: absolute;
-            bottom: -24%;
-            @include font-din($spTxt);
-            color: $bk;
-
-            @media screen and (min-width: 768px) {
-                font-size: 1rem;
-            }
-        }
-    }
-
     //mvセクション
     .mv {
         position: relative;
         @include flexCenter;
         width: 100%;
         height: 100vh;
-        height: 100dvh; ////
+        height: 100dvh;
         background: $wh;
 
         &__logoCircle {
@@ -128,12 +30,31 @@
             position: absolute;
             top: 51%; //ロゴの上が重たいので、中央に見えるように少し下に
             left: 50%;
-            width: max(20%, 110px);
+            // width: max(20%, 110px);//ロゴver1
+            width: max(24%, 100px);
             height: auto;
             transform: translate(-50%, -50%);
 
             @media screen and (min-width: 1024px) {
-                width: min(20%, 311px);
+                // width: min(20%, 311px);//ロゴver1
+                width: min(16%, 300px);
+            }
+        }
+
+        //お試し
+        &__logoSvg {
+            width: 100%;
+            height: 100%;
+
+            @media screen and (min-width: 1024px) {
+
+                path {
+                    stroke: $bk;
+                    stroke-width: 2px;
+                    stroke-dasharray: 640px;
+                    opacity: 0;
+                    animation: logoSvg 3s ease-in forwards;
+                }
             }
         }
 
@@ -261,7 +182,7 @@
     //conceptセクション
     .concept {
         position: relative;
-        height: 160vh; //スクロール可能な幅
+        height: 200vh; //スクロール可能な幅
         margin: 0 auto;
         padding: 0 7.5%;
         @include hideElement;
@@ -412,7 +333,7 @@
     .works {
         position: relative;
         width: 100%;
-        height: 300vh;
+        height: 400vh;
         padding: 0 7.5%;
         margin: 0 auto;
         @include hideElement;
@@ -514,9 +435,9 @@
         &__pic {
             width: 100%;
             height: 100%;
-            border-radius: 50%;
-            overflow: hidden;
             opacity: 0;
+            overflow: hidden;
+            z-index: 10; //上にして押せるように
         }
 
         &__box {
@@ -596,6 +517,9 @@
             @include flexCenter;
             color: $bk;
             @include font-btn(0.625rem);
+            border-radius: 50%;
+            overflow: hidden;
+            z-index: 10; //上にして押せるように
 
             @media screen and (min-width: 768px) {
                 font-size: 1rem;
@@ -631,7 +555,6 @@
 
         &__slider {
             position: relative;
-            pointer-events: none;
             z-index: -1;
 
             &::before {
@@ -647,6 +570,12 @@
 
                 @media screen and (min-width: 1024px) {
                     font-size: 40rem;
+                }
+
+                @media screen and (min-width: 1920px) {
+                    // １９２０サイズのみスライド開始位置中途半端なため、「W」にするために調整
+                    // MacはOK
+                    transform: translateX(-1%);
                 }
             }
         }
@@ -809,15 +738,14 @@
             display: flex;
             justify-content: flex-start;
             align-items: center;
+            height: 150px;
             margin-bottom: 20px;
-            padding-left: 12px; //丸の左が揃って見えるように
+            padding-left: 6px; //丸の左が揃って見えるように
 
             @media screen and (min-width: 768px) {
+                height: 100px;
                 margin-bottom: 40px;
-            }
-
-            @media screen and (min-width: 1024px) {
-                margin-bottom: 40px;
+                padding-left: 12px;
             }
         }
 
@@ -826,15 +754,17 @@
             @include flexCenter;
             width: 80px;
             aspect-ratio: 1 / 1;
+            padding: 5px; //スマホ版 文字改行調整
             margin-right: 10px;
-            border: 1px solid $wh;
+            border: 2px solid $wh;
+            // background: $wh; /////
+            // color: $bk; /////
             border-radius: 50%;
             @include font-din($pcNav);
             text-align: center;
 
             @media screen and (min-width: 768px) {
                 width: 100px;
-                height: 100px;
                 margin-right: 40px;
             }
         }
@@ -869,7 +799,7 @@
     .about {
         position: relative;
         width: 100%;
-        height: 140vh;
+        height: 200vh;
         @include hideElement;
 
         &__animation {
@@ -1055,6 +985,110 @@
                 width: 45vw;
                 height: 45vw;
                 z-index: -1;
+            }
+        }
+    }
+
+
+    //お試し 製作中 ローディング画面
+    .loading {
+        position: fixed;
+        @include flexCenter;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        background: $wh;
+        z-index: 100; //絶対上に配置
+        animation: loading 1.2s ease-out forwards;
+
+        @media screen and (min-width: 1024px) {
+            animation: loading .6s ease-out forwards;
+        }
+
+        &__container {
+            position: relative;
+            @include flexCenter;
+            width: 100px;
+            height: 100px;
+            flex-direction: row;
+
+            @media screen and (min-width: 768px) {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
+        &__circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 1px solid $bk;
+
+            &:nth-child(1) {
+                animation: spinCircle1 3s infinite linear;
+            }
+
+            &:nth-child(2) {
+                animation: spinCircle2 2s infinite linear;
+            }
+
+            &:nth-child(3) {
+                animation: spinCircle3 1.5s infinite linear;
+            }
+
+            &:nth-child(4) {
+                animation: spinCircle1 1.5s infinite linear reverse;
+            }
+
+            &:nth-child(5) {
+                animation: spinCircle2 2s infinite linear reverse;
+            }
+
+            &:nth-child(6) {
+                animation: spinCircle3 3s infinite linear reverse;
+            }
+        }
+
+        &__txt {
+            position: absolute;
+            bottom: -24%;
+            @include font-din($spTxt);
+            color: $bk;
+
+            @media screen and (min-width: 768px) {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    //お試し オープニングアニメーション
+    .mv {
+        &__OP {
+            position: absolute;
+            @include flexCenter;
+            width: min(60vw, 60vh);
+            height: min(60vw, 60vh);
+
+            @media screen and (min-width: 1024px) {
+                width: 38.5vw;
+                height: 38.5vw;
+            }
+        }
+
+        &__OPcircle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 1px solid $bk;
+            border-radius: 50%;
+            transform: scale(0);
+            transform-origin: center center;
+        }
+
+        @for $i from 1 through 5 {
+            .OPcircle#{$i} {
+                animation: OPAnimation 3s #{$i * 0.1}s ease-out;
             }
         }
     }

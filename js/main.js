@@ -4,20 +4,6 @@ window.addEventListener('DOMContentLoaded', () => {
     console.log('再読み込み');
 });
 
-//リサイズ検証用の設定
-// const changeHorizon = () => {
-//     window.addEventListener('orientationchange', function () {
-//         console.log('画面を倒しました');
-//         if (timer !== false) {
-//             clearTimeout(timer);
-//         }
-//         timer = setTimeout(function () {
-//             // リロード
-//             location.reload();
-//         }, 200);
-//     })
-// };
-
 //画面幅を変更した時
 let timer = false;
 let windowWidth = window.innerWidth;
@@ -56,9 +42,7 @@ const resize = () => {
     }
 };
 
-// changeHorizon();
 resize();
-
 
 //gnav用
 const btn = document.querySelector('.header__wrap');
@@ -68,9 +52,10 @@ const closeBottom = document.querySelector('.header__closeBtnBottom');
 const headerLogo = document.querySelector('.header__logo');
 const gnav = document.querySelector('#gnav');
 const gnavLists = document.querySelectorAll('.gnav__list, .gnav__icon');
+const gnavLinks = document.querySelectorAll('.gnav__link');
 const body = document.querySelector('body');
 
-btn.addEventListener('click', () => {
+const gnavAnimation = () => {
     btnLines.forEach((btnLine, i) => {
         setTimeout(() => {
             btnLine.classList.toggle('slideOpenBtn');
@@ -92,6 +77,18 @@ btn.addEventListener('click', () => {
     gnav.classList.toggle('viewNav');
     gnav.classList.toggle('closeNav');
     body.classList.toggle('hideScrollber');
+};
+
+//ハンバーガーメニューをクリックした時、開閉
+btn.addEventListener('click', () => {
+    gnavAnimation();
+});
+
+//gnav内のリンクをクリックした時、リンク先が同ページでも閉じる
+gnavLinks.forEach((gnavLink) => {
+    gnavLink.addEventListener('click', () => {
+        gnavAnimation();
+    });
 });
 
 

@@ -30,6 +30,7 @@
         background: transparent;
         opacity: 1;
         visibility: visible;
+        transition: none; //gnavがバウンドするので消す
     }
 
     &__nav {
@@ -78,7 +79,7 @@
             &::after {
                 content: "";
                 position: absolute;
-                bottom: 0;
+                bottom: 2px; //間を8pxに
                 left: 10px; //padding分
                 display: block;
                 width: calc(100% - 20px);

@@ -228,15 +228,12 @@ slideWorks.forEach((work, i) => {
     //PC
     mm.add("(min-width: 1024px", () => {
         worksTl
-            .to('.works__slider', { //全体で動き続けたい
-                left: (slideRatio * (currentNum + 1)) + '%',
-            })
-
             //ここから拡大
-            .to(pic, { //works丸の大きさより少し小さいサイズから始まり、スムーズに見えるように調整
+            //works丸の大きさより少し小さいサイズから始まり、スムーズに見えるように調整
+            .to(pic, {
                 keyframes: {
-                    scale: [0.6, 1],
-                    autoAlpha: [0.4, 1],
+                    scale: [0, 0.6, 1],
+                    autoAlpha: [0, 0.4, 1],
                 }
             }, '<')
 
@@ -244,7 +241,7 @@ slideWorks.forEach((work, i) => {
                 keyframes: {
                     scale: [0, 1],
                 }
-            }, '>') //picに遅れて拡大
+            }) //picに遅れて拡大
 
             .to(box, {
                 keyframes: {
@@ -259,15 +256,19 @@ slideWorks.forEach((work, i) => {
             }, '<')
 
             .to('.works__slider', {
-                left: (slideRatio * (currentNum + 2)) + '%',
+                left: (slideRatio * (currentNum + 1)) + '%',
             }, '<')
 
-            //一旦止まる
+            //一旦全て止まる
             .to(pic, {
                 keyframes: {
                     scale: [1, 1],
                     autoAlpha: [1, 1],
                 }
+            })
+
+            .to('.works__slider', {
+                left: (slideRatio * (currentNum + 2)) + '%',
             }, '<')
 
             //ここから縮小
@@ -277,19 +278,15 @@ slideWorks.forEach((work, i) => {
                 }
             })
 
-            .to('.works__slider', { //全体で動き続けたい・・・！
-                left: (slideRatio * (currentNum + 3)) + '%',
-            }, '<')
-
             .to(box, {
                 keyframes: {
-                    x: [0, '-100%'],
+                    x: [0, '100%'],
                 }
             }, '<')
 
             .to(mask, {
                 keyframes: {
-                    x: [0, '100%'],
+                    x: [0, '-100%'],
                 }
             }, '<')
 
@@ -298,6 +295,10 @@ slideWorks.forEach((work, i) => {
                     scale: [1, 0.6],
                     autoAlpha: [1, 0],
                 }
+            }, '<')
+
+            .to('.works__slider', { //全体で動き続けたい・・・！
+                left: (slideRatio * (currentNum + 3)) + '%',
             }, '<');
     });
 

@@ -25,12 +25,13 @@
     }
 
     &__ttl {
-        width: max(12%, 50px);
+        // width: max(12%, 50px);
+        width: max(8%, 50px);
         height: auto;
 
         @media screen and (min-width: 1024px) {
             position: relative;
-            width: 125px;
+            width: min(32%, 100px);
         }
     }
 

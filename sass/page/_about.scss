@@ -419,15 +419,17 @@
             overflow: hidden;
             transition: .4s;
 
-            &:hover {
+            &:hover,
+            &:active {
                 .gallary__img {
-                    transform: scale(1.08);
-                    filter: blur(2px);
+                    transform: scale(1.02);
+                    filter: grayscale(0%);
                 }
             }
         }
 
         &__img {
+            filter: grayscale(80%);
             transition: .4s;
         }
 
