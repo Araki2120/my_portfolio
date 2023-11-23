@@ -307,7 +307,7 @@
                 color: transparent;
                 @include font-din($spTtl);
                 -webkit-text-stroke: 1px $wh;
-                text-stroke: 1px $wh;
+                // text-stroke: 1px $wh;
 
                 @media screen and (min-width: 768px) {
                     width: 170%;

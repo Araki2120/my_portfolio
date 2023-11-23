@@ -56,27 +56,32 @@ const gnavLinks = document.querySelectorAll('.gnav__link');
 const body = document.querySelector('body');
 
 const gnavAnimation = () => {
-    btnLines.forEach((btnLine, i) => {
-        setTimeout(() => {
-            btnLine.classList.toggle('slideOpenBtn');
-        }, 100 * i);//順番にスライド
-    });
+    //タブレット・スマホ版のみ
+    if (window.matchMedia("(max-width: 1023px)").matches) {
 
-    gnavLists.forEach((gnavList, i) => {
-        setTimeout(() => {
-            gnavList.classList.toggle('slideNavList');
-        }, 100 * i);
-    });
+        btnLines.forEach((btnLine, i) => {
+            setTimeout(() => {
+                btnLine.classList.toggle('slideOpenBtn');
+            }, 100 * i);//順番にスライド
+        });
 
-    //×ボタンの設定
-    closeTop.classList.toggle('closeBtn');
-    closeBottom.classList.toggle('closeBtn');
+        gnavLists.forEach((gnavList, i) => {
+            setTimeout(() => {
+                gnavList.classList.toggle('slideNavList');
+            }, 100 * i);
+        });
 
-    //開閉時の設定
-    headerLogo.classList.toggle('logoInvert');
-    gnav.classList.toggle('viewNav');
-    gnav.classList.toggle('closeNav');
-    body.classList.toggle('hideScrollber');
+        //×ボタンの設定
+        closeTop.classList.toggle('closeBtn');
+        closeBottom.classList.toggle('closeBtn');
+
+        //開閉時の設定
+        headerLogo.classList.toggle('logoInvert');
+        gnav.classList.toggle('viewNav');
+        gnav.classList.toggle('closeNav');
+        body.classList.toggle('hideScrollber');
+
+    }
 };
 
 //ハンバーガーメニューをクリックした時、開閉

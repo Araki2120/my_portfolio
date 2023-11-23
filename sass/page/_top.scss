@@ -698,6 +698,15 @@
             }
         }
 
+        &__typeTxt {
+            overflow: hidden;
+
+            //お試し
+            span {
+                display: inline-block;
+            }
+        }
+
         &__circle--01,
         &__circle--02,
         &__circle--03,
@@ -708,26 +717,26 @@
             align-items: center;
             height: 100%;
             aspect-ratio: 1 / 1;
+            color: $bk;
             border-radius: 50%;
             overflow: hidden;
+            opacity: 0;
+            z-index: 1;
 
             &::after {
                 content: '';
                 position: absolute;
                 left: 24px;
-                width: calc(100% - 24px); //文字幅ぴったりに
+                width: calc(100% - 24px);
                 white-space: nowrap; //折り返しを無くす
-                color: $bk;
             }
         }
 
-        //上2つは緑色
         &__circle--01,
         &__circle--02 {
             background: $green;
         }
 
-        //下2つは黄色
         &__circle--03,
         &__circle--04 {
             background: $yellow;
@@ -772,8 +781,6 @@
             padding: 5px; //スマホ版 文字改行調整
             margin-right: 10px;
             border: 2px solid $wh;
-            // background: $wh; /////
-            // color: $bk; /////
             border-radius: 50%;
             @include font-din($pcNav);
             text-align: center;
@@ -911,7 +918,7 @@
             overflow: hidden;
 
             @media screen and (min-width: 1024px) {
-                width: 240px;
+                width: min(54%, 200px);
             }
         }
 

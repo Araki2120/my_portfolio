@@ -498,7 +498,7 @@ contactTl
 // endポイントを変更しても解決できませんでした。原因はわかりますでしょうか？）    
 
 
-//mvスクロールダウンの丸サイズ変更
+//mv・footer スクロールボタンのサイズ変更
 const tabBP = window.matchMedia('(min-width: 768px)');
 const spBP = window.matchMedia('(max-height: 480px)');
 const svgCircle = document.querySelector('.mv__svgCircle');
@@ -516,3 +516,61 @@ if (tabBP.matches) {
 } else if (spBP.matches) {
     console.log('縦が小さいです！');
 }
+
+
+//Skillセクション
+const Types = document.querySelectorAll('.skill__type');
+const skillTypes = document.querySelectorAll('.skill__typeTxt');
+const skillCircles = document.querySelectorAll('.skillCircle');
+
+//文字列をspanに格納
+skillTypes.forEach((type) => {
+    const txt = type.textContent;
+    const arrays = txt.split('');
+
+    // HTMLのテキストをクリア
+    type.textContent = "";
+
+    arrays.forEach((array) => {
+        const span = document.createElement('span');
+        type.appendChild(span);
+        span.textContent = array;
+    });
+});
+
+//交差の監視
+const skillAnimationObserver = () => {
+    const options = {
+        root: null,
+        rootMargin: '100px 0px',
+        threshold: 1
+    };
+
+    const skillObserver = new IntersectionObserver(showElement, options);
+
+    skillTypes.forEach((type) => {
+        skillObserver.observe(type);
+    });
+
+    let num = 0;
+
+    function showElement(entries) {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const skillSpans = entry.target.querySelectorAll('span');
+
+                //アニメーションの遅延
+                skillSpans.forEach((span, i) => {
+                    setTimeout(() => {
+                        span.classList.add('upSkillTxt');
+                    }, 100 * i);
+                });
+                skillCircles[num].classList.add('viewSkillCircle');
+
+                num++;
+            }
+        });
+    };
+}
+
+skillAnimationObserver();

@@ -11,10 +11,9 @@
     height: 100vh;
     padding: 86px 5% 0;
     background: $bk;
-    // background: rgba(0, 0, 0, 0.8); ////つっかえ棒確認用にナビゲーションを透かすしたもの
     opacity: 0;
     visibility: hidden;
-    transition: .4s;
+    transition: .6s;
     z-index: 15; //コンテンツより上、ヘッダー（ロゴ、ボタン）より下
 
     @media screen and (min-width: 768px) {

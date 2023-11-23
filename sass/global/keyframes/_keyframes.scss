@@ -83,6 +83,38 @@
     }
 }
 
+@keyframes upSkillTxt {
+    0% {
+        transform: translateY(100%) rotate(-30deg);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes viewSkillCircle {
+    0% {
+        background: $bk;
+    }
+
+    60% {
+        background: $bk;
+        -webkit-text-stroke: 1px $wh;
+    }
+
+    85% {
+        opacity: 1;
+        -webkit-text-stroke: 1px $wh;
+    }
+
+    100% {
+        opacity: 1;
+        background: null;
+        -webkit-text-stroke: none;
+    }
+}
+
 @keyframes rotateTxt {
     0% {
         transform: rotate(0deg);
@@ -105,6 +137,7 @@
     }
 }
 
+
 //aboutページ用
 @keyframes wordCircle {
     0% {
@@ -117,6 +150,7 @@
         clip-path: circle(100% at center);
     }
 }
+
 
 //お試し ローディング画面用
 @keyframes loading {
@@ -132,7 +166,6 @@
     }
 }
 
-//お試し製作中 ローディング画面
 @keyframes spinCircle1 {
     0% {
         transform: rotateZ(20deg) rotateY(0deg);
@@ -162,6 +195,7 @@
         transform: rotateZ(-360deg) rotateX(360deg);
     }
 }
+
 
 //お試し製作中 オープニングアニメーション用
 @keyframes OPAnimation {
