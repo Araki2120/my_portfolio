@@ -1,0 +1,634 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+#top {
+    .main {
+        margin-top: 80px;
+        overflow: hidden;
+
+        @include pc {
+            margin-top: 95px;
+        }
+    }
+
+    .mv {
+        position: relative;
+        right: -5%;
+        width: 100%;
+        height: 90vh;
+        margin-bottom: 100px;
+        background: url(../images/mv-sp.jpg) right bottom / cover;
+        background-repeat: no-repeat;
+
+        @include tab {
+            background: url(../images/mv.jpg);
+            background-position: bottom right 20%;
+            background-size: cover;
+        }
+
+        @include pc {
+            right: 0;
+            max-width: 1536px;
+            width: 80%;
+            margin-bottom: 256px;
+            margin-left: auto;
+            background-position: bottom right 30%;
+        }
+
+        &__box {
+            position: absolute;
+            top: 55%;
+            left: -3%;
+
+            @include pc {
+                left: -12%;
+            }
+
+            &::after {
+                content: 'Fuwa Fuwa Sheep Milk Soap.';
+                display: block;
+                padding-top: 10px;
+                font-size: $txt;
+                font-family: $crim;
+                letter-spacing: .18em;
+                animation: fadeUp 1s forwards;
+            }
+        }
+
+        &__catch {
+            display: flex;
+            gap: 0.05em;
+            font-size: 1.375rem;
+            letter-spacing: 0;
+
+            @include tab {
+                gap: 0;
+                font-size: 2rem;
+                letter-spacing: .18em;
+            }
+
+
+        }
+
+        &__arrow {
+            position: absolute;
+            bottom: 0;
+            left: -10%;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: $gray;
+            font-size: 0.625rem;
+            font-family: $crim;
+            writing-mode: vertical-rl;
+
+            @include tab {
+                bottom: 25px;
+            }
+
+            &::after {
+                content: '';
+                display: block;
+                width: 1px;
+                height: 60px;
+                background: $gray;
+                animation: scrollDown 2s linear infinite;
+            }
+        }
+    }
+
+    .concept {
+        margin-bottom: 60px;
+        padding: 0 5%;
+
+        @include tab {
+            margin-bottom: 120px;
+        }
+
+        @include pc {
+            padding: 0 10%;
+        }
+
+        &__container {
+            display: flex;
+            flex-direction: column-reverse;
+
+            @include pc {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        &__box {
+            @include pc {
+                width: 44%;
+            }
+        }
+
+        &__ttl {
+            @include ttl;
+
+            &::before {
+                content: 'CONCEPT';
+                @include ttlBefore;
+            }
+
+            @include pc {
+                @include ttl(60px);
+            }
+        }
+
+        &__pic {
+            height: 40vh;
+            margin-bottom: 30px;
+
+            @include tab {
+                height: 100%;
+            }
+
+            @include pc {
+                width: 50%;
+            }
+        }
+
+        &__txt {
+            margin-bottom: 30px;
+
+            @include pc {
+                margin-bottom: 40px;
+            }
+        }
+
+        &__btn {
+            width: 100%;
+
+            @include pc {
+                width: 64%;
+            }
+        }
+
+        &__more {
+            @include btnMore;
+
+            &::after {
+                @include btnAfter;
+            }
+
+            &:hover {
+                color: #fff;
+                background: $bk;
+
+                &::after {
+                    transform: scale(1, 1);
+                }
+            }
+        }
+    }
+
+    .products {
+        margin-bottom: 60px;
+        padding: 0 5%;
+
+        @include tab {
+            margin-bottom: 120px;
+        }
+
+        @include pc {
+            padding: 0 10%;
+        }
+
+        &__ttl {
+            @include ttl;
+
+            &::before {
+                content: 'PRODUCTS';
+                @include ttlBefore;
+            }
+
+            @include pc {
+                @include ttl(60px);
+            }
+        }
+
+        &__container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-column-gap: 5%;
+            margin-bottom: 20px;
+
+            @include tab {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        &__box {
+            margin-bottom: 5%;
+
+            @include pc {
+                margin-bottom: 80px;
+            }
+        }
+
+        &__pic {
+            margin-bottom: 15px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        &__img {
+            transition: .4s;
+
+            &:hover {
+                transform: scale(1.05);
+                opacity: .7;
+            }
+        }
+
+        &__name {
+            margin-bottom: 10px;
+            font-size: $txt2;
+        }
+
+        &__nameSpan {
+            font-family: $crim;
+        }
+
+        &__price {
+            color: #999;
+            font-size: 0.6875rem; //11px
+        }
+
+        &__btn {
+            width: 100%;
+            margin: 0 auto;
+
+            @include pc {
+                width: 38%;
+            }
+        }
+
+        &__more {
+            @include btnMore;
+
+            &::after {
+                @include btnAfter;
+            }
+
+            &:hover {
+                color: #fff;
+                background: $bk;
+
+                &::after {
+                    transform: scale(1, 1);
+                }
+            }
+        }
+    }
+
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        visibility: hidden;
+        transition: .6s;
+
+        &__container {
+            @include flexCenter;
+            height: 100%;
+            padding: 0 5%;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        &__wrap {
+            position: relative;
+            flex-direction: column;
+            height: fit-content;
+            width: 80%;
+
+            @include tab {
+                max-width: 560px;
+                width: 60%;
+            }
+        }
+
+        &__prevBtn {
+            position: absolute;
+            top: -55px;
+            right: 0;
+            @include flexCenter;
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: .4s;
+
+            &--01,
+            &--02 {
+                position: absolute;
+                display: block;
+                width: 100%;
+                height: 1px;
+                background: $bk;
+            }
+
+            &--01 {
+                transform: rotate(45deg);
+            }
+
+            &--02 {
+                transform: rotate(-45deg);
+            }
+
+        }
+
+        &__box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__pic {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        &__name {
+            margin-bottom: 10px;
+            font-size: $txt2;
+            font-family: $bothTxt;
+
+            @include pc {
+                font-size: $ttl;
+            }
+        }
+
+        &__price {
+            margin-bottom: 30px;
+            font-size: 0.6875rem;
+
+            @include pc {
+                font-size: $txt4;
+            }
+        }
+
+        &__btn {
+            width: 100%;
+        }
+
+        &__more {
+            @include btnMore;
+
+            &::after {
+                @include btnAfter;
+            }
+
+            &:hover {
+                color: #fff;
+                background: $bk;
+
+                &::after {
+                    transform: scale(1, 1);
+                }
+            }
+        }
+    }
+
+    .info {
+        margin-bottom: 80px;
+        padding: 0 5%;
+
+        @include tab {
+            margin-bottom: 120px;
+        }
+
+        @include pc {
+            padding: 0 10%;
+        }
+
+        &__container {
+            margin-bottom: 80px;
+
+            @include pc {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 60px;
+            }
+        }
+
+        &__pic {
+            margin-bottom: 30px;
+
+            @include pc {
+                width: 46%;
+                margin-bottom: 0;
+            }
+        }
+
+        &__box--01 {
+            margin-bottom: 30px;
+
+            @include pc {
+                display: flex;
+                flex-direction: column;
+                width: 46%;
+                margin-bottom: 0;
+            }
+        }
+
+        &__shopName,
+        &__list {
+            font-size: $txt3;
+        }
+
+        &__list {
+            &:nth-child(2) {
+                margin-bottom: 14px;
+            }
+
+            &:last-child {
+                margin-bottom: 80px;
+            }
+        }
+
+        &__ttl {
+            @include ttl;
+
+            &::before {
+                content: 'SHOP INFO';
+                @include ttlBefore;
+            }
+
+            @include pc {
+                margin-bottom: 60px;
+            }
+        }
+
+        &__map {
+            width: 100%;
+            height: 200px;
+            filter: grayscale(100%);
+
+            iframe {
+                width: 100%;
+                height: 100%;
+            }
+
+            @include pc {
+                flex-grow: 1;
+            }
+        }
+
+        &__box--02 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            @include pc {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        &__btn {
+            width: 80%;
+
+            @include pc {
+                width: 46%;
+            }
+
+            &:first-child {
+                margin-bottom: 20px;
+
+                @include pc {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        &__more {
+            @include btnMore(30px);
+            font-size: $txt3;
+
+            @include pc {
+                padding: 42px 0;
+                font-size: $txt4;
+            }
+
+            &::after {
+                @include btnAfter;
+            }
+
+            &:hover {
+                color: #fff;
+                background: $bk;
+
+                &::after {
+                    transform: scale(1, 1);
+                }
+            }
+        }
+    }
+
+    .news {
+        margin-bottom: 60px;
+        padding: 0 5%;
+
+        @include tab {
+            margin-bottom: 120px;
+        }
+
+        @include pc {
+            padding: 0 10%;
+        }
+
+        &__ttl {
+            @include ttl;
+
+            &::before {
+                content: 'NEWS';
+                @include ttlBefore;
+            }
+
+            @include pc {
+                margin-bottom: 60px;
+            }
+        }
+
+        &__list {
+            margin-bottom: 10px;
+            font-size: $txt3;
+
+            &:last-child {
+                margin-bottom: 20px;
+            }
+        }
+
+        &__link {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            padding: 10px 0;
+            transition: .6s;
+
+            &:hover {
+                opacity: .5;
+            }
+        }
+
+        &__date {
+            position: relative;
+            display: inline-block;
+            padding: 0 20px;
+            text-align: center;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                display: block;
+                width: 1px;
+                height: 40px;
+                background: $gray;
+            }
+        }
+
+        &__txt {
+            display: block;
+            padding-left: 20px;
+        }
+
+        &__btn {
+            width: 100%;
+            margin: 0 auto;
+
+            @include pc {
+                width: 38%;
+            }
+        }
+
+        &__more {
+            @include btnMore;
+
+            &::after {
+                @include btnAfter;
+            }
+
+            &:hover {
+                color: #fff;
+                background: $bk;
+
+                &::after {
+                    background: #fff;
+                    transform: scale(1, 1);
+                }
+            }
+        }
+    }
+}

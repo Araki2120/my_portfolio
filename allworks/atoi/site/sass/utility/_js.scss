@@ -1,0 +1,138 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+#top,
+#access {
+
+    //ハンバーガーメニュー
+    .rotateTop {
+        background: $mainBlue;
+        transform: rotate(-150deg);
+    }
+
+    .hideMiddle {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .rotateBottom {
+        background: $mainBlue;
+        transform: rotate(150deg);
+    }
+
+    //スライドメニュー
+    .menuView {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    //リサイズヘッダー
+    .resizeHeader {
+        background: rgba(0, 0, 0, 0.7);
+    }
+
+    .resizeTtl {
+        transform: scale(0.8);
+    }
+
+    //チケット追従ボタン用
+    .showTicket {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    //要素のフェードアップ（ふわっと出てくる）
+    .fadeUp {
+        position: relative;
+        opacity: 0;
+        top: 100px;
+    }
+
+    .showElement {
+        opacity: 1;
+        top: 0;
+    }
+
+    //イベントモーダル様
+    .fadeIn {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    //accessページ アコーディオンメニュー
+    .accessOpen {
+        height: 100%;
+        padding: 60px;
+        transform: translateY(0) scale(1, 1);
+    }
+
+    .rotateBtn {
+        &::after {
+            transform: rotate(45deg);
+        }
+    }
+
+
+    //PICKUP swiper用
+    .swiper-pu {
+        max-width: 920px;
+        width: 80%;
+        z-index: 1;
+
+        &__slide {
+            max-width: 280px;
+            width: 14%;
+        }
+
+        &__link {
+            width: 100%;
+            color: $wh;
+
+            &:hover {
+                .swiper-pu__pic {
+                    filter: brightness(1.2)
+                }
+            }
+        }
+
+        &__pic {
+            width: 100%;
+            aspect-ratio: 2 / 1;
+            margin-bottom: 10px;
+            transition: .3s;
+        }
+
+        &__btnBox {
+            position: absolute;
+            top: 42%;
+            left: 50%;
+            max-width: 1100px;
+            width: 90%;
+            height: 40px;
+            transform: translate(-50%, -50%);
+        }
+
+        &__prev,
+        &__next {
+            width: 40px;
+            height: 40px;
+            background: url(../images/arrow_icon02.svg) center center / cover;
+            z-index: 0;
+
+            &::after {
+                content: '';
+            }
+        }
+
+        &__prev {
+            left: 0;
+        }
+
+        &__next {
+            right: 0;
+            transform: rotate(180deg);
+        }
+
+    }
+}

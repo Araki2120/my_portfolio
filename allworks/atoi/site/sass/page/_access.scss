@@ -1,0 +1,189 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+#access {
+
+    .mv {
+        position: relative;
+        height: 500px;
+        background: url(../images/access_mv.jpg) center center / cover;
+    }
+
+    .pageTtl {
+        position: absolute;
+        top: 245px;
+        left: 80px;
+        padding: 10px;
+        padding-right: 100px;
+        color: #fff;
+        background: $bk;
+        font-size: $ttl;
+        font-family: $lea;
+        font-weight: $sem;
+        line-height: 1;
+        z-index: 1;
+
+        &__span {
+            font-size: 16px;
+            font-family: $noto;
+        }
+    }
+
+    .map {
+        display: flex;
+        padding: 80px;
+        padding-left: 0;
+        background: $wh;
+
+        &__ttlBox {
+            width: 80px;
+            margin-right: 100px;
+        }
+
+        &__ttl {
+            width: 80px;
+            color: $bk;
+            font-size: $ttl;
+            font-family: $lea;
+            font-weight: $sem;
+            writing-mode: vertical-rl;
+        }
+
+        &__secBox {
+            display: flex;
+            justify-content: space-between;
+            width: calc(100vw - 260px);
+        }
+
+        &__frame {
+            max-width: 900px;
+            width: 55%;
+        }
+
+        &__pic {
+            max-width: 600px;
+            width: 37%;
+            height: 400px;
+        }
+    }
+
+    .toAccess {
+        background: $wh;
+
+        &__ttl {
+            position: relative;
+            margin-bottom: 35px;
+            font-size: $ttl;
+            font-family: $lea;
+            font-weight: $sem;
+            text-align: center;
+
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: -8px;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                width: 120px;
+                height: 10px;
+                background: url(../images/head_underline03.svg) center center / cover;
+            }
+        }
+
+        &__dl {
+            padding: 0 80px 220px 180px;
+        }
+
+        &__box {
+            &:nth-child(3) {
+                border-bottom: 1px solid #000;
+            }
+        }
+
+        &__dt {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px;
+            font-weight: $sem;
+            border-top: 1px solid #000;
+            cursor: pointer;
+            background: #fff;
+            z-index: 1;
+
+            &::after {
+                content: '';
+                display: block;
+                width: 20px;
+                height: 20px;
+                background: url(../images/access_btn.svg) center center / cover;
+                transition: transform .3s;
+            }
+        }
+
+        &__dd {
+            position: relative;
+            height: 0;
+            padding: 0 60px;
+            transform-origin: center top;
+            transform: translateY(-100%) scale(1, 0);
+            transition: .4s;
+            pointer-events: none;
+        }
+    }
+
+    .info {
+        padding: 60px 80px;
+
+        &__ticket {
+            width: 850px;
+            height: 200px;
+            margin: 0 auto;
+            background: $wh;
+        }
+
+        &__link {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            width: 100%;
+            height: 100%;
+            transition: .3s;
+
+            &:hover {
+                background: $mainBlue2;
+            }
+        }
+
+        &__txt {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            color: $bk;
+            font-size: $ttl;
+            font-weight: $sem;
+
+            &::before {
+                content: '';
+                display: block;
+                width: 160px;
+                height: 160px;
+                margin-right: 40px;
+                background: url(../images/ticket_sircle02.svg) center center / cover;
+            }
+
+            &::after {
+                content: '';
+                display: block;
+                width: 25px;
+                height: 28px;
+                background: url(../images/triarrow_bl.svg) center center / cover;
+            }
+        }
+    }
+
+}
