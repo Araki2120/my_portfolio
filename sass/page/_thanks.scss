@@ -66,6 +66,7 @@
             @include font-btn;
             border: 1px solid $wh;
             border-radius: 50%;
+            z-index: 1;
 
             @media screen and (min-width: 1024px) {
                 width: 240px;

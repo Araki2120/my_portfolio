@@ -305,8 +305,11 @@ slideWorks.forEach((work, i) => {
     //タブレット・スマートフォン
     mm.add("(max-width: 1023px)", () => {
         worksTl
-            .to('.works__slider', {
-                left: (slideRatio * (currentNum + 1)) + '%',
+
+            //ここから拡大
+            .from(work, {
+                scale: 0.6,
+                autoAlpha: 0,
             })
 
             .to(pic, {
@@ -314,23 +317,33 @@ slideWorks.forEach((work, i) => {
                     scale: [0, 1, 1.2],
                     autoAlpha: [0, 1, 0.4],
                 }
-            })
+            }, '<')
 
+
+            .to('.works__slider', {
+                left: (slideRatio * (currentNum + 1)) + '%',
+            }, '<')
+
+            //文字の出現、一旦止まる
             .to(wrap, {
                 keyframes: {
-                    y: ['100%', 0, '-100%'],
-                    scale: [1, 1],
+                    y: ['100%', 0, 0, '-100%'],
                     autoAlpha: [0, 1, 1, 0],
                 }
             })
 
+            .to('.works__slider', {
+                left: (slideRatio * (currentNum + 2)) + '%',
+            }, '<')
+
+            //ここから縮小
             .to(work, {
                 scale: 0.6,
                 autoAlpha: 0,
             })
 
             .to('.works__slider', {
-                left: (slideRatio * (currentNum + 2)) + '%',
+                left: (slideRatio * (currentNum + 3)) + '%',
             }, '<');
     });
 });
