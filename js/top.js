@@ -255,7 +255,7 @@ slideWorks.forEach((work, i) => {
                 }
             }, '<')
 
-            .to('.works__slider', {
+            .to('.works__slider', { //全体で動き続けたい
                 left: (slideRatio * (currentNum + 1)) + '%',
             }, '<')
 
@@ -267,7 +267,7 @@ slideWorks.forEach((work, i) => {
                 }
             })
 
-            .to('.works__slider', {
+            .to('.works__slider', { //全体で動き続けたい
                 left: (slideRatio * (currentNum + 2)) + '%',
             }, '<')
 
@@ -297,7 +297,7 @@ slideWorks.forEach((work, i) => {
                 }
             }, '<')
 
-            .to('.works__slider', { //全体で動き続けたい・・・！
+            .to('.works__slider', { //全体で動き続けたい
                 left: (slideRatio * (currentNum + 3)) + '%',
             }, '<');
     });
@@ -320,7 +320,7 @@ slideWorks.forEach((work, i) => {
             }, '<')
 
 
-            .to('.works__slider', {
+            .to('.works__slider', { //全体で動き続けたい
                 left: (slideRatio * (currentNum + 1)) + '%',
             }, '<')
 
@@ -332,7 +332,7 @@ slideWorks.forEach((work, i) => {
                 }
             })
 
-            .to('.works__slider', {
+            .to('.works__slider', { //全体で動き続けたい
                 left: (slideRatio * (currentNum + 2)) + '%',
             }, '<')
 
@@ -342,7 +342,7 @@ slideWorks.forEach((work, i) => {
                 autoAlpha: 0,
             })
 
-            .to('.works__slider', {
+            .to('.works__slider', { //全体で動き続けたい
                 left: (slideRatio * (currentNum + 3)) + '%',
             }, '<');
     });
@@ -451,7 +451,7 @@ aboutTl
     }, '0');
 
 
-////contact用 timelime
+// contact用 timelime
 const circlePic = document.querySelector('.contact__pic');
 
 const contactTl = gsap.timeline({
@@ -493,9 +493,11 @@ contactTl
 
     .add(() => {
         circlePic.classList.add('rotateTxt');
-    }, '<');
-// 上のaddが効きません（どうやら下までスクロールできていないようです。）
-// endポイントを変更しても解決できませんでした。原因はわかりますでしょうか？）    
+    });
+
+// 上のaddが効かないときがあります
+//（endマークが上まで上がりきっていないため、どうやら下までスクロールできていないようです。更新をかけるとクラスが追加されまわり始めます。）
+// endポイントを変更しても解決できませんでした。原因はわかりますでしょうか？  
 
 
 //mv・footer スクロールボタンのサイズ変更
@@ -538,7 +540,7 @@ skillTypes.forEach((type) => {
     });
 });
 
-//交差の監視
+//交差監視の設定を格納 (Aboutページと分けるため)
 const skillAnimationObserver = () => {
     const options = {
         root: null,
@@ -552,6 +554,7 @@ const skillAnimationObserver = () => {
         skillObserver.observe(type);
     });
 
+    //index番号を作成（enttyでは0か1になってしまううため）
     let num = 0;
 
     function showElement(entries) {
@@ -571,6 +574,6 @@ const skillAnimationObserver = () => {
             }
         });
     };
-}
+};
 
 skillAnimationObserver();

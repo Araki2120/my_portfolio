@@ -100,22 +100,28 @@ gnavLinks.forEach((gnavLink) => {
 //Aboutページ用
 const wordCircles = document.querySelectorAll('.words__circle');
 
-const options = {
-    root: null,
-    rootMargin: '-4% 0px',
-    threshold: 1
-};
+//交差監視の設定を格納 (TOPページと分けるため)
+const AboutAnimationObserver = () => {
 
-const observer = new IntersectionObserver(showElement, options);
+    const options = {
+        root: null,
+        rootMargin: '-4% 0px',
+        threshold: 1
+    };
 
-wordCircles.forEach((wordCircle) => {
-    observer.observe(wordCircle);
-});
+    const observer = new IntersectionObserver(showElement, options);
 
-function showElement(entries) {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('showCircle');
-        }
+    wordCircles.forEach((wordCircle) => {
+        observer.observe(wordCircle);
     });
+
+    function showElement(entries) {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('showCircle');
+            }
+        });
+    };
 };
+
+AboutAnimationObserver();
