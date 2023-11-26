@@ -26,7 +26,7 @@ const orange = '#EE7800';
 const scrollSet = {
     start: "top top",//要素の位置 ウィンドウの位置
     end: 'bottom top',//数字+=入れると開始位置からの計算になる
-    markers: true,//目印
+    // markers: true,//目印
     scrub: 1,//スクロールに合わせたアニメ 数字を入れると余韻が付く
     pin: true,//止まるかどうか
     pinSpacing: false,//これ大事 次のtlが連続になる
@@ -360,7 +360,7 @@ mm.add("(min-width: 1024px", () => {
             start: 'top 70%',
             end: 'bottom bottom',
             toggleClass: { targets: '.skill__bg', className: "isActive" },
-            markers: true,//目印
+            // markers: true,//目印
             scrub: 2,
             ease: "power4.in",
         }
@@ -390,7 +390,7 @@ mm.add("(max-width: 1023px)", () => {
             start: 'top 60%',
             end: 'bottom bottom',
             toggleClass: { targets: '.skill__bg', className: "isActive" },
-            markers: true,//目印
+            // markers: true,//目印
             scrub: 1,
             ease: "power4.in",
         }

@@ -6,9 +6,10 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0 viewport-fit=cover">
   <meta name="format-detection" content="telephone=no">
-  <title>ATOI | BEAT</title>
+  <title>Kitano Outdoor Base | BEAT</title>
   <meta name="keywords" content="">
   <meta name="description" content="">
+  <link rel="icon" href="../../images/favicon.ico">
   <link rel="stylesheet" href="https://use.typekit.net/nlp3pds.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +17,7 @@
   <link href="../../css/style.css" rel="stylesheet" media="all">
 </head>
 
-<body id="atoi-page">
+<body id="wp-page">
   <div class="wrapper">
 
     <header class="header">
@@ -69,26 +70,33 @@
 
     <main class="main">
       <section class="work">
-        <p class="work__pic"><img src="../../images/atoi_mv.jpg" alt="ATOI mv" class="work__img"></p>
+        <picture class="work__pic">
+          <!-- PC版の設定 -->
+          <source media="(min-width: 768px)" srcset="../../images/fluffy_mv.jpg">
+          <!-- スマホ用とデフォルトの設定 -->
+          <img src="../../images/fluffy_spmv.jpg" alt="Fluffy mv" class="work__img">
+        </picture>
+
         <div class="work__container--01">
           <div class="work__box">
-            <h2 class="work__ttl">ATOI<span class="work__type">Web Site (PC)</span></h2>
-            <p class="work__txt">Web Design & Create</p>
+            <h2 class="work__ttl">Kitano Outdoor Base<span class="work__type">Web site(WordPress)</span></h2>
+            <p class="work__txt">Web site Create & Arrange</p>
           </div>
-          <p class="work__url"><a href="site/index.html" class="work__link">Visit Site</a></p>
+          <p class="work__url">URL:<a href="https://wp-araki2120.sakuraweb.com/" target="_blank"
+              class="work__link">https://wp-araki2120.sakuraweb.com/</a></p>
         </div>
         <dl class="work__container--02">
           <div class="work__unit">
             <dt class="work__dt"><span class="work__span">View Size</span>対応サイズ</dt>
-            <dd class="work__dd">PC(1920×1080)</dd>
+            <dd class="work__dd">PC・タブレット・スマートフォン</dd>
           </div>
           <div class="work__unit">
             <dt class="work__dt"><span class="work__span">Create Days</span>実装期間</dt>
-            <dd class="work__dd">5日間</dd>
+            <dd class="work__dd">1日間</dd>
           </div>
           <div class="work__unit">
             <dt class="work__dt"><span class="work__span">Used Technology</span>使用技術</dt>
-            <dd class="work__dd">JavaScript・Swiper.js</dd>
+            <dd class="work__dd">WordPress・PHP</dd>
           </div>
         </dl>
       </section>
@@ -97,34 +105,41 @@
         <div class="about__container">
           <div class="about__box">
             <h3 class="about__sub"><span class="about__span">Concept</span>コンセプト</h3>
-            <p class="about__txt">「日常と自然が一番近いところ」をコンセプトに、最近札幌駅の近くにオープンした商業ビル内にある都会型水族館のwebサイトという設定で制作しました。<br>
-              前職の経験も活かし、お客様によく聞かれる内容である「イベント情報、営業情報（混雑情報）、アクセス、チケットの情報」をトップ画面からすぐ見られるように配置しました。チケット購入の追従ボタンでいつでもチケットを購入できるようにし、イベント情報はモーダルを使用して見られるようにしています。
+            <p class="about__txt">WordPressを使ったWebサイト制作の練習として、オリジナルテーマを使って制作しました。
+              北海道の小さなキャンプ場が運営しているブログ形式の情報発信サイトで、「キャンプ好きのスタッフが初心者にも常連キャンパーにも役立つ情報を発信しているという」コンセプトです。<br>
+              ナビゲーションから記事の一覧を見ることができ、さらにユーザーが求めている情報を選びやすいよう、カテゴリーごとに記事を分けて表示されるように設置しました。
+              トップページにはキャンプ場の情報・営業カレンダーやコンタクトフォームを設置し、必要な方にはキャンプ場自体の情報も得られるようにしています。
             </p>
           </div>
 
           <div class="about__box">
             <h3 class="about__sub"><span class="about__span">Impression</span>制作を通して感じたこと</h3>
             <p class="about__txt">
-              コーディングでは、ここまで勉強していたVanillaJSを初めて使用して制作を行いました。jQueryと違う点をに悩みつつ、JavaScriptならではの書き方を勉強できたと感じています。わかりやすさとメンテナンス性を意識して使用用途ごとに記述とファイルを分け、適宜コメントを入れるよう意識しています。<br>
-              また「PICK UP」部分でSwiper.jsのプラグインを使用し、ページネーションボタンの配置等を工夫したことで、プラグインをカスタマイズする練習になりました。
+              教材を参考にしながら自身でアレンジしたHTML・CSSで作ったオリジナルテーマをPHPファイルに変更し、WordPressに対応させました。<br>
+              自分でアレンジを加えたことでWordPressとの関連付けに戸惑うこともありましたが、テンプレートにないデザインを使用した制作の可能性やPHPの基本的な書き方・データの呼び出し方を学ぶことができました。
+              また、テンプレートタグを使用したWordpress上の情報の取得や、ループを使って条件に合わせた投稿の表示等も行っています。<br>
+              構造面ではヘッダー・フッター・ページ部分のファイルを分けて読み込み、変更のあるページ部分のみ変わるように設定したり、スタイルの読み込みファイルを分けたことで、管理がしやすくなるようにしています。
+              「変更する部分としない部分」を分けて管理できるようにしたことで、近年のフロントエンド開発で使われるコンポーネントを意識した開発の勉強にもなりました。<br>
+              他にもプラグインを使ったカレンダーやコンタクトフォームの設置を行い、プラグインとの組み合わせでより可能性が広がると感じました。
+              個人的には、前職でWordPressを使用した記事の更新する機会があったため、投稿ページの使い方を思い出しつつ、サイトがどのようにできていたのか仕組みを知ることができ大変興味深く感じました。
             </p>
           </div>
 
-          <div class="about__box">
+          <!-- <div class="about__box">
             <div class="about__design">
               <h3 class="about__designSub">Fonts & Colors</h3>
               <div class="about__unit">
-                <div class="about__en"><img src="../../images/atoi_en.png" alt="League Spartan" class="about__img">
+                <div class="about__en"><img src="../../images/fluffy_en.png" alt="Crimson Text" class="about__img">
                 </div>
-                <div class="about__jp"><img src="../../images/atoi_jp.png" alt="Noto Sans JP" class="about__img">
+                <div class="about__jp"><img src="../../images/fluffy_jp.png" alt="Yu Mincho" class="about__img">
                 </div>
               </div>
-              <p class="about__color"><img src="../../images/atoi_color.png" alt="color" class="about__colorImg"></p>
+              <p class="about__color"><img src="../../images/fluffy_color.png" alt="color" class="about__colorImg"></p>
             </div>
             <p class="about__txt">
-              コンセプトに合わせて見出しは現代的な印象のフォント、本文は情報が伝わりやすいように可読性の高いフォントを使用しました。高級感と落ち着いた雰囲気の黒、透き通った海の色である青緑色（ターコイズ）を使用し、都会の中の自然を連想させるように意識しています。
+              落ち着きのある細いセリフ体と明朝体を使用し、「女性目線の丁寧な暮らし・高級感」を意識しました。また、石鹸の清潔感と羊のイメージから、文字と写真以外は全て白を使用しています。
             </p>
-          </div>
+          </div> -->
         </div>
       </section>
 
@@ -133,34 +148,23 @@
           <div class="image__box">
             <div class="image__bg">
               <p class="image__page">
-                <img src="../../images/atoi_allpage.jpg" alt="ATOI all page" class="image__img">
+                <img src="../../images/wp_toppage.jpg" alt="wordpress top page" class="image__img">
               </p>
             </div>
           </div>
           <div class="image__box">
             <div class="image__bg">
               <p class="image__page">
-                <img src="../../images/atoi_menu.jpg" alt="ATOI menu" class="image__img">
+                <img src="../../images/wp_allpage.jpg" alt="wordpress all page" class="image__img">
               </p>
             </div>
             <div class="image__bg">
               <p class="image__page">
-                <img src="../../images/atoi_modal.jpg" alt="ATOI modal" class="image__img">
-              </p>
-            </div>
-            <div class="image__bg">
-              <p class="image__page">
-                <img src="../../images/atoi_accesspage.jpg" alt="ATOI access page" class="image__img">
-              </p>
-            </div>
-            <div class="image__bg">
-              <p class="image__page">
-                <img src="../../images/atoi_other.png" alt="ATOI other component" class="image__img">
+                <img src="../../images/wp_category.jpg" alt="wordpress all page" class="image__img">
               </p>
             </div>
           </div>
         </div>
-
       </div>
 
       <div class="backBtn">
