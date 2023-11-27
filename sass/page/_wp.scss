@@ -353,6 +353,7 @@
         }
 
         &__box {
+
             @media screen and (min-width: 1024px) {
                 width: calc(50% - 20px);
             }
@@ -366,6 +367,7 @@
                     gap: 40px;
                 }
             }
+
         }
 
         &__bg {
