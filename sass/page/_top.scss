@@ -30,7 +30,6 @@
             position: absolute;
             top: 51%; //ロゴの上の文字が大きいので、中央に見えるように少し下に
             left: 50%;
-            // width: max(20%, 110px);//ロゴver1
             width: max(24%, 100px);
             height: auto;
             transform: translate(-50%, -50%);
@@ -41,7 +40,6 @@
             }
 
             @media screen and (min-width: 1024px) {
-                // width: min(20%, 311px);//ロゴver1
                 width: min(16%, 300px);
             }
         }
@@ -65,9 +63,6 @@
         }
 
         &__txtSvg {
-            // stroke: $bk;
-            // stroke-width: 1px;
-            // stroke-dasharray: 640px;
             opacity: 0;
             animation: logoSvg 2s 1s ease-in forwards;
         }
@@ -330,7 +325,6 @@
         }
 
         &__circle2 {
-            //でっかい丸
             width: 300vh;
             height: 300vh;
             background: $bk;
@@ -589,7 +583,6 @@
 
                 @media screen and (min-width: 1920px) {
                     // １９２０サイズのみスライド開始位置中途半端なため、「W」にするために調整
-                    // MacはOK
                     transform: translateX(-1%);
                 }
             }
@@ -628,7 +621,7 @@
         &__container {
             position: relative;
             top: 0;
-            padding: 0 7.5%; //w85%
+            padding: 0 7.5%;
             margin: 0 auto;
             margin-top: -20%;
             opacity: 0;
@@ -701,7 +694,6 @@
         &__typeTxt {
             overflow: hidden;
 
-            //お試し
             span {
                 display: inline-block;
             }

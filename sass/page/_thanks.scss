@@ -83,7 +83,7 @@
             height: 80px;
             background: $wh;
             border-radius: 50%;
-            mix-blend-mode: difference; //上と両方に入れる！
+            mix-blend-mode: difference;
             transition: .4s;
 
             @media screen and (min-width: 1024px) {

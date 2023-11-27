@@ -3,7 +3,7 @@
 @use "../global" as *;
 
 
-#wp-page {
+#weather-page {
 
     .wrapper {
         width: 90%;
@@ -56,6 +56,13 @@
             @media screen and (min-width: 768px) {
                 margin-bottom: 80px;
             }
+
+            @media screen and (min-width: 1024px) {
+                display: flex;
+                align-items: center;
+                gap: 40px;
+                margin-bottom: 120px;
+            }
         }
 
         &__box {
@@ -63,33 +70,28 @@
         }
 
         &__ttl {
-            margin-bottom: 20px;
             @include font-din($spTtl);
 
             @media screen and (min-width: 768px) {
                 font-size: $tabTtl;
             }
 
-            //文字数が多いためポイントを調整
-            @media screen and (min-width: 1160px) {
-                margin-bottom: 0;
+            @media screen and (min-width: 1024px) {
                 font-size: $pcTtl;
             }
         }
 
         &__type {
-            display: block;
+            margin-left: 10px;
             @include font-din(1rem);
 
             @media screen and (min-width: 768px) {
-                font-size: $tabSub;
+                margin-left: 20px;
+                font-size: $tabSub; //36
             }
 
-            //文字数が多いためポイントを調整
-            @media screen and (min-width: 1160px) {
-                display: inline;
-                margin-left: 20px;
-                font-size: $pcSub;
+            @media screen and (min-width: 1024px) {
+                font-size: $pcSub; //40
             }
         }
 
@@ -97,7 +99,7 @@
             @include font-din(1rem);
 
             @media screen and (min-width: 768px) {
-                font-size: $dinTxt;
+                font-size: $dinTxt; //20
             }
         }
 
@@ -107,7 +109,7 @@
             @include font-din(1rem);
 
             @media screen and (min-width: 768px) {
-                font-size: $dinTxt;
+                font-size: $dinTxt; //20
             }
         }
 
@@ -346,24 +348,19 @@
             }
 
             @media screen and (min-width: 1024px) {
-                flex-direction: row-reverse;
+                flex-direction: row;
             }
         }
 
         &__box {
+            @media screen and (min-width: 768px) {
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+            }
 
             @media screen and (min-width: 1024px) {
                 width: calc(50% - 20px);
-            }
-
-            &:not(:first-child) {
-                display: none;
-
-                @media screen and (min-width: 768px) {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 40px;
-                }
             }
 
         }

@@ -28,15 +28,15 @@
 
         &__ttl {
             margin-bottom: 60px;
-            @include font-din($spTtl); //52
+            @include font-din($spTtl);
 
             @media screen and (min-width: 768px) {
-                font-size: $tabTtl; //78
+                font-size: $tabTtl;
             }
 
             @media screen and (min-width: 1024px) {
                 margin-bottom: 80px;
-                font-size: $pcTtl; //100
+                font-size: $pcTtl;
             }
         }
 
@@ -116,7 +116,7 @@
         &__name {
             margin-bottom: 5px;
             color: $bk;
-            @include font-din($spSub); //24px
+            @include font-din($spSub);
             line-height: 1;
 
             @media screen and (min-width: 768px) {
@@ -139,7 +139,6 @@
         }
 
         &__btn {
-            //全体の背景をtransparentに
             position: relative;
             @include flexCenter;
             width: 120px;
@@ -185,7 +184,7 @@
             height: 80px;
             background: $wh;
             border-radius: 50%;
-            mix-blend-mode: difference; //上と両方に入れる！
+            mix-blend-mode: difference; //上と両方に入れる
             transition: .4s;
         }
     }

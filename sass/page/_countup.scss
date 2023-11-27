@@ -56,13 +56,6 @@
             @media screen and (min-width: 768px) {
                 margin-bottom: 80px;
             }
-
-            // @media screen and (min-width: 1024px) {
-            //     display: flex;
-            //     align-items: center;
-            //     gap: 40px;
-            //     margin-bottom: 120px;
-            // }
         }
 
         &__box {
@@ -70,9 +63,11 @@
         }
 
         &__ttl {
+            margin-bottom: 20px;
             @include font-din($spTtl);
 
             @media screen and (min-width: 768px) {
+                margin-bottom: 0;
                 font-size: $tabTtl;
             }
 
@@ -82,16 +77,17 @@
         }
 
         &__type {
-            margin-left: 10px;
+            display: block;
             @include font-din(1rem);
 
             @media screen and (min-width: 768px) {
+                display: inline;
                 margin-left: 20px;
-                font-size: $tabSub; //36
+                font-size: $tabSub;
             }
 
             @media screen and (min-width: 1024px) {
-                font-size: $pcSub; //40
+                font-size: $pcSub;
             }
         }
 
@@ -99,7 +95,7 @@
             @include font-din(1rem);
 
             @media screen and (min-width: 768px) {
-                font-size: $dinTxt; //20
+                font-size: $dinTxt;
             }
         }
 
@@ -109,7 +105,7 @@
             @include font-din(1rem);
 
             @media screen and (min-width: 768px) {
-                font-size: $dinTxt; //20
+                font-size: $dinTxt;
             }
         }
 

@@ -87,11 +87,11 @@
 
             @media screen and (min-width: 768px) {
                 margin-left: 20px;
-                font-size: $tabSub; //36
+                font-size: $tabSub;
             }
 
             @media screen and (min-width: 1024px) {
-                font-size: $pcSub; //40
+                font-size: $pcSub;
             }
         }
 
@@ -99,7 +99,7 @@
             @include font-din(1rem);
 
             @media screen and (min-width: 768px) {
-                font-size: $dinTxt; //20
+                font-size: $dinTxt;
             }
         }
 
@@ -109,7 +109,7 @@
             @include font-din(1rem);
 
             @media screen and (min-width: 768px) {
-                font-size: $dinTxt; //20
+                font-size: $dinTxt;
             }
         }
 
@@ -348,7 +348,6 @@
 
             @media screen and (min-width: 1024px) {
                 flex-direction: row-reverse;
-                // align-items: flex-start;
             }
         }
 
