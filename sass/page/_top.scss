@@ -44,7 +44,7 @@
             }
         }
 
-        //お試し オープニングアニメーション
+        //オープニングアニメーション
         &__logoSvg {
             width: 100%;
             height: 100%;
@@ -111,6 +111,7 @@
             background: $bk;
         }
 
+        //スクロールダウンボタン
         &__scroll {
             position: absolute;
             bottom: 24px;
@@ -1005,7 +1006,7 @@
     }
 
 
-    //お試し 製作中 ローディング画面
+    //ローディング画面
     .loading {
         position: fixed;
         @include flexCenter;
