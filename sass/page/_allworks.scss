@@ -88,7 +88,7 @@
                         border: 2px solid $wh;
                         border-radius: 5px;
                         text-align: center;
-                        z-index: 10; //imgの上に
+                        z-index: 10; //imgの上
                     }
                 }
             }
@@ -184,7 +184,7 @@
             height: 80px;
             background: $wh;
             border-radius: 50%;
-            mix-blend-mode: difference; //上と両方に入れる
+            mix-blend-mode: difference;
             transition: .4s;
         }
     }
