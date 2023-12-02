@@ -137,7 +137,7 @@
         @include flexCenter;
     }
 
-    &__twitter,
+    &__x,
     &__git {
         width: 40px;
         height: auto;
@@ -183,8 +183,8 @@
                 }
             }
 
-            &__git,
-            &__twitter {
+            &__x,
+            &__git {
                 filter: invert(0);
                 mix-blend-mode: difference;
             }
@@ -211,8 +211,8 @@
             }
         }
 
-        &__git,
-        &__twitter {
+        &__x,
+        &__git {
             filter: invert(0);
         }
 
