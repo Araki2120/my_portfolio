@@ -495,10 +495,6 @@ contactTl
         circlePic.classList.add('rotateTxt');
     });
 
-// 上のaddが効かないときがあります
-//（endマークが上まで上がりきっていないため、どうやら下までスクロールできていないようです。更新をかけるとクラスが追加されまわり始めます。）
-// endポイントを変更しても解決できませんでした。原因はわかりますでしょうか？  
-
 
 //mv・footer スクロールボタンのサイズ変更
 const tabBP = window.matchMedia('(min-width: 768px)');
@@ -554,7 +550,7 @@ const skillAnimationObserver = () => {
         skillObserver.observe(type);
     });
 
-    //index番号を作成（enttyでは0か1になってしまううため）
+    //index番号を作成（entryでは0か1になってしまううため）
     let num = 0;
 
     function showElement(entries) {

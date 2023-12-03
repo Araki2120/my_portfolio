@@ -71,7 +71,12 @@
 
     <main class="main">
       <section class="work">
-        <p class="work__pic"><img src="../../images/wp_mv.jpg" alt="wordpress site mv" class="work__img"></p>
+        <picture class="work__pic">
+          <!-- PC用 -->
+          <source media="(min-width: 768px)" srcset="../../images/wp_mv.jpg">
+          <!-- スマホ用 -->
+          <img src="../../images/wp_spmv.jpg" alt="wordpress site mv" class="work__img">
+        </picture>
 
         <div class="work__container--01">
           <div class="work__box">

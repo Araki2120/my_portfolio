@@ -92,27 +92,13 @@
     }
 
     .upSkillTxt {
-        animation: upSkillTxt .4s ease-out forwards;
+        animation: upSkillTxt .2s ease-out forwards;
     }
 
     .viewSkillCircle {
-        animation: viewSkillCircle 2s .9s linear forwards;
+        animation: viewSkillCircle 1.4s linear forwards;
     }
-
-    .skillCircleAfter {
-        &::after {
-            content: '';
-            position: absolute;
-            left: 24px;
-            width: calc(100% - 24px); //文字幅ぴったりに
-            white-space: nowrap; //折り返しを無くす
-            color: $bk;
-            animation: v 2s .9s linear forwards;
-        }
-    }
-
 }
-
 
 
 //Aboutページ用
