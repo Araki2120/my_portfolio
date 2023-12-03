@@ -1,0 +1,35 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+.wrapper {
+    background: $yellow;
+    font-family: $noto;
+    font-weight: $bold;
+    letter-spacing: 0.1em;
+    line-height: 1.2;
+    overflow: hidden;
+}
+
+a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+//タイトルの一文字づつ色を変える部分の設定
+.txt-yellow {
+    color: $yellow;
+}
+
+.txt-purple {
+    color: $purple;
+}

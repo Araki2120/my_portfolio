@@ -1,0 +1,305 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+//ヘッダーグローバルナビゲーション
+.gnav {
+    display: none;
+
+    @media screen and (min-width: 1024px) {
+        position: fixed;
+        top: 30px;
+        left: 50%;
+        display: flex;
+        align-items: center;
+        transform: translateX(-50%);
+        z-index: 10;
+    }
+
+    &__pointer {
+        position: absolute;
+        left: 20px;
+        height: 30px;
+        background: #ebab00;
+        border-radius: 50px;
+        transition: .4s ease-in-out;
+    }
+
+    &__nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        background: #fff;
+        border-radius: 100px;
+    }
+
+    &__link {
+        position: relative;
+        padding: 0 15px;
+        color: #000;
+        font-size: $tab-txt;
+        font-weight: $med;
+        text-decoration: none;
+
+        @media screen and (min-width: 1440px) {
+            font-size: 1rem;
+        }
+    }
+}
+
+
+//ヘッダーメニュー
+.menu {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    background: rgba(0, 0, 0, 0.6);
+    font-size: $menu;
+    line-height: 1.9em;
+    opacity: 0;
+    visibility: hidden;
+    transition: .1s;
+    z-index: 20;
+
+    &__container {
+        position: absolute;
+        width: 80%;
+        margin: 4%;
+        margin-left: 16%;
+        padding: 73px 4% 48px 10%;
+        background: $wh;
+        border-radius: 30px;
+        transform-origin: right top;
+        transform: scale(0);
+        transition: .4s .1s cubic-bezier(0.77, 0.04, 0.58, 1);
+        z-index: 20;
+
+        @media screen and (min-width: 1024px) {
+            width: calc(100% - 60px);
+            margin: 30px 30px auto;
+            padding: 80px;
+            border-radius: 50px;
+        }
+    }
+
+    &__btn {
+        position: absolute;
+        top: 18px;
+        right: 4%;
+        @include flexCenter;
+        width: 40px;
+        height: 40px;
+        margin-left: auto;
+        cursor: pointer;
+    }
+
+    &__btnTop,
+    &__btnBottom {
+        position: absolute;
+        display: block;
+        width: 40%;
+        height: 2px;
+        background: $yellow;
+        border-radius: 1px;
+    }
+
+    &__btnTop {
+        transform: rotate(45deg);
+    }
+
+    &__btnBottom {
+        transform: rotate(-45deg);
+    }
+
+    //ナビゲーション本体部分
+    &__nav {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    &__list {
+        background: $wh;
+
+        &:nth-child(2) {
+            position: relative;
+        }
+
+        &:nth-child(5) {
+            margin-bottom: 20px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: 30%;
+        }
+    }
+
+    &__link,
+    &_itemLink {
+        color: $bk;
+    }
+
+    &__link {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    &__listBtn {
+        position: absolute;
+        top: 5px;
+        right: 0;
+        @include flexCenter;
+        width: 36px;
+        height: 24px;
+        border: 2px solid $yellow;
+        border-radius: 50%;
+    }
+
+    &__listBtnTop,
+    &__listBtnBottom {
+        position: absolute;
+        display: block;
+        width: 10px;
+        height: 2px;
+        background: $yellow;
+    }
+
+    &__listBtnBottom {
+        transform: rotate(90deg);
+    }
+
+    &__unit {
+        display: none;
+        position: relative;
+        transform: translateY(-100%);
+        z-index: -1; //navの下に
+    }
+
+    &__item {
+        &:last-child {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__itemLink {
+        padding-left: 10px;
+        color: $txtGray;
+        font-size: 1rem;
+    }
+
+    &__unit {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding-top: 60px;
+    }
+
+    &__snsLink {
+        padding: 10px;
+    }
+
+    &__snsIcon {
+        width: 30px;
+        height: auto;
+    }
+
+    //New Product紹介部分（PCのみ）
+    &__box--02 {
+        display: none;
+
+        @media screen and (min-width: 1024px) {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    &__sub {
+        @include font-para;
+    }
+
+    &__new {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        width: 80%;
+    }
+
+    &__newLink:hover {
+        .menu__img {
+            transform: scale(1.1);
+        }
+    }
+
+    &__img {
+        transition: .4s;
+    }
+
+    &__newTxt {
+        color: $bk;
+        font-size: $tab-txt;
+        font-weight: $med;
+    }
+}
+
+
+//フッターナビゲーション
+.fnav {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    @media screen and (min-width: 768px) {
+        align-self: flex-start;
+    }
+
+    @media screen and (min-width: 1024px) {
+        width: 30%;
+    }
+
+    &__nav {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 150px;
+
+        @media screen and (min-width: 768px) {
+            height: 200px;
+        }
+    }
+
+    &__list {
+        @media screen and (min-width: 768px) {
+            width: 30%;
+            margin-left: auto;
+        }
+    }
+
+    &__link {
+        padding: 5px 0;
+        color: $wh;
+
+        @media screen and (min-width: 768px) {
+            padding: 10px 0;
+        }
+    }
+
+    &__unit {
+        position: relative;
+        left: -10px; //padding分
+        display: flex;
+        gap: 5px;
+        padding-top: 40px;
+    }
+
+    &__snsLink {
+        padding: 10px;
+    }
+
+    &__snsIcon {
+        width: 20px;
+        height: auto;
+    }
+}

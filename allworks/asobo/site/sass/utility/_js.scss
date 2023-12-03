@@ -1,0 +1,326 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+#top {
+
+    //gnav マウスポインター用
+    .mouseOver {
+        color: #fff;
+        transition: .3s ease-in-out;
+    }
+
+    //menu用
+    .onMask {
+        opacity: 1;
+        visibility: visible;
+        overflow: scroll;
+        overscroll-behavior: none;
+        touch-action: pan-y;
+
+        // 背景スクロール防止用 つっかえ棒
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1px;
+            height: calc(100% + 1px);
+        }
+    }
+
+    .viewMenu {
+        transform: scale(1);
+    }
+
+    //mv隠し用クラス
+    .hideMv {
+        visibility: hidden;
+    }
+
+    // .firstAnimation {
+    //     animation: firstAnimation 10s ease-in-out forwards;
+    // }
+
+    // .isActive {
+    //     animation: isActive 10s ease-in-out forwards;
+    // }
+
+
+    //footer出現用クラス
+    .showFooter {
+        visibility: visible;
+    }
+
+
+    //MV swiper設定
+    .swiper-mv {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+
+        &__slide01,
+        &__slide02,
+        &__slide03 {
+            overflow: hidden;
+            border-radius: 50px;
+            opacity: .9;
+            transform: scale(0.5);
+        }
+
+        &__link {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        &__img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(.8);
+        }
+
+        &__isActive {
+            animation: isActive 10s ease-in-out forwards;
+        }
+
+        &__circle {
+
+            @media screen and (min-width: 768px) {
+                position: absolute;
+                left: 4%;
+                bottom: 40px;
+                width: 170px; //ここは本来の大きさ
+                height: 64px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+                color: #fff;
+                border: 1px solid $lineGray;
+                border-radius: 50%;
+                z-index: 10;
+            }
+        }
+
+        &__svg {
+
+            @media screen and (min-width: 768px) {
+                position: absolute;
+                display: block;
+                width: 70px; //64+線の分3px*2
+                height: 176px; //170+3px*2
+                stroke-dasharray: 400;
+                animation: strokeLine 10s linear infinite forwards reverse;
+                transform: rotate(-90deg); //上からアニメーションするため回転
+            }
+        }
+
+        &__svgCircle {
+            fill: none;
+            stroke: $wh;
+            stroke-width: 3px;
+        }
+
+        &__prev,
+        &__next {
+
+            @media screen and (min-width: 768px) {
+                display: flex;
+                align-items: center;
+
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 10px;
+                    height: 10px;
+                    background: url(../images/arrow_right.svg) center center / cover;
+                }
+            }
+        }
+
+        &__next {
+            &::after {
+                transform: rotate(180deg);
+            }
+        }
+
+        &__pagination {
+            width: fit-content;
+            padding-left: 6%;
+
+            .swiper-pagination-bullet {
+                background: $wh;
+            }
+
+            @media screen and (min-width: 768px) {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                color: $wh;
+                transform: translate(-50%, -50%);
+                z-index: 10;
+            }
+        }
+    }
+
+    //Productsセクション swiper設定
+    .swiper-pd {
+        //アニメーションため移動
+        transform: translateX(100%);
+        transition: 1s ease-out;
+
+        @media screen and (min-width: 768px) {
+            margin-left: 20%;
+        }
+
+        &__pagination {
+            position: absolute;
+            bottom: 0;
+            left: auto;
+            right: 5%; //padding分
+            display: flex;
+            gap: 2px;
+            width: fit-content;
+            color: $yellow;
+            @include font-para($tab-txt);
+
+            @media screen and (min-width: 768px) {
+                top: 40%;
+                left: auto;
+                right: calc(5% + 136px); //ページネーション＋間１５pで調整
+            }
+        }
+
+        &__prev,
+        &__next {
+
+            @media screen and (min-width: 768px) {
+                position: absolute;
+                top: 50%;
+                right: 5%;
+                left: auto;
+                display: block;
+                width: 53px;
+                height: 38px;
+                border: 1px solid $yellow;
+                border-radius: 50%;
+                z-index: 20;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    display: block;
+                    width: 10px;
+                    height: 10px;
+                    background: url(../images/arrow_icon_yellow.svg) center center / cover;
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }
+
+        &__prev {
+            right: calc((5% + 53px) + 15px); //間１５px
+
+            &::before {
+                transform: translate(-50%, -50%) rotate(180deg);
+            }
+        }
+
+        &__pic {
+            margin-bottom: 14px;
+        }
+
+        &__type {
+            display: flex;
+            align-items: center;
+            width: fit-content;
+            margin-bottom: 8px;
+            padding: 2px 12px;
+            color: $txtGray;
+            font-size: $tab-txt;
+            border: 2px solid $txtGray;
+            border-radius: 11px;
+        }
+
+        &__name {
+            color: $bk;
+        }
+    }
+
+    .swiperSlideIn {
+        transform: translateX(0);
+    }
+
+    //Userセクション swiper設定
+    .swiper-us {
+        padding: 60px 0 80px;
+
+        @media screen and (min-width: 768px) {
+            padding: 120px 0 160px;
+        }
+
+        &__slide01,
+        &__slide02,
+        &__slide03,
+        &__slide04,
+        &__slide05 {
+            @include flexCenter;
+            width: 200px;
+            height: 280px;
+            border-radius: 40px;
+            overflow: hidden;
+            transition: .7s;
+
+            @media screen and (min-width: 768px) {
+                width: min(37vw, 400px);
+                height: min(37vw, 400px);
+                // margin-right: 100px;
+            }
+        }
+
+        &__slide01 {
+            background: url(../images/user_pic1.png) center center / cover;
+        }
+
+        &__slide02 {
+            background: url(../images/user_pic2.png) center center / cover;
+        }
+
+        &__slide03 {
+            background: url(../images/user_pic3.png) center center / cover;
+        }
+
+        &__slide04 {
+            background: url(../images/user_pic4.png) center center / cover;
+        }
+
+        &__slide05 {
+            background: url(../images/user_pic5.png) center center / cover;
+        }
+
+        &__isActive {
+            transform: translateY(40px);
+        }
+    }
+
+    //全体 テキストアニメーション
+    .target {
+        opacity: 0;
+    }
+
+    .upTxt {
+        animation: upTxt .4s forwards;
+    }
+
+    .upMvTxt {
+        animation: upTxt .6s .1s forwards;
+    }
+}

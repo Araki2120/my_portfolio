@@ -1,0 +1,32 @@
+// settingフォルダの変数を読み込みます
+
+@use "../setting" as *;
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin font-para($size: 3rem) {
+    font-size: $size;
+    font-family: $para;
+    font-weight: $bold;
+    line-height: 1;
+    letter-spacing: 0em;
+}
+
+@mixin ttlTxt($mb: 20px) {
+    margin-bottom: $mb;
+    font-size: $tab-txt;
+    line-height: 1;
+}
+
+@mixin typeCircle($size: 0.625rem) {
+    width: fit-content;
+    padding: 1% 12px;
+    color: $txtGray;
+    font-size: $size;
+    border: 2px solid $txtGray;
+    border-radius: 999px;
+}

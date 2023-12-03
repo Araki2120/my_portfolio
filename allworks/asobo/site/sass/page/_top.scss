@@ -1,0 +1,1033 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+#top {
+
+    .mv {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+
+        &__catch {
+            position: absolute;
+            bottom: 88px;
+            left: 0;
+            width: 100%;
+            padding-left: 5%;
+            color: #fff;
+            font-size: $sp-MvTtl;
+            letter-spacing: 0;
+            line-height: 1;
+            overflow: hidden;
+            z-index: 10;
+
+            @media screen and (min-width: 768px) {
+                padding-left: 6%;
+                font-size: $tab-MvTtl;
+            }
+
+            @media screen and (min-width: 1024px) {
+                font-size: $pc-MvTtl;
+            }
+
+            &::after {
+                content: 'Game With Your Colorfull.';
+                display: block;
+                margin-top: 20px;
+                padding-left: 20px;
+                font-size: $sp-Catch;
+                font-family: $para;
+
+                @media screen and (min-width: 768px) {
+                    transform: translate(56%, -200%);
+                }
+
+                @media screen and (min-width: 1024px) {
+                    margin-bottom: 20px;
+                    padding-left: 120px;
+                    font-size: $pc-Catch;
+                    transform: none;
+                }
+            }
+        }
+
+        &__catchSpanTop {
+            display: block;
+        }
+
+        &__catchSpanBottom {
+            display: block;
+            padding-left: 20px;
+
+            @media screen and (min-width: 1024px) {
+                padding-left: 120px;
+            }
+        }
+    }
+
+    .about {
+        position: relative;
+        padding: 90px 0 80px;
+        background: $wh;
+        border-radius: 40px 40px 0 0;
+        text-align: center;
+        z-index: 10;
+
+        @media screen and (min-width: 1024px) {
+            padding: 150px 0 230px;
+            border-radius: 80px 80px 0 0;
+        }
+
+        &__num {
+            margin-bottom: 6px;
+            color: $yellow;
+            @include font-para($num);
+        }
+
+        &__ttl {
+            @include ttlTxt;
+            margin-bottom: 8vh;
+            overflow: hidden;
+
+            @media screen and (min-width: 768px) {
+                margin-bottom: 34px;
+            }
+        }
+
+        &__ttlSpan {
+            display: block;
+            @include font-para($sp-Catch);
+        }
+
+        &__catch {
+            margin-bottom: 34px;
+            font-size: $sp-Catch2;
+
+            @media screen and (min-width: 768px) {
+                font-size: $tab-Catch;
+            }
+        }
+
+        &__btn {
+            width: 200px;
+            height: 76px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        &__more {
+            @include flexCenter;
+            color: $yellow;
+            border: 2px solid $yellow;
+            border-radius: 50%;
+
+            &::after {
+                content: '';
+                display: block;
+                width: 10px;
+                height: 10px;
+                margin-left: 10px;
+                background: url(../images/arrow_icon_yellow.svg) center center / cover;
+                transition: .4s;
+            }
+
+            &:hover:after {
+                transform: translate(3px, -3px);
+            }
+        }
+
+        &__pic-container {
+            display: none;
+
+            @media screen and (min-width: 768px) {
+                display: block;
+            }
+        }
+
+        &__pic {
+            position: absolute;
+
+            &:first-child {
+                top: -17%;
+                right: 10%;
+                width: 24%;
+            }
+
+            &:nth-child(2) {
+                bottom: 20%;
+                left: 0;
+                width: 24%;
+            }
+
+            &:last-child {
+                bottom: 12%;
+                left: 16%;
+                width: 12%;
+            }
+        }
+    }
+
+    .column {
+        position: relative;
+        padding: 0 5% 80px;
+        background: $wh;
+        z-index: 10;
+
+        @media screen and (min-width: 768px) {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+        }
+
+        &__num {
+            margin-bottom: 6px;
+            color: $purple;
+            @include font-para($num);
+        }
+
+        &__ttlBox {
+            @media screen and (min-width: 768px) {
+                width: 100%;
+            }
+        }
+
+        &__ttl {
+            @include ttlTxt;
+            overflow: hidden;
+
+            @media screen and (min-width: 768px) {
+                margin-bottom: 40px;
+            }
+        }
+
+        &__ttlSpan {
+            display: block;
+            margin-bottom: 8px;
+            @include font-para($sp-Ttl2);
+
+
+            @media screen and (min-width: 768px) {
+                font-size: $tab-ttl;
+            }
+        }
+
+        &__container--01 {
+            @media screen and (min-width: 768px) {
+                width: 50%;
+            }
+        }
+
+        &__top-box,
+        &__box {
+            padding-bottom: 28px;
+
+            @media screen and (min-width: 768px) {
+                padding-bottom: 0;
+            }
+        }
+
+        &__top-box {
+            margin-bottom: 11px;
+
+            @media screen and (min-width: 768px) {
+                margin-bottom: 0;
+            }
+        }
+
+        &__top-link,
+        &__link {
+            @media screen and (min-width: 1024px) {
+                &:hover {
+                    .column__img {
+                        transform: scale(1.05);
+                    }
+                }
+            }
+        }
+
+        &__top-pic {
+            margin-bottom: 24px;
+            border-radius: 20px;
+            overflow: hidden;
+
+            @media screen and (min-width: 768px) {
+                border-radius: 50px;
+            }
+        }
+
+        &__img {
+            transition: .4s
+        }
+
+        &__top-type {
+            @include typeCircle($tab-txt);
+            margin-bottom: 14px;
+        }
+
+        &__top-txt {
+            margin-bottom: 14px;
+            color: $bk;
+            font-size: $sp-Catch2;
+        }
+
+        &__data {
+            color: $dataGray;
+            @include font-para($tab-txt);
+        }
+
+        &__container--02 {
+            width: 100%;
+
+            @media screen and (min-width: 768px) {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row-reverse;
+                justify-content: space-between;
+                row-gap: 3%;
+                width: 45%;
+            }
+        }
+
+        &__box {
+
+            @media screen and (min-width: 768px) {
+                width: 45%;
+
+                &:nth-child(2) {
+                    position: relative;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+
+        }
+
+        &__link {
+            display: flex;
+            gap: 3%;
+
+            @media screen and (min-width: 768px) {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+
+        &__pic {
+            width: max(33vw, 125px);
+            height: max(25vw, 95px);
+            border-radius: 20px;
+            overflow: hidden;
+
+            @media screen and (min-width: 768px) {
+                width: 100%;
+                height: 100%;
+                margin-bottom: 10px;
+            }
+
+            @media screen and (min-width: 1024px) {
+                border-radius: 50px;
+            }
+        }
+
+        &__unit {
+            flex: 1;
+        }
+
+        &__type {
+            @include typeCircle;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        &__txt {
+            margin-bottom: 10px;
+            color: $bk;
+            font-size: 1rem;
+        }
+    }
+
+    .products {
+        position: relative;
+        background: $wh;
+        z-index: 10;
+
+        &__wrapper {
+            width: 100%;
+            padding: 70px 5% 80px;
+            background: $bgGray;
+            border-radius: 40px 40px 0 0;
+
+            @media screen and (min-width: 768px) {
+                padding-right: 0;
+            }
+
+            @media screen and (min-width: 1024px) {
+                padding: 130px 0 140px 110px;
+                border-radius: 80px 80px 0 0;
+            }
+        }
+
+        &__ttlBox {
+            position: relative;
+        }
+
+        &__num {
+            margin-bottom: 6px;
+            color: $yellow;
+            @include font-para($num);
+        }
+
+        &__ttl {
+            @include ttlTxt;
+            overflow: hidden;
+
+            @media screen and (min-width: 768px) {
+                margin-bottom: 40px;
+            }
+
+            @media screen and (min-width: 1024px) {
+                display: flex;
+                align-items: flex-end;
+                margin-bottom: 20px;
+            }
+        }
+
+        &__ttlSpan {
+            display: block;
+            margin-bottom: 8px;
+            @include font-para($sp-Ttl2);
+            line-height: .7;
+
+            @media screen and (min-width: 768px) {
+                font-size: $tab-ttl2;
+            }
+
+            @media screen and (min-width: 1024px) {
+                margin-bottom: 0;
+                padding-right: 15px;
+            }
+        }
+    }
+
+    .brand {
+        position: relative;
+        padding: 0 5% 40px;
+        background: $bgGray;
+        z-index: 10;
+
+        @media screen and (min-width: 768px) {
+            padding-bottom: 90px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            padding: 0 110px 180px;
+        }
+
+        &__ttlBox {
+            position: relative;
+        }
+
+        &__num {
+            margin-bottom: 6px;
+            color: $purple;
+            @include font-para($num);
+        }
+
+        &__ttl {
+            @include ttlTxt;
+            overflow: hidden;
+
+            @media screen and (min-width: 768px) {
+                margin-bottom: 40px;
+            }
+
+            @media screen and (min-width: 1024px) {
+                margin-bottom: 65px;
+            }
+        }
+
+        &__ttlSpan {
+            display: block;
+            margin-bottom: 9px;
+            @include font-para($sp-Ttl2);
+
+            @media screen and (min-width: 768px) {
+                font-size: $tab-ttl2;
+            }
+        }
+
+        &__list {
+            @media screen and (min-width: 768px) {
+                width: min(50%, 700px);
+                margin: 0 auto;
+            }
+        }
+
+        &__item {
+            border-top: 2px solid $lineGray;
+
+            &:first-child {
+                border-top: 0;
+
+                .brand__link::after {
+                    content: '';
+                    position: absolute;
+                    top: 10px; //padding分
+                    right: 0;
+                    display: block;
+                    width: min(24vw, 75px);
+                    height: min(24vw, 75px);
+                    background: url(../images/brand1_icon.png) center center / cover;
+                }
+            }
+
+            &:nth-child(2) {
+                .brand__link::after {
+                    content: '';
+                    position: absolute;
+                    top: 10px;
+                    right: 0;
+                    display: block;
+                    width: min(24vw, 75px);
+                    height: min(24vw, 75px);
+                    background: url(../images/brand2_icon.png) center center / cover;
+                }
+            }
+
+            &:nth-child(3) {
+                .brand__link::after {
+                    content: '';
+                    position: absolute;
+                    top: 10px;
+                    right: 0;
+                    display: block;
+                    width: min(24vw, 75px);
+                    height: min(24vw, 75px);
+                    background: url(../images/brand3_icon.png) center center / cover;
+                }
+            }
+
+            &:nth-child(4) {
+                .brand__link::after {
+                    content: '';
+                    position: absolute;
+                    top: 10px;
+                    right: 0;
+                    display: block;
+                    width: min(24vw, 75px);
+                    height: min(24vw, 75px);
+                    background: url(../images/brand4_icon.png) center center / cover;
+                }
+            }
+        }
+
+        &__link {
+            position: relative;
+            padding: 10px 0 20px 5%;
+            color: $bk;
+            transition: .2s;
+
+            @media screen and (min-width: 1024px) {
+                opacity: 0.5;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+
+
+        &__index {
+            width: 100%;
+            @include font-para($num);
+
+            @media screen and (min-width: 1024px) {
+                position: absolute;
+                top: 10px;
+                right: 0;
+            }
+        }
+
+        &__name--01,
+        &__name--02,
+        &__name--03,
+        &__name--04 {
+            font-size: $sp-Catch2;
+
+            @media screen and (min-width: 1024px) {
+                font-size: $sp-Ttl2;
+            }
+
+            &::after {
+                content: '';
+                display: block;
+                padding-top: 6px;
+                color: $dataGray;
+                @include font-para($tab-txt);
+
+                @media screen and (min-width: 1024px) {
+                    padding-top: 10px;
+                }
+            }
+        }
+
+        &__name--01::after {
+            content: 'TV GAME';
+        }
+
+        &__name--02::after {
+            content: 'CARD & BOARD GAME';
+        }
+
+        &__name--03::after {
+            content: 'PAZZLE GAME';
+        }
+
+        &__name--04::after {
+            content: 'GAMING DEVISE';
+        }
+
+        &__container {
+            display: none;
+
+            @media screen and (min-width: 768px) {
+                display: block;
+            }
+        }
+
+        &__pic {
+            position: absolute;
+            border-radius: 20px;
+            overflow: hidden;
+
+            @media screen and (min-width: 1024px) {
+                border-radius: 50px;
+            }
+
+            &:first-child {
+                bottom: 15%;
+                left: 5%;
+                width: 18%;
+
+                @media screen and (min-width: 1024px) {
+                    left: 110px;
+                }
+            }
+
+            &:last-child {
+                bottom: -5%;
+                right: -10%;
+                width: 30%;
+
+                @media screen and (min-width: 1024px) {
+                    right: -3%;
+                    width: 24%;
+                }
+            }
+        }
+    }
+
+    .topic {
+        position: relative;
+        background: $bgGray;
+        color: $wh;
+        z-index: 10;
+
+        &__wrapper {
+            background: $purple;
+            margin-left: 5%;
+            padding: 70px 5% 60px;
+            border-radius: 40px 0 0 40px;
+
+            @media screen and (min-width: 768px) {
+                padding-left: 20%;
+                border-radius: 120px 0 0 120px;
+            }
+
+            @media screen and (min-width: 1024px) {
+                margin-left: 110px;
+                padding: 140px 110px 80px 320px;
+                border-radius: 250px 0 0 250px;
+            }
+        }
+
+        &__container--01 {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 20px;
+
+            @media screen and (min-width: 768px) {
+                margin-bottom: 30px;
+            }
+        }
+
+        &__num {
+            margin-bottom: 6px;
+            color: $yellow;
+            @include font-para($num);
+        }
+
+        &__ttl {
+            @include ttlTxt;
+            margin-bottom: 0;
+            overflow: hidden;
+        }
+
+        &__ttlSpan {
+            display: block;
+            margin-bottom: 8px;
+            @include font-para($sp-Ttl2);
+
+            @media screen and (min-width: 768px) {
+                font-size: $tab-ttl2;
+            }
+        }
+
+        &__unit {
+            display: flex;
+            align-items: center;
+        }
+
+        &__moreTxt {
+            padding-right: 20px;
+            font-size: $tab-txt;
+        }
+
+        &__btn {
+            position: relative;
+            width: 54px;
+            height: 36px;
+            background: $wh;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        &__more {
+            @include flexCenter;
+        }
+
+        &__linkSpan {
+            position: absolute;
+            display: block;
+            width: 3px;
+            height: 3px;
+            background: $purple;
+            border-radius: 50%;
+
+            //ボタンの点
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                display: block;
+                width: 3px;
+                height: 3px;
+                background: $purple;
+                border-radius: 50%;
+            }
+
+            &::before {
+                right: 5px;
+            }
+
+            &::after {
+                left: 5px;
+            }
+        }
+
+        &__box {
+            margin-bottom: 10px;
+            padding: 20px 10px;
+            background: $wh;
+            border-radius: 10px;
+
+            @media screen and (min-width: 768px) {
+                margin-bottom: 40px;
+                border-radius: 20px;
+            }
+
+            @media screen and (min-width: 1024px) {
+                display: flex;
+            }
+        }
+
+        &__sub {
+            width: 100%;
+            margin-bottom: 10px;
+            color: $purple;
+            font-size: $tab-txt;
+
+            @media screen and (min-width: 1024px) {
+                width: fit-content;
+                margin-bottom: 0;
+                padding-right: 24px;
+            }
+        }
+
+        &__attention {
+            color: $bk;
+            font-size: $tab-txt;
+        }
+
+        &__article {
+            border-bottom: 1px solid $wh;
+
+            &:last-child {
+                border-bottom: 0;
+            }
+        }
+
+        &__link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+
+            &:hover {
+                .topic__img {
+                    transform: scale(1.1);
+                }
+            }
+
+            &::after {
+                content: '';
+                display: block;
+                width: 15px;
+                aspect-ratio: 1 / 1;
+                background: url(../images/arrow_icon_wh.svg) center center / cover;
+
+                @media screen and (min-width: 1024px) {
+                    width: 24px;
+                }
+            }
+        }
+
+        &__pic {
+            width: 24%;
+            border-radius: 20px;
+            overflow: hidden;
+
+            @media screen and (min-width: 1024px) {
+                width: 14%;
+            }
+        }
+
+        &__img {
+            transition: .4s;
+        }
+
+        &__txt {
+            width: 64%;
+            color: $wh;
+            font-size: $tab-txt;
+        }
+    }
+
+    .user {
+        position: relative;
+        background: $wh;
+        z-index: 10;
+
+        &__wrapper {
+            padding-bottom: 80px;
+            background: $bgGray;
+            border-radius: 0 0 40px 40px;
+
+            @media screen and (min-width: 1024px) {
+                padding-bottom: 100px;
+                border-radius: 0 0 80px 80px;
+            }
+        }
+
+        &__txt {
+            padding: 30% 20px 0;
+        }
+
+        &__ttl {
+            display: flex;
+            width: 100vw;
+            height: 60px;
+            overflow: hidden;
+
+            @media screen and (min-width: 1024px) {
+                height: 90px;
+            }
+        }
+
+        &__img {
+            width: auto;
+            max-width: fit-content;
+            height: 100%;
+
+            &:first-child {
+                animation: slideTtl1 50s -25s linear infinite;
+            }
+
+            &:last-child {
+                animation: slideTtl2 50s linear infinite;
+            }
+        }
+    }
+
+    .sns {
+        position: relative;
+        padding: 60px 10% 80px;
+        background: $wh;
+        border-radius: 0 0 40px 40px;
+        text-align: center;
+        z-index: 10;
+
+        @media screen and (min-width: 768px) {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            column-gap: 3vw;
+            padding-bottom: 160px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            padding: 130px 10% 200px;
+            border-radius: 0 0 80px 80px;
+        }
+
+        &__ttlBox {
+            @media screen and (min-width: 768px) {
+                width: 100%;
+            }
+        }
+
+        &__num {
+            margin-bottom: 6px;
+            color: $purple;
+            @include font-para($num);
+        }
+
+        &__ttl {
+            @include ttlTxt;
+
+            @media screen and (min-width: 768px) {
+                margin-bottom: 40px;
+            }
+        }
+
+        &__ttlSpan {
+            display: block;
+            margin-bottom: 8px;
+            @include font-para($sp-Ttl);
+
+            @media screen and (min-width: 768px) {
+                font-size: $tab-ttl2;
+            }
+        }
+
+        &__container--01 {
+            margin-bottom: 60px;
+
+            @media screen and (min-width: 768px) {
+                display: flex;
+                flex-wrap: wrap;
+                column-gap: 3vw;
+                width: 67%;
+                margin-top: auto;
+                margin-bottom: 0;
+            }
+        }
+
+        &__top-pic {
+            width: 100%;
+            margin-bottom: 3vw;
+
+            @media screen and (min-width: 768px) {
+                width: min(47%, 480px);
+                margin-bottom: 0;
+            }
+
+            @media screen and (min-width: 1024px) {
+                margin-bottom: 10px;
+            }
+        }
+
+        &__box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3vw;
+            margin-bottom: 3vw;
+
+            @media screen and (min-width: 768px) {
+                width: 47%;
+                margin-bottom: 0;
+            }
+        }
+
+        &__pic {
+            width: calc((100% - 3vw) / 2);
+
+            @media screen and (min-width: 768px) {
+                aspect-ratio: 1 / 1;
+            }
+        }
+
+        &__btn {
+            width: fit-content;
+            margin-right: auto;
+        }
+
+        &__link {
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+            padding: 5px;
+            color: $bk;
+            @include font-para($tab-txt);
+
+            &::before {
+                content: '';
+                display: block;
+                width: 17px;
+                height: 17px;
+                background: url(../images/instagram_icon_bk.svg) center center / cover;
+            }
+
+            &::after {
+                content: '';
+                display: block;
+                align-self: center;
+                width: 10px;
+                height: 10px;
+                background: url(../images/arrow_icon_bk.svg) center center / cover;
+            }
+        }
+
+        &__container--02 {
+            @media screen and (min-width: 768px) {
+                width: 28%;
+            }
+
+            // @media screen and (min-width: 1024px) {
+            //     width: min(100%, 400px);
+            //     height: min(100%, 600px);
+            // }
+        }
+
+        &__twitter {
+            width: 100%;
+            height: 450px;
+            border: 1px solid $txtGray;
+            border-radius: 20px;
+            overflow: hidden;
+
+            @media screen and (min-width: 768px) {
+                height: 270px;
+            }
+
+            @media screen and (min-width: 1024px) {
+                height: min(100%, 480px);
+            }
+        }
+    }
+}

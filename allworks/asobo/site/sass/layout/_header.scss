@@ -1,0 +1,103 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+.header {
+    width: 100%;
+
+    &__wrapper {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        z-index: 5;
+        padding: 3% 6%;
+
+        @media screen and (min-width: 1024px) {
+            padding: 30px 62px 30px 110px;
+        }
+    }
+
+    &__logo {
+        width: max(21vw, 80px);
+        height: auto;
+
+        @media screen and (min-width: 1024px) {
+            width: 9vw;
+        }
+    }
+
+    &__unit {
+        display: flex;
+        align-items: center;
+    }
+
+    &__search {
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    &__img {
+        width: 22px;
+        height: auto;
+    }
+
+    &__btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 63px;
+        height: 44px;
+        background: #fff;
+        border: 2px solid $yellow;
+        border-radius: 50%;
+        cursor: pointer;
+
+        @media screen and (min-width: 1024px) {
+            width: 86px;
+            height: 60px;
+        }
+    }
+
+    &__span {
+        position: relative;
+        width: 10px;
+        height: 1px;
+        background: $yellow;
+
+        @media screen and (min-width: 1024px) {
+            width: 15px;
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 10px;
+            height: 1px;
+            background: $yellow;
+
+            @media screen and (min-width: 1024px) {
+                width: 15px;
+            }
+        }
+
+        &::before {
+            top: 3px;
+
+            @media screen and (min-width: 1024px) {
+                top: 5px;
+            }
+        }
+
+        &::after {
+            top: -3px;
+
+            @media screen and (min-width: 1024px) {
+                top: -5px;
+            }
+        }
+    }
+}

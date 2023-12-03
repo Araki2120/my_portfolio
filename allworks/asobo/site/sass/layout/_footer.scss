@@ -1,0 +1,96 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+
+.footer {
+    position: relative;
+    width: 100%;
+    height: 120vw;
+    visibility: hidden;
+
+    @media screen and (min-width: 768px) {
+        height: 36vh;
+    }
+
+    @media screen and (min-width: 1024px) {
+        height: 50vh;
+    }
+
+    &__wrapper {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 120vw;
+        padding: 10% 5% 5%;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+
+        @media screen and (min-width: 768px) {
+            flex-direction: row;
+            align-items: flex-end;
+            height: fit-content;
+        }
+
+        @media screen and (min-width: 1024px) {
+            height: 50vh;
+            padding: 100px 110px 50px;
+        }
+    }
+
+    &__container {
+        @media screen and (min-width: 1024px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+    }
+
+    &__catch {
+        width: fit-content;
+        margin-bottom: 40px;
+        color: $wh;
+        font-size: $sp-Ttl2;
+
+        @media screen and (min-width: 1024px) {
+            font-size: $pc-ttl;
+        }
+
+        &::after {
+            content: 'Game With Your Colorfull.';
+            display: block;
+            margin-top: 10px;
+            padding-left: 20px;
+            font-size: $tab-txt;
+            font-family: $para;
+
+            @media screen and (min-width: 1024px) {
+                margin-bottom: 20px;
+                padding-left: 120px;
+                font-size: $pc-Catch;
+            }
+        }
+    }
+
+    &__catchSpan {
+        display: block;
+        padding-left: 20px;
+
+        @media screen and (min-width: 1024px) {
+            padding-left: 66px;
+        }
+    }
+
+    &__logo {
+        width: max(36vw, 140px);
+        height: auto;
+        margin-bottom: 10px;
+
+        @media screen and (min-width: 1024px) {
+            width: 9vw;
+        }
+    }
+}

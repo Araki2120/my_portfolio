@@ -1,0 +1,97 @@
+// settingフォルダの変数を読み込みます
+@use "../setting" as *;
+
+//MV用
+@keyframes isActive {
+    10% {
+        transform: scale(0.5);
+    }
+
+    20% {
+        opacity: 1;
+        transform: scale(1.14);
+    }
+
+    80% {
+        opacity: 1;
+        transform: scale(1.07);
+    }
+
+    95% {
+        opacity: .9;
+        transform: scale(0.5);
+    }
+
+    100% {
+        transform: scale(0.5);
+    }
+}
+
+@keyframes firstAnimation {
+    0% {
+        opacity: 1;
+        transform: scale(1.14);
+    }
+
+    80% {
+        opacity: 1;
+        transform: scale(1.07);
+    }
+
+    95% {
+        opacity: .9;
+        transform: scale(0.5);
+    }
+
+    100% {
+        transform: scale(0.5);
+    }
+
+}
+
+@keyframes strokeLine {
+    0% {
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dashoffset: 400;
+    }
+}
+
+//userセクション用
+@keyframes slideTtl1 {
+    0% {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slideTtl2 {
+    0% {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-200%);
+    }
+}
+
+@keyframes upTxt {
+    0% {
+        opacity: 0;
+        transform: translateY(100%) rotate(-4deg) skew(16deg);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
