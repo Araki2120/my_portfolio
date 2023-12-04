@@ -93,6 +93,11 @@
         height: 40px;
         margin-left: auto;
         cursor: pointer;
+
+        @media screen and (min-width: 1024px) {
+            top: 60px;
+            right: 60px;
+        }
     }
 
     &__btnTop,
@@ -103,6 +108,10 @@
         height: 2px;
         background: $yellow;
         border-radius: 1px;
+
+        @media screen and (min-width: 1024px) {
+            width: 60%;
+        }
     }
 
     &__btnTop {
@@ -115,13 +124,16 @@
 
     //ナビゲーション本体部分
     &__nav {
-        display: flex;
-        align-items: flex-start;
+        @media screen and (min-width: 1024px) {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            align-items: flex-start;
+            margin-bottom: 176px;
+        }
     }
 
     &__list {
-        background: $wh;
-
         &:nth-child(2) {
             position: relative;
         }
@@ -131,7 +143,29 @@
         }
 
         @media screen and (min-width: 1024px) {
-            width: 30%;
+            width: 48%;
+
+            &:nth-of-type(2) {
+                grid-column: 2 / 3;
+                grid-row: 1 / 4;
+            }
+
+            &:nth-of-type(3),
+            &:nth-of-type(4),
+            &:nth-of-type(5) {
+                grid-column: 3 / 4;
+            }
+
+            &:nth-of-type(6) {
+                grid-column: 4 / 5;
+                grid-row: 1 / 2;
+            }
+
+            &:nth-of-type(7) {
+                grid-column: 4 / 5;
+                grid-row: 2 / 3;
+
+            }
         }
     }
 
@@ -144,6 +178,10 @@
         position: relative;
         display: flex;
         align-items: center;
+
+        @media screen and (min-width: 1024px) {
+            padding: 10px;
+        }
     }
 
     &__listBtn {
@@ -155,6 +193,10 @@
         height: 24px;
         border: 2px solid $yellow;
         border-radius: 50%;
+
+        @media screen and (min-width: 1024px) {
+            display: none;
+        }
     }
 
     &__listBtnTop,
@@ -164,6 +206,7 @@
         width: 10px;
         height: 2px;
         background: $yellow;
+        transition: .4s;
     }
 
     &__listBtnBottom {
@@ -171,10 +214,20 @@
     }
 
     &__unit {
-        display: none;
-        position: relative;
-        transform: translateY(-100%);
-        z-index: -1; //navの下に
+        height: 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: scaleY(0);
+        transform-origin: center top;
+        transition: .6s;
+
+        @media screen and (min-width: 1024px) {
+            height: 100%;
+            padding-top: 40px;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+        }
     }
 
     &__item {
@@ -187,14 +240,22 @@
         padding-left: 10px;
         color: $txtGray;
         font-size: 1rem;
+
+        @media screen and (min-width: 1024px) {
+            padding: 5px 0;
+        }
     }
 
-    &__unit {
+    &__snsUnit {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         gap: 10px;
         padding-top: 60px;
+
+        @media screen and (min-width: 1024px) {
+            padding: 0;
+        }
     }
 
     &__snsLink {
@@ -217,7 +278,13 @@
     }
 
     &__sub {
-        @include font-para;
+        margin-bottom: 10px;
+        @include font-para($tab-ttl2);
+    }
+
+    &__txt {
+        font-size: $num;
+        font-weight: $med;
     }
 
     &__new {
@@ -274,6 +341,10 @@
         @media screen and (min-width: 768px) {
             width: 30%;
             margin-left: auto;
+        }
+
+        @media screen and (min-width: 1024px) {
+            width: 50%;
         }
     }
 

@@ -609,9 +609,9 @@
             }
 
             &:first-child {
-                bottom: 15%;
+                bottom: 16%;
                 left: 5%;
-                width: 18%;
+                width: 16vw;
 
                 @media screen and (min-width: 1024px) {
                     left: 110px;
@@ -621,11 +621,11 @@
             &:last-child {
                 bottom: -5%;
                 right: -10%;
-                width: 30%;
+                width: 30vw;
 
                 @media screen and (min-width: 1024px) {
                     right: -3%;
-                    width: 24%;
+                    width: 26vw;
                 }
             }
         }
@@ -1007,16 +1007,10 @@
             @media screen and (min-width: 768px) {
                 width: 28%;
             }
-
-            // @media screen and (min-width: 1024px) {
-            //     width: min(100%, 400px);
-            //     height: min(100%, 600px);
-            // }
         }
 
         &__twitter {
             width: 100%;
-            height: 450px;
             border: 1px solid $txtGray;
             border-radius: 20px;
             overflow: hidden;
@@ -1026,7 +1020,8 @@
             }
 
             @media screen and (min-width: 1024px) {
-                height: min(100%, 480px);
+                height: 100%;
+                max-height: 480px;
             }
         }
     }

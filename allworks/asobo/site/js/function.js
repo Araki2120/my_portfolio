@@ -43,6 +43,10 @@ const menuOpenBtn = document.querySelector('.header__btn');
 const menuCloseBtn = document.querySelector('.menu__btn');
 const menu = document.querySelector('#menu');
 const menuCont = document.querySelector('.menu__container');
+const menuListBtn = document.querySelector('.menu__listBtn');
+const menuListBtnTop = document.querySelector('.menu__listBtnTop');
+const menuListBtnBottom = document.querySelector('.menu__listBtnBottom');
+const menuUnit = document.querySelector('.menu__unit');
 
 menuOpenBtn.addEventListener('click', () => {
     menu.classList.add('onMask');
@@ -57,6 +61,14 @@ menuCloseBtn.addEventListener('click', () => {
         menu.classList.remove('onMask');
     }, 500);
 });
+
+menuListBtn.addEventListener('click', () => {
+    menuListBtnTop.classList.toggle('rotateBtnTop');
+    menuListBtnBottom.classList.toggle('rotateBtnBottom');
+    menuUnit.classList.toggle('viewItemList');
+});
+
+
 
 
 //mv・footer用設定
@@ -129,7 +141,6 @@ const productObserver = () => {
 };
 
 productObserver();
-
 
 
 //画面幅を変更した時の設定

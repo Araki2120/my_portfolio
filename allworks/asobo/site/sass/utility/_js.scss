@@ -33,6 +33,21 @@
         transform: scale(1);
     }
 
+    .rotateBtnTop {
+        transform: rotate(45deg);
+    }
+
+    .rotateBtnBottom {
+        transform: rotate(135deg);
+    }
+
+    .viewItemList {
+        height: 160px;
+        opacity: 1;
+        visibility: visible;
+        transform: scaleY(1);
+    }
+
     //mv隠し用クラス
     .hideMv {
         visibility: hidden;
