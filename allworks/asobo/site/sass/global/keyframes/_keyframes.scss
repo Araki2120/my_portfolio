@@ -27,28 +27,6 @@
     }
 }
 
-@keyframes firstAnimation {
-    0% {
-        opacity: 1;
-        transform: scale(1.14);
-    }
-
-    80% {
-        opacity: 1;
-        transform: scale(1.07);
-    }
-
-    95% {
-        opacity: .9;
-        transform: scale(0.5);
-    }
-
-    100% {
-        transform: scale(0.5);
-    }
-
-}
-
 @keyframes strokeLine {
     0% {
         stroke-dashoffset: 0;
