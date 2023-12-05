@@ -5,7 +5,7 @@ const mouseOver = document.querySelector('.mouseOver');
 const mousePointer = document.querySelector('.gnav__pointer');
 
 gnavLinks.forEach((gnavLink) => {
-    //マウスポインターの初期widthの設定
+    //マウスストーカーの初期widthの設定
     const firstNavWidth = gnavLinks[0].offsetWidth + 'px';
     mousePointer.style.width = firstNavWidth;
 
@@ -70,7 +70,6 @@ menuListBtn.addEventListener('click', () => {
 
 
 
-
 //mv・footer用設定
 const mv = document.querySelector('#mv');
 const mvHeight = mv.offsetHeight;
@@ -90,14 +89,13 @@ window.addEventListener('scroll', () => {
 });
 
 
-//textアニメーションの設定
+//全体textアニメーションの設定
 const textAnimationObserver = () => {
     const targets = document.querySelectorAll('.target');
 
     const options = {
         root: null,
-        rootMargin: '-120px 0px',
-        threshold: 1,
+        rootMargin: '-100px 0px',
     };
 
     const txtObserver = new IntersectionObserver(showTxt, options);
@@ -117,7 +115,7 @@ const textAnimationObserver = () => {
 
 textAnimationObserver();
 
-//product Swiperアニメーションの設定
+//productセクション Swiperアニメーションの設定
 const productObserver = () => {
     const productsSwiper = document.querySelector('.swiper-pd');
 
@@ -133,7 +131,6 @@ const productObserver = () => {
     function showSlide(entries) {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                console.log('hi!');
                 productsSwiper.classList.add('swiperSlideIn');
             }
         });
@@ -141,6 +138,34 @@ const productObserver = () => {
 };
 
 productObserver();
+
+
+//Brandセクション マウスストーカー
+const brandArea = document.querySelector('#brand');
+const stalker = document.querySelector('#stalker');
+const stalkerArea = document.querySelector('.brand__list');
+const stalkerRadius = 100 / 2; //半径
+let mousePosX = 0; //初期位置
+let mousePosY = 0;
+
+if (window.matchMedia("(min-width: 1024px)").matches) {
+    stalkerArea.addEventListener('mouseover', () => {
+        stalker.classList.add('mouseHover');
+    });
+
+    stalkerArea.addEventListener('mouseleave', () => {
+        stalker.classList.remove('mouseHover');
+    });
+
+    //入りがスムーズになるように大きめのエリアを指定
+    brandArea.addEventListener('mousemove', (e) => {
+        mousePosX = e.clientX - stalkerRadius;
+        mousePosY = e.clientY - stalkerRadius;
+
+        stalker.style.transform = `translate(${mousePosX}px,${mousePosY}px)`
+    });
+}
+
 
 
 //画面幅を変更した時の設定

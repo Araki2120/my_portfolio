@@ -44,7 +44,6 @@
       </div>
 
       <div id="menu" class="menu">
-        <div class="menu__mask"></div>
         <div class="menu__container">
           <div class="menu__btn">
             <span class="menu__btnTop"></span>
@@ -74,12 +73,13 @@
               <li class="menu__list"><a href="#" class="menu__link">お問い合わせ</a></li>
               <li class="menu__list">
                 <div class="menu__snsUnit">
-                  <p class="menu__sns"><a href="#" class="menu__snsLink"><img src="images/instagram_icon_bk.svg"
-                        alt="INSTAGRAM" class="menu__snsIcon"></a></p>
-                  <p class="menu__sns"><a href="#" class="menu__snsLink"><img src="images/twitter_icon_bk.svg"
-                        alt="Twitter" class="menu__snsIcon"></a></p>
-                  <p class="menu__sns"><a href="#" class="menu__snsLink"><img src="images/youtube_icon_bk.svg"
-                        alt="Youtube" class="menu__snsIcon"></a></p>
+                  <p class="menu__sns"><a href="https://www.instagram.com/" target="_blank" class="menu__snsLink"><img
+                        src="images/instagram_icon_bk.svg" alt="INSTAGRAM" class="menu__snsIcon"></a></p>
+                  <p class="menu__sns"><a href="https://twitter.com/home?lang=ja" target="_blank"
+                      class="menu__snsLink"><img src="images/twitter_icon_bk.svg" alt="Twitter"
+                        class="menu__snsIcon"></a></p>
+                  <p class="menu__sns"><a href="https://www.youtube.com/" target="_blank" class="menu__snsLink"><img
+                        src="images/youtube_icon_bk.svg" alt="Youtube" class="menu__snsIcon"></a></p>
                 </div>
               </li>
             </ul>
@@ -123,11 +123,8 @@
 
     <main class="main">
       <div id="mv" class="mv">
-        <!-- スワイパーの本体 -->
         <div class="swiper swiper-mv">
-          <!-- スワイパーラッパー -->
           <div class="swiper-wrapper swiper-mv__wrapper">
-            <!-- スライド -->
             <div class="swiper-slide swiper-mv__slide01">
               <a class="swiper-mv__link" href="#">
                 <img class="swiper-mv__img" src="images/mv1.jpg" alt="パズルゲーム">
@@ -144,7 +141,6 @@
               </a>
             </div>
           </div>
-          <!-- wrapperの外に出す！ -->
           <div class="swiper-mv__circle">
             <svg class="swiper-mv__svg">
               <ellipse class="swiper-mv__svgCircle" cx="50%" cy="50%" rx="32" ry="86"></ellipse>
@@ -344,6 +340,9 @@
           <p class="brand__pic"><img src="images/brand2_pic1.webp" alt="ブランドイメージ画像" class="brand__img"></p>
           <p class="brand__pic"><img src="images/brand2_pic2.webp" alt="ブランドイメージ画像" class="brand__img"></p>
         </div>
+
+        <!-- マウスストーカー -->
+        <div id="stalker" class="brand__mouseStalker">VIEW</div>
       </section>
 
       <section id="topic" class="topic">
@@ -351,7 +350,8 @@
           <div class="topic__container--01">
             <div class="topic__ttlBox">
               <p class="topic__num target">05</p>
-              <h2 class="topic__ttl"><span class="topic__ttlSpan target">
+              <h2 class="topic__ttl">
+                <span class="topic__ttlSpan target">
                   Topic</span>お知らせ
               </h2>
             </div>
@@ -427,30 +427,32 @@
       </section>
 
       <section id="sns" class="sns">
-        <div class="sns__ttlBox">
-          <p class="sns__num target">06</p>
-          <h2 class="sns__ttl">
-            <span class="sns__ttlSpan target">
-              <span class="txt-yellow">O</span>ur&nbsp;Sns
-            </span>Asobo! SNSアカウント
-          </h2>
-        </div>
-
-        <div class="sns__container--01">
-          <p class="sns__top-pic"><img src="images/sns_pic1.png" alt="INSTAGRAMの投稿写真" class="sns__img"></p>
-          <div class="sns__box">
-            <p class="sns__pic"><img src="images/sns_pic2.png" alt="INSTAGRAMの投稿写真" class="sns__img"></p>
-            <p class="sns__pic"><img src="images/sns_pic3.png" alt="INSTAGRAMの投稿写真" class="sns__img"></p>
-            <p class="sns__pic"><img src="images/sns_pic4.png" alt="INSTAGRAMの投稿写真" class="sns__img"></p>
-            <p class="sns__pic"><img src="images/sns_pic5.png" alt="INSTAGRAMの投稿写真" class="sns__img"></p>
+        <div class="sns__wrapper">
+          <div class="sns__ttlBox">
+            <p class="sns__num target">06</p>
+            <h2 class="sns__ttl">
+              <span class="sns__ttlSpan target">
+                <span class="txt-yellow">O</span>ur&nbsp;Sns
+              </span>Asobo! SNSアカウント
+            </h2>
           </div>
-          <p class="sns__btn"><a href="#" class="sns__link">INSTAGRAM</a></p>
-        </div>
-        <div class="sns__container--02">
-          <div class="sns__twitter">
-            <a class="twitter-timeline sns__twitterTl" href="https://twitter.com/X?ref_src=twsrc%5Etfw"
-              data-width="100%" data-height="450">Tweets by X</a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+          <div class="sns__container--01">
+            <p class="sns__top-pic"><img src="images/sns_pic1.png" alt="INSTAGRAMの投稿写真" class="sns__img"></p>
+            <div class="sns__box">
+              <p class="sns__pic"><img src="images/sns_pic2.png" alt="INSTAGRAMの投稿写真" class="sns__img"></p>
+              <p class="sns__pic"><img src="images/sns_pic3.png" alt="INSTAGRAMの投稿写真" class="sns__img"></p>
+              <p class="sns__pic"><img src="images/sns_pic4.png" alt="INSTAGRAMの投稿写真" class="sns__img"></p>
+              <p class="sns__pic"><img src="images/sns_pic5.png" alt="INSTAGRAMの投稿写真" class="sns__img"></p>
+            </div>
+            <p class="sns__btn"><a href="#" class="sns__link">INSTAGRAM</a></p>
+          </div>
+          <div class="sns__container--02">
+            <div class="sns__twitter">
+              <a class="twitter-timeline sns__twitterTl" href="https://twitter.com/X?ref_src=twsrc%5Etfw"
+                data-width="100%" data-height="450">Tweets by X</a>
+              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
           </div>
         </div>
       </section>
@@ -474,12 +476,13 @@
             <li class="fnav__list"><a href="#top" class="fnav__link">お問い合わせ</a></li>
             <li class="fnav__list">
               <div class="fnav__unit">
-                <p class="fnav__sns"><a href="#" class="fnav__snsLink"><img src="images/instagram_icon_wh.svg"
-                      alt="INSTAGRAM" class="fnav__snsIcon"></a></p>
-                <p class="fnav__sns"><a href="#" class="fnav__snsLink"><img src="images/twitter_icon_wh.svg"
-                      alt="Twitter" class="fnav__snsIcon"></a></p>
-                <p class="fnav__sns"><a href="#" class="fnav__snsLink"><img src="images/youtube_icon_wh.svg"
-                      alt="Youtube" class="fnav__snsIcon"></a></p>
+                <p class="fnav__sns"><a href="https://www.instagram.com/" target="_blank" class="fnav__snsLink"><img
+                      src="images/instagram_icon_wh.svg" alt="INSTAGRAM" class="fnav__snsIcon"></a></p>
+                <p class="fnav__sns"><a href="https://twitter.com/home?lang=ja" target="_blank"
+                    class="fnav__snsLink"><img src="images/twitter_icon_wh.svg" alt="Twitter" class="fnav__snsIcon"></a>
+                </p>
+                <p class="fnav__sns"><a href="https://www.youtube.com/" target="_blank" class="fnav__snsLink"><img
+                      src="images/youtube_icon_wh.svg" alt="Youtube" class="fnav__snsIcon"></a></p>
               </div>
             </li>
           </ul>

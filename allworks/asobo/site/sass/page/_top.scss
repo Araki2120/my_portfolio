@@ -9,6 +9,7 @@
         width: 100%;
         height: 100vh;
         height: 100dvh;
+        background: $yellow;
 
         &__catch {
             position: absolute;
@@ -130,11 +131,12 @@
                 height: 10px;
                 margin-left: 10px;
                 background: url(../images/arrow_icon_yellow.svg) center center / cover;
+                transform: rotate(-45deg);
                 transition: .4s;
             }
 
             &:hover:after {
-                transform: translate(3px, -3px);
+                transform: rotate(-45deg) translate(4px, -2px);
             }
         }
 
@@ -180,6 +182,19 @@
             flex-wrap: wrap;
             flex-direction: row-reverse;
             justify-content: space-between;
+
+            //背景の丸
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: 10%;
+                left: 10%;
+                display: block;
+                width: min(46vw, 700px);
+                height: min(43vw, 645px);
+                background: url(../images/column_bg.svg) center center / cover;
+                z-index: -1;
+            }
         }
 
         &__num {
@@ -462,7 +477,7 @@
 
         &__list {
             @media screen and (min-width: 768px) {
-                width: min(50%, 700px);
+                width: min(60%, 700px);
                 margin: 0 auto;
             }
         }
@@ -611,7 +626,7 @@
             &:first-child {
                 bottom: 16%;
                 left: 5%;
-                width: 16vw;
+                width: 15vw;
 
                 @media screen and (min-width: 1024px) {
                     left: 110px;
@@ -628,6 +643,23 @@
                     width: 26vw;
                 }
             }
+        }
+
+        //マウスストーカー
+        &__mouseStalker {
+            position: absolute;
+            top: 0;
+            left: 0;
+            @include flexCenter;
+            width: 0;
+            height: 0;
+            color: $wh;
+            background: $yellow;
+            border-radius: 50%;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: .2s;
         }
     }
 
@@ -876,23 +908,39 @@
 
     .sns {
         position: relative;
-        padding: 60px 10% 80px;
-        background: $wh;
-        border-radius: 0 0 40px 40px;
-        text-align: center;
+        background: $yellow;
         z-index: 10;
 
-        @media screen and (min-width: 768px) {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            column-gap: 3vw;
-            padding-bottom: 160px;
-        }
+        &__wrapper {
+            padding: 60px 10% 80px;
+            background: $wh;
+            border-radius: 0 0 40px 40px;
+            text-align: center;
 
-        @media screen and (min-width: 1024px) {
-            padding: 130px 10% 200px;
-            border-radius: 0 0 80px 80px;
+            @media screen and (min-width: 768px) {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                column-gap: 3vw;
+                padding-bottom: 160px;
+
+                //背景の丸
+                &:after {
+                    content: '';
+                    position: absolute;
+                    bottom: 18%;
+                    left: 5%;
+                    display: block;
+                    width: min(48vw, 818px);
+                    height: min(43vw, 730px);
+                    background: url(../images/sns_bg.svg) center center / cover;
+                }
+            }
+
+            @media screen and (min-width: 1024px) {
+                padding: 130px 10% 200px;
+                border-radius: 0 0 80px 80px;
+            }
         }
 
         &__ttlBox {
@@ -935,6 +983,7 @@
                 width: 67%;
                 margin-top: auto;
                 margin-bottom: 0;
+                z-index: 5; //背景のために浮かせる
             }
         }
 

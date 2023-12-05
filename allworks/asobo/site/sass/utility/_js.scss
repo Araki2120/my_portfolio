@@ -58,6 +58,7 @@
         visibility: visible;
     }
 
+
     //MV swiper設定
     .swiper-mv {
         position: fixed;
@@ -264,6 +265,14 @@
         transform: translateX(0);
     }
 
+    //Brandセクションの設定
+    .mouseHover {
+        width: 100px;
+        height: 100px;
+        opacity: 1;
+        visibility: visible;
+    }
+
     //Userセクション swiper設定
     .swiper-us {
         padding: 60px 0 80px;
@@ -287,7 +296,6 @@
             @media screen and (min-width: 768px) {
                 width: min(37vw, 400px);
                 height: min(37vw, 400px);
-                // margin-right: 100px;
             }
         }
 
@@ -313,6 +321,17 @@
 
         &__isActive {
             transform: translateY(40px);
+
+            @media screen and (min-width: 1440px) {
+                transform: none;
+            }
+        }
+
+        .swiper-slide-next,
+        .swiper-slide-prev {
+            @media screen and (min-width: 1440px) {
+                transform: translateY(40px);
+            }
         }
     }
 

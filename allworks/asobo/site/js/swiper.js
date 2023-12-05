@@ -84,12 +84,4 @@ const swiperUser = new Swiper('.swiper-us', {
         delay: 2400,
         desableOnInteraction: false,
     },
-    on: { ////マッチメディアにする！
-        // slideChangeTransitionEnd: function () {
-        //     const i = this.snapIndex;
-        //     // console.log(i);
-        //     const pageNum = document.querySelector('.swiper-mv__circle span');
-        //     pageNum.textContent = `${i}/3`;//現在の枚数の表示
-        // }
-    }
 });

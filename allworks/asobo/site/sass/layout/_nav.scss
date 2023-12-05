@@ -48,7 +48,6 @@
     }
 }
 
-
 //ヘッダーメニュー
 .menu {
     position: fixed;
@@ -81,6 +80,31 @@
             margin: 30px 30px auto;
             padding: 80px;
             border-radius: 50px;
+
+            //背景の丸（大）
+            &:before {
+                content: '';
+                position: absolute;
+                bottom: 80px;
+                display: block;
+                width: 470px;
+                height: 440px;
+                background: url(../images/menu_bg1.svg) center center / cover;
+                z-index: -1;
+            }
+
+            //背景の丸（小）
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: 20px;
+                right: 30px;
+                display: block;
+                width: 223px;
+                height: 207px;
+                background: url(../images/menu_bg2.svg) center center / cover;
+                z-index: -1;
+            }
         }
     }
 
@@ -143,11 +167,12 @@
         }
 
         @media screen and (min-width: 1024px) {
-            width: 80%;
+            width: 180px;
 
             &:nth-of-type(2) {
                 grid-column: 2 / 3;
                 grid-row: 1 / 4;
+                padding-top: 10px;
             }
 
             &:nth-of-type(3),
@@ -317,9 +342,9 @@
         color: $bk;
         font-size: $tab-txt;
         font-weight: $med;
+        line-height: 1.2em;
     }
 }
-
 
 //フッターナビゲーション
 .fnav {
