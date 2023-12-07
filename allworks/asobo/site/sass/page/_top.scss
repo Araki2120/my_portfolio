@@ -547,14 +547,13 @@
             transition: .2s;
 
             @media screen and (min-width: 1024px) {
-                opacity: 0.5;
+                opacity: 0.4;
 
                 &:hover {
                     opacity: 1;
                 }
             }
         }
-
 
         &__index {
             width: 100%;
@@ -651,15 +650,16 @@
             top: 0;
             left: 0;
             @include flexCenter;
-            width: 0;
-            height: 0;
+            width: 100px;
+            height: 100px;
             color: $wh;
             background: $yellow;
             border-radius: 50%;
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
-            transition: .2s;
+            transform: scale(0);
+            transition: .1s linear;
         }
     }
 

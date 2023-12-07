@@ -15,11 +15,13 @@ const swiperMv = new Swiper('.swiper-mv', {
         disableOnInteraction: false,
     },
 
-    navigation: { //ボタン左右の矢印 小さいけどちゃんと押せるように
+    //ボタン左右の矢印 小さいけどちゃんと押せるように（タブレット・PCのみ）
+    navigation: {
         nextEl: '.swiper-mv__next',
         prevEl: '.swiper-mv__prev'
     },
 
+    //スマホはバレットのページネーション
     pagination: {
         el: '.swiper-mv__pagination',
         type: 'bullets',

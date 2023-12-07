@@ -115,6 +115,7 @@ const textAnimationObserver = () => {
 
 textAnimationObserver();
 
+
 //productセクション Swiperアニメーションの設定
 const productObserver = () => {
     const productsSwiper = document.querySelector('.swiper-pd');
@@ -144,9 +145,7 @@ productObserver();
 const brandArea = document.querySelector('#brand');
 const stalker = document.querySelector('#stalker');
 const stalkerArea = document.querySelector('.brand__list');
-const stalkerRadius = 100 / 2; //半径
-let mousePosX = 0; //初期位置
-let mousePosY = 0;
+const stalkerSize = stalker.clientWidth;
 
 if (window.matchMedia("(min-width: 1024px)").matches) {
     stalkerArea.addEventListener('mouseover', () => {
@@ -157,15 +156,18 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
         stalker.classList.remove('mouseHover');
     });
 
-    //入りがスムーズになるように大きめのエリアを指定
-    brandArea.addEventListener('mousemove', (e) => {
-        mousePosX = e.clientX - stalkerRadius;
-        mousePosY = e.clientY - stalkerRadius;
+    stalkerArea.addEventListener('mousemove', (e) => {
+        const areaBounds = stalkerArea.getBoundingClientRect();
+
+        const offsetX = e.clientX - (areaBounds.left - areaBounds.width / 2);
+        const offsetY = e.clientY - (areaBounds.top - areaBounds.height / 2);
+
+        const mousePosX = offsetX - stalkerSize / 2;
+        const mousePosY = offsetY - stalkerSize;
 
         stalker.style.transform = `translate(${mousePosX}px,${mousePosY}px)`
     });
 }
-
 
 
 //画面幅を変更した時の設定
@@ -195,7 +197,6 @@ const resize = () => {
     } else {
         //スマホ向けの処理
         window.addEventListener('orientationchange', function () {
-            console.log('スマホ画面を倒しました');
             if (timer !== false) {
                 clearTimeout(timer);
             }
