@@ -17,6 +17,7 @@
         overflow: scroll;
         overscroll-behavior: none;
         touch-action: pan-y;
+        scrollbar-width: none;
 
         // 背景スクロール防止用 つっかえ棒
         &::before {
@@ -26,6 +27,10 @@
             left: 0;
             width: 1px;
             height: calc(100% + 1px);
+        }
+
+        &::-webkit-scrollbar {
+            display: none;
         }
     }
 
@@ -57,7 +62,6 @@
     .showFooter {
         visibility: visible;
     }
-
 
     //MV swiper設定
     .swiper-mv {

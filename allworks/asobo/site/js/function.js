@@ -142,8 +142,7 @@ productObserver();
 
 
 //Brandセクション マウスストーカー
-const brandArea = document.querySelector('#brand');
-const stalker = document.querySelector('#stalker');
+const stalker = document.querySelector('#mouseStalker');
 const stalkerArea = document.querySelector('.brand__list');
 const stalkerSize = stalker.clientWidth;
 
@@ -157,15 +156,11 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
     });
 
     stalkerArea.addEventListener('mousemove', (e) => {
-        const areaBounds = stalkerArea.getBoundingClientRect();
+        const mousePosX = e.clientX;
+        const mousePosY = e.clientY;
 
-        const offsetX = e.clientX - (areaBounds.left - areaBounds.width / 2);
-        const offsetY = e.clientY - (areaBounds.top - areaBounds.height / 2);
-
-        const mousePosX = offsetX - stalkerSize / 2;
-        const mousePosY = offsetY - stalkerSize;
-
-        stalker.style.transform = `translate(${mousePosX}px,${mousePosY}px)`
+        stalker.style.top = `${mousePosY}px`;
+        stalker.style.left = `${mousePosX}px`;
     });
 }
 

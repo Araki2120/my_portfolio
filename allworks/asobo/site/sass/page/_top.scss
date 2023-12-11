@@ -4,6 +4,24 @@
 
 #top {
 
+    //Brandセクション用 マウスストーカー
+    .mouseStalker {
+        //位置調整しやすいよう、wrapper直下で作る
+        position: fixed;
+        @include flexCenter;
+        width: 100px;
+        height: 100px;
+        color: $wh;
+        background: $yellow;
+        border-radius: 50%;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translate(-50%, -50%); //カーソルの中心に
+        transition: .1s linear;
+        z-index: 30; //1番上に配置
+    }
+
     .mv {
         position: relative;
         width: 100%;
@@ -642,24 +660,6 @@
                     width: 26vw;
                 }
             }
-        }
-
-        //マウスストーカー
-        &__mouseStalker {
-            position: absolute;
-            top: 0;
-            left: 0;
-            @include flexCenter;
-            width: 100px;
-            height: 100px;
-            color: $wh;
-            background: $yellow;
-            border-radius: 50%;
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-            transform: scale(0);
-            transition: .1s linear;
         }
     }
 
