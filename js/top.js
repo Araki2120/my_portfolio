@@ -1,3 +1,4 @@
+//スクロール量をページ読み込み完了時に再計算
 window.addEventListener("load", function () {
     ScrollTrigger.refresh();
 });
@@ -18,9 +19,6 @@ const wh = '#fff';
 const bk = '#000';
 const blue = '#1E50A2';
 const lightBlue = '#89C3EB';
-const green = '#028760';
-const yellow = '#EDDF29';
-const orange = '#EE7800';
 
 //GSAP timeline全体の設定
 const scrollSet = {
@@ -305,7 +303,6 @@ slideWorks.forEach((work, i) => {
     //タブレット・スマートフォン
     mm.add("(max-width: 1023px)", () => {
         worksTl
-
             //ここから拡大
             .from(work, {
                 scale: 0.6,
@@ -354,7 +351,7 @@ let mm = gsap.matchMedia();
 
 //PC
 mm.add("(min-width: 1024px", () => {
-    const skillTl = gsap.timeline({ //動き変えるため個別登録
+    const skillTl = gsap.timeline({ //動き変えるため個別で登録
         scrollTrigger: {
             trigger: '.skill__bg',
             start: 'top 70%',
@@ -503,7 +500,7 @@ const svgCircle = document.querySelector('.mv__svgCircle');
 const svgCircles = document.querySelectorAll('.mv__svgCircle, .footer__svgCircle');
 
 if (tabBP.matches) {
-    console.log('タブレットです');
+    console.log('タブレット以上です');
 
     svgCircles.forEach((svgCircle) => {
         svgCircle.setAttribute('cx', '52');
@@ -512,7 +509,7 @@ if (tabBP.matches) {
 
     });
 } else if (spBP.matches) {
-    console.log('縦が小さいです！');
+    console.log('縦が小さいです');
 }
 
 

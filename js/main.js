@@ -85,3 +85,43 @@ const AboutAnimationObserver = () => {
 };
 
 AboutAnimationObserver();
+
+
+// 画面幅を変更した時の設定
+let timer = false;
+let windowWidth = window.innerWidth;
+
+const resize = () => {
+    console.log('画面幅を変更しました');
+
+    //ユーザーのデバイスを調べる
+    let ua = navigator.userAgent;
+    if (!(ua.indexOf('iPhone') > 0 || ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0 || ua.indexOf('Mobile') > 0)) {
+        // PC向けの処理
+        window.addEventListener('resize', () => {
+            if (timer !== false) {
+                clearTimeout(timer);
+            }
+            timer = setTimeout(() => {
+                let currentWidth = window.innerWidth;
+                // 今と横幅が違う時だけ、リロードする
+                if (windowWidth !== currentWidth) {
+                    location.reload();
+                }
+                windowWidth = currentWidth;
+            }, 200);
+        });
+    } else {
+        //スマホ向けの処理
+        window.addEventListener('orientationchange', function () {
+            if (timer !== false) {
+                clearTimeout(timer);
+            }
+            timer = setTimeout(function () {
+                location.reload();
+            }, 200);
+        });
+    }
+};
+
+resize();
